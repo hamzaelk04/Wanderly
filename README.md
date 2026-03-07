@@ -1,125 +1,59 @@
-# Wanderly
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-**Description du projet**
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-Dans le cadre du Projet de Fin d’Études (PFE) à YouCode, ce projet consiste à concevoir et développer une application web permettant la gestion, la visualisation et la promotion des événements touristiques, culturels, sportifs et artistiques.
+## About Laravel
 
-Avec l’augmentation du nombre d’événements organisés dans les villes touristiques, les visiteurs rencontrent souvent des difficultés pour trouver des informations fiables concernant les événements, leur localisation, leurs dates et les modalités d’accès. De plus, la réservation de billets pour les événements payants n’est pas toujours centralisée.
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-Le projet Wanderly vise donc à répondre à ces problématiques en proposant une plateforme web moderne, centralisée et facile à utiliser.
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-La plateforme ne se limite pas uniquement aux événements déjà lancés ou ayant une durée précise, mais permet aussi :
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-* L’**affichage des événements futurs**, même si leur date ou durée n’est pas encore confirmée
-* La gestion des **événements temporaires ou à durée limitée**
-* La valorisation des **monuments historiques accessibles en permanence**
+## Learning Laravel
 
-Cela permet aux touristes de mieux planifier leurs déplacements et aux organisateurs d’anticiper les flux de visiteurs.
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
 
----
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Problématique
+## Laravel Sponsors
 
-* **Les touristes et les habitants rencontrent plusieurs difficultés :**
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
- * Manque d’une plateforme unique regroupant les événements disponibles
+### Premium Partners
 
- * Difficulté à localiser les événements
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
 
- * Accès limité aux informations détaillées
+## Contributing
 
- * Absence d’un système simple d’achat de billets en ligne
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-D’où la nécessité de développer une solution numérique permettant de centraliser ces informations et de faciliter l’accès aux événements.
+## Code of Conduct
 
----
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Fonctionnalités principales
+## Security Vulnerabilities
 
-* **Gestion des monuments historiques et sites touristiques**
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-  * Localisation des monuments
-  * Informations descriptives (histoire, horaires, accessibilité)
-  * Affluence estimée selon la période
+## License
 
-* **Gestion des événements**
-
-  * Création, modification et suppression des événements
-  * Gestion des événements confirmés et futurs (même sans date définie)
-  * Classification par type : sportif, culturel, artistique
-  * Affichage des détails : description, date, durée, prix
-
-* **Localisation des événements**
-
-  * Localisation géographique précise
-
-  * Affichage sur une carte
-
-  * Adresse et informations d’accès
-
-* **Gestion des tickets**
-
-  * Distinction entre événements gratuits et payants
-  * Achat de billets en ligne
-  * Gestion du nombre de tickets disponibles
-  * Historique des achats pour chaque utilisateur
-
-* **Gestion des monuments historiques**
-
-  * Ajout et gestion des monuments
-  * Informations descriptives
-  * Localisation géographique
- 
-* **Gestion intelligente du trafic touristique**
-
-  * Estimation de l’affluence des visiteurs par événement et par zone
-
-  * Identification des zones à forte concentration touristique
-
-  * Recommandation d’itinéraires ou d’événements alternatifs
-
-  * Diffusion d’informations et alertes en cas de forte affluence
-
-* **Espace administrateur**
-
-  * Gestion des événements et monuments
-  * Gestion des tickets et des prix
-  * Suivi des statistiques de fréquentation et ventes
-  * Suivi de l’affluence touristique
-
----
-
-## Technologies utilisées
-
-* **HTML5**
-  Structure des pages (contenu, formulaires, tableaux).
-
-* **CSS3**
-  Mise en forme de l’interface, design responsive et ergonomique.
-
-* **JavaScript (JS)**
-  Gestion des interactions dynamiques, affichage des données et amélioration de l’expérience utilisateur.
-
-* **PHP/Laravel**
-  Développement côté serveur, gestion des utilisateurs, traitement des données et communication avec la base de données.
-
-* **Base de données MySQL**
-  Stockage des monuments historiques, événements (confirmés ou en attente), utilisateurs et statistiques.
-
----
-
-## Objectifs du projet
-
-* Une plateforme web fonctionnelle et intuitive
-* Améliorer l’expérience touristique lors des grands événements
-* Optimiser la circulation et réduire la congestion
-* Mettre en valeur le patrimoine historique et culturel
-* Un système fiable d’achat de billets
-* Appliquer les compétences en **développement web full stack**
-
----
-
-## Conclusion
-
-Le projet Wanderly permet de mettre en pratique les compétences acquises en développement web full stack tout en répondant à un besoin réel lié au tourisme et à l’événementiel. Il constitue une solution moderne, évolutive et adaptée aux exigences du Projet de Fin d’Études à YouCode.
-
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
