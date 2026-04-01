@@ -38,9 +38,14 @@ class AuthController extends Controller
         return view('test');
     }
 
+    public function showLogin()
+    {
+        return view('auth.login');
+    }
+
     public function login(Request $request)
     {
-
+        
     }
 
     public function logout()
