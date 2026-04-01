@@ -14,9 +14,6 @@
 
                 <input id="firstname" type="text" name="firstname" placeholder="First Name"
                     class="w-full mb-4 p-3 rounded bg-gray-100">
-                @error('firstname')
-                    <p class="text-red-500 text-sm mb-2">{{ $message }}</p>
-                @enderror
                 <input id="lastname" type="text" name="lastname" placeholder="Last Name"
                     class="w-full mb-4 p-3 rounded bg-gray-100">
                 <input id="email" type="email" name="email" placeholder="Email" class="w-full mb-4 p-3 rounded bg-gray-100">
@@ -26,7 +23,7 @@
                     placeholder="Confirm Password" class="w-full mb-6 p-3 rounded bg-gray-100">
 
                 <div
-                    class="flex items-start bg-surface-container-low p-4 rounded-xl border border-outline-variant/10 group cursor-pointer transition-colors hover:bg-surface-container">
+                    class="flex items-start bg-surface-container-low p-4 rounded-xl border border-outline-variant/10 group cursor-pointer transition-colors hover:bg-surface-container mb-4">
                     <div class="flex items-center h-5">
                         <input
                             class="h-5 w-5 rounded-md border-outline-variant text-primary focus:ring-primary/30 cursor-pointer"
