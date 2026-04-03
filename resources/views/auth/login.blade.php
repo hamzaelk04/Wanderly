@@ -9,7 +9,7 @@
                 class="rounded-md border-2 border-red-500 bg-red-100 text-red-500 mb-4 flex items-center justify-center">
             </p>
 
-            <form id="login_form" method="POST" action="{{ route('register') }}">
+            <form id="login_form" method="POST" action="{{ route('login') }}">
                 @csrf
 
                 <input id="email" type="email" name="email" placeholder="Email" class="w-full mb-4 p-3 rounded bg-gray-100">
@@ -26,5 +26,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/register.js')
+    @vite('resources/js/login.js')
 @endpush

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -45,7 +46,18 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if(Auth::attempt($credentials))
+        {
+            $request->session()->regenerate();
+            return redirect('/test');
+        } else {
+            return back();
+        }
     }
 
     public function logout()
