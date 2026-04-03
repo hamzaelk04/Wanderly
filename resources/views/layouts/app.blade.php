@@ -18,7 +18,7 @@
     @include('partials.navbar')
 
     {{-- Page Content --}}
-    <main class="flex-grow">
+    <main class="grow">
         @yield('content')
     </main>
 

@@ -17,6 +17,12 @@
                 </button>
             </div>
         </section>
+        @guest
+            <a href="register" class="bg-sky-600 text-white px-4 py-2 rounded-full">Sign In</a>
+            @endguest
+            @auth
+            <a href="logout" class="bg-sky-600 text-white px-4 py-2 rounded-full">Log out</a>
+            @endauth
 
     </body>
 

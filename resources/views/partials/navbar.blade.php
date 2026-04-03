@@ -1,17 +1,32 @@
-<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
-    <div class="flex items-center justify-between px-6 h-16 max-w-7xl mx-auto">
-        <span class="text-2xl font-bold text-sky-700">Wanderly</span>
-
-        <div class="hidden md:flex gap-8">
-            <a href="#" class="text-slate-500 hover:text-sky-600">Explore</a>
-            <a href="#" class="text-slate-500 hover:text-sky-600">Destinations</a>
-            <a href="#" class="text-slate-500 hover:text-sky-600">Journals</a>
-            @guest
-            <a href="register" class="bg-sky-600 text-white px-4 py-2 rounded-full">Sign In</a>
-            @endguest
-            @auth
-            <a href="logout" class="bg-sky-600 text-white px-4 py-2 rounded-full">Log out</a>
-            @endauth
+<nav
+    class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm shadow-sky-900/5 flex justify-between items-center px-8 h-20 max-w-full">
+    <div class="flex items-center gap-12">
+        <span class="text-2xl font-extrabold text-sky-800 font-headline tracking-tight">
+            Wanderly
+        </span>
+        <div class="hidden md:flex gap-8 items-center h-full">
+            <a class="font-headline tracking-tight font-semibold text-slate-600 hover:text-sky-600 transition-colors duration-300"
+                href="">
+                Home
+            </a>
+            <a class="font-headline tracking-tight font-semibold text-slate-600 hover:text-sky-600 transition-colors duration-300"
+                href="">
+                Evénements
+            </a>
+            <a class="font-headline tracking-tight font-semibold text-slate-600 hover:text-sky-600 transition-colors duration-300"
+                href="">
+                Monuments
+            </a>
+        </div>
+    </div>
+    <div class="flex items-center gap-6">
+        <div class="felx items-center gap-3">
+            <a class="px-5 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 rounded-full transition-all active:scale-95" href="login">
+                Login
+            </a>
+            <a class="px-5 py-2 text-sm font-bold bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95" href="register">
+                Sign Up
+            </a>
         </div>
     </div>
 </nav>
