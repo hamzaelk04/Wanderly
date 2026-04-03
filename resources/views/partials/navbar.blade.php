@@ -6,7 +6,12 @@
             <a href="#" class="text-slate-500 hover:text-sky-600">Explore</a>
             <a href="#" class="text-slate-500 hover:text-sky-600">Destinations</a>
             <a href="#" class="text-slate-500 hover:text-sky-600">Journals</a>
-            <a href="#" class="bg-sky-600 text-white px-4 py-2 rounded-full">Sign In</a>
+            @guest
+            <a href="register" class="bg-sky-600 text-white px-4 py-2 rounded-full">Sign In</a>
+            @endguest
+            @auth
+            <a href="logout" class="bg-sky-600 text-white px-4 py-2 rounded-full">Log out</a>
+            @endauth
         </div>
     </div>
 </nav>
