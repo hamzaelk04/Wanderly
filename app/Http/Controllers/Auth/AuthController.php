@@ -28,13 +28,15 @@ class AuthController extends Controller
         $roleName = $request->has('organizer') ? 'organizer' : 'client';
         $roleId = Role::where('name', $roleName)->first();
 
-        User::create([
+        $user = User::create([
             'firstname' => $validated['firstname'],
             'lastname' => $validated['lastname'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
             'role_id' => $roleId->id,
         ]);
+
+        Auth::login($user);
 
         return view('test');
     }
