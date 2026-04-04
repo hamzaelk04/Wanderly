@@ -31,7 +31,7 @@
             </a> 
             @endguest
             @auth
-            <a class="px-5 py-2 text-sm font-bold bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95" href="register">
+            <a class="px-5 py-2 text-sm font-bold bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95" href="logout">
                 Log Out
             </a>
             @endauth
