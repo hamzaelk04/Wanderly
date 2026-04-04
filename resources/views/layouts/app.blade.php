@@ -21,9 +21,7 @@
     @include('partials.navbar')
 
     {{-- Page Content --}}
-    <main class="grow">
         @yield('content')
-    </main>
 
     {{-- Footer --}}
     @include('partials.footer')

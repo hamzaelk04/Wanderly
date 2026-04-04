@@ -18,6 +18,10 @@
   font-family: 'Inter', sans-serif;
 }
 
+.adventure-gradient {
+            background: linear-gradient(135deg, #005d90 0%, #0077b6 100%);
+}
+
 @theme {
   --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
