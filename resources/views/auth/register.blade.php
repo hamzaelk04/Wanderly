@@ -15,11 +15,11 @@
                         Découvrez les expériences de voyage les plus personnalisées au monde.</p>
                 </div>
                 <div>
-                    
+
                 </div>
             </div>
             <!-- form -->
-            <div class="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+            <div class="p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
                 <div class="mb-10">
                     <h2 class="text-3xl font-bold font-headline text-on-background mb-2 tracking-tight">
                         Créer un compte
@@ -28,9 +28,9 @@
                         Rejoignez Wanderly et commencez à planifier votre prochain voyage.
                     </p>
                 </div>
-                <p id="error"
-                        class="rounded-md border-2 h-12 border-red-500 bg-red-100 text-red-500 mb-4 flex items-center justify-center">
-                    </p>
+                <p id="error" class="absolute top-0 left-0 right-0 mx-8 mt-4 h-12 rounded-md border-2 border-red-500 bg-red-100 text-red-500
+                    flex items-center justify-center opacity-0 transition-opacity duration-300">
+                </p>
                 <form id="regsiter_form" class="space-y-6" method="POST" action="{{ route('register') }}">
                     @csrf
 
