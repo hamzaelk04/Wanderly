@@ -22,12 +22,19 @@
     <!-- Adding the search bar later -->
     <div class="flex items-center gap-6">
         <div class="felx items-center gap-3">
+            @guest
             <a class="px-5 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 rounded-full transition-all active:scale-95" href="login">
                 Login
             </a>
             <a class="px-5 py-2 text-sm font-bold bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95" href="register">
                 Sign Up
+            </a> 
+            @endguest
+            @auth
+            <a class="px-5 py-2 text-sm font-bold bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95" href="register">
+                Log Out
             </a>
+            @endauth
         </div>
     </div>
 </nav>
