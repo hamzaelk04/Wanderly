@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="grow flex items-center justify-center px-4 pt-24 pb-12">
-        <div class="grid lg:grid-cols-2 max-w-6xl w-full bg-surface-container-lowest rounded-3xl overflow-hidden shadow-2xl shadow-on-surface/5">
+        <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 bg-surface-container-lowest rounded-3xl overflow-hidden shadow-2xl shadow-sky-900/5">
             <div class="hidden md:block relative h-full min-h-150 overflow-hidden">
                 <img class="absolute inset-0 w-full h-full object-cover"
                     data-alt="Stunning aerial view of a turquoise alpine lake surrounded by pine forests and snow-capped peaks in soft morning light"
@@ -13,7 +13,10 @@
                     <p class="text-white/90 text-lg font-medium max-w-md">Accédez à vos itinéraires de voyage personnalisés et aux trésors cachés découverts par notre communauté mondiale.</p>
                 </div>
             </div>
-            <div class="p-8 md:p-16 flex flex-col justify-center bg-surface-container-lowest">
+            <div class="p-8 md:p-16 flex flex-col justify-center bg-surface-container-lowest relative">
+                <p id="error" class="absolute top-0 left-0 right-0 mx-8 mt-4 h-12 rounded-md border-2 border-red-500 bg-red-100 text-red-500
+                            flex items-center justify-center opacity-0 transition-opacity duration-300">hhhh
+                </p>
                 <div class="mb-10">
                     <h1 class="font-headline text-3xl font-bold text-on-background mb-2 tracking-tight">Bienvenue
                     </h1>
@@ -21,10 +24,7 @@
                 </div>
                 <form class="space-y-6" id="login_form" method="POST" action="{{ route('login') }}">
                     @csrf
-
-                    <p id="error" class="absolute top-0 left-0 right-0 mx-8 mt-4 h-12 rounded-md border-2 border-red-500 bg-red-100 text-red-500
-                                flex items-center justify-center opacity-0 transition-opacity duration-300">
-                    </p>
+                    
                     <div class="space-y-2">
                         <label class="block text-sm font-semibold text-on-surface-variant ml-1" for="email">Email
                             address</label>
@@ -35,7 +35,7 @@
                             </div>
                             <input
                                 class="block w-full pl-11 pr-4 py-3.5 bg-surface-variant/50 border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all text-on-surface placeholder:text-outline-variant/70"
-                                id="email" type="email" name="email" placeholder="name@example.com" type="email" />
+                                id="email" name="email" placeholder="name@example.com" type="email" />
                         </div>
                     </div>
                     <div class="space-y-2">
@@ -75,7 +75,7 @@
                 </div>
                 <p class="mt-12 text-center text-sm text-on-surface-variant">
                     Vous n'avez pas de compte ?
-                    <a class="text-primary font-bold hover:underline" href="#">S'inscrire</a>
+                    <a class="text-primary font-bold hover:underline" href="register">S'inscrire</a>
                 </p>
             </div>
         </div>

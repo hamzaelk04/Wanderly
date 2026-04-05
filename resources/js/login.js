@@ -1,6 +1,5 @@
 let form = document.getElementById('login_form');
 let error = document.getElementById('error');
-error.style.display = "none"
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -12,16 +11,32 @@ form.addEventListener("submit", function (e) {
 
     let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
     if (!email.value.match(emailPattern)) {
-        error.textContent = "Email n'est pas valide";
-        error.style.display = "flex";
+        let message = "Email n'est pas valide";
+        showError(message)
         return;
     }
 
     if (password.value.length < 6) {
-        error.textContent = "Le mot de passe doit etre plus de 6 caractere";
-        error.style.display = "flex";
+        let message = "Le mot de passe doit etre plus de 6 caractere";
+        showError(message)
         return;
     }
 
     form.submit();
 })
+
+function showError(message) {
+    if (!error) return;
+
+    error.textContent = message;
+    error.classList.remove("opacity-0");
+    error.classList.add("opacity-100");
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    setTimeout(() => {
+        error.textContent = "";
+        error.classList.remove("opacity-100");
+        error.classList.add("opacity-0");
+    }, 5000);
+}

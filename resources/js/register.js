@@ -1,4 +1,4 @@
-let form = document.getElementById('regsiter_form');
+let form = document.getElementById('register_form');
 let error = document.getElementById('error');
 
 form.addEventListener("submit", function (e) {
@@ -13,8 +13,8 @@ form.addEventListener("submit", function (e) {
     error.textContent = "";
 
     if (firstname.value.length > 20) {
-        error.textContent = "Le prenom est tres long";
-        error.style.display = "flex";
+        let message = "Le prenom est tres long";
+        showError(message);
         return;
     }
 

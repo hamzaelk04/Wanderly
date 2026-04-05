@@ -31,7 +31,7 @@
                 <p id="error" class="absolute top-0 left-0 right-0 mx-8 mt-4 h-12 rounded-md border-2 border-red-500 bg-red-100 text-red-500
                         flex items-center justify-center opacity-0 transition-opacity duration-300">
                 </p>
-                <form id="regsiter_form" class="space-y-6" method="POST" action="{{ route('register') }}">
+                <form id="register_form" class="space-y-6" method="POST" action="{{ route('register') }}">
                     @csrf
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
