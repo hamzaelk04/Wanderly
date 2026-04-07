@@ -38,11 +38,16 @@
             <span>Settings</span>
         </a>
     </nav>
-    <div class="mt-auto pt-6 border-t border-slate-200/50">
-        <button
-            class="w-full flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded-xl font-semibold shadow-lg shadow-primary/20 scale-95 active:scale-100 transition-transform">
-            <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
-            <span>Create Event</span>
-        </button>
+    <div class="pt-4 mt-auto border-t border-slate-200">
+        <a class="flex items-center space-x-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-lg transition-all duration-300"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="help">help</span>
+            <span class="font-label">Help</span>
+        </a>
+        <a class="flex items-center space-x-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-lg transition-all duration-300"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="logout">logout</span>
+            <span class="font-label">Logout</span>
+        </a>
     </div>
 </aside>
