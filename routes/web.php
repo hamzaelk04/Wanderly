@@ -6,7 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/test', function() {
+Route::get('/test', function () {
     return view('test');
 });
 
@@ -17,3 +17,7 @@ Route::get('/login', [AuthController::class, 'showLogin']);
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/organizer', function () {
+    return view('dashboard.organizer');
+});
