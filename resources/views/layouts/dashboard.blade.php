@@ -15,10 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
 </head>
 
-<body class="bg-background font-body text-on-background min-h-screen flex overflow-hidden">
+<body class="bg-background text-on-background min-h-screen">
     @include('dasboard-partials.sidebar')
-    <main class="flex-1 flex flex-col h-screen overflow-y-auto relative">
+    <main class="flex-1 overflow-y-auto relative">
         @include('dasboard-partials.navbar')
+        @yield('content')
     </main>
 </body>
 

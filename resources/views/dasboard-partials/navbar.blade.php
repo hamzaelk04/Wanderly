@@ -1,4 +1,5 @@
-<header class="fixed top-0 right-0 left-64 h-20 bg-white/70 backdrop-blur-md z-30 flex justify-between items-center px-8 shadow-sm shadow-sky-900/5">
+<header
+    class="fixed top-0 right-0 left-64 h-20 bg-white/70 backdrop-blur-md z-30 flex justify-between items-center px-8 shadow-sm shadow-sky-900/5">
     <div class="flex items-center gap-4">
         <h2 class="text-2xl font-bold text-sky-800  font-headline tracking-tight">Dashboard Overview
         </h2>
@@ -10,6 +11,10 @@
                 placeholder="Search events..." type="text" />
             <span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-sm"
                 data-icon="search">search</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-primary transition-colors"
+                data-icon="notifications">notifications</span>
         </div>
         <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
             <div class="text-right hidden sm:block">

@@ -21,3 +21,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/organizer', function () {
     return view('dashboard.organizer');
 });
+
+Route::get('/manage/events', function() {
+    return view('dashboard-views.manage-events');
+});
