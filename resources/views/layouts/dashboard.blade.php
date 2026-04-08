@@ -15,9 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
 </head>
 
-<body class="bg-background text-on-background min-h-screen">
+<body class="bg-background text-on-background antialiased overflow-x-hidden">
     @include('dasboard-partials.sidebar')
-    <main class="flex-1 overflow-y-auto relative">
+    <main class="ml-64 min-h-screen">
         @include('dasboard-partials.navbar')
         @yield('content')
     </main>

@@ -1,4 +1,4 @@
-<aside class="h-screen w-64 bg-slate-50 flex flex-col p-4 gap-2 border-r-0 z-40 shrink-0">
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-50 flex flex-col py-8 justify-between z-50 font-['Plus_Jakarta_Sans'] font-medium text-sm">
     <div class="mb-8 px-2 flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
             <span class="material-symbols-outlined" data-icon="explore"

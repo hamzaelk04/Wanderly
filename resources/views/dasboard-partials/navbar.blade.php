@@ -1,5 +1,5 @@
 <header
-    class="fixed top-0 right-0 left-64 h-20 bg-white/70 backdrop-blur-md z-30 flex justify-between items-center px-8 shadow-sm shadow-sky-900/5">
+    class="w-full sticky top-0 z-40 bg-white/70 backdrop-blur-md shadow-sm flex justify-between items-center px-8 py-4">
     <div class="flex items-center gap-4">
         <h2 class="text-2xl font-bold text-sky-800  font-headline tracking-tight">Dashboard Overview
         </h2>
@@ -19,7 +19,7 @@
         <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
             <div class="text-right hidden sm:block">
                 <p class="text-sm font-bold text-on-surface leading-tight">Alex Rivera</p>
-                <p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Premium Host</p>
+                <p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Organizer</p>
             </div>
             <img class="w-10 h-10 rounded-full border-2 border-primary/20 object-cover"
                 data-alt="close-up portrait of a professional man with a friendly expression in a modern office environment"
