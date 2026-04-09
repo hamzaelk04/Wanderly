@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 
@@ -28,3 +29,5 @@ Route::get('/manage/events', function() {
 Route::get('/create/event', function() {
     return view('dashboard-views.create-event');
 });
+
+Route::post('/create/event', [EventController::class, 'store'])->name('create-event');

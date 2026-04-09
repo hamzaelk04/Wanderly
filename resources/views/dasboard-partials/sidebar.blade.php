@@ -11,18 +11,18 @@
     </div>
     <nav class="flex-1 flex flex-col gap-1">
         <!-- Dashboard Active -->
-        <a class="flex items-center gap-3 p-3 bg-white text-sky-700 shadow-sm rounded-lg font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
+        <a id="dashboard" class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
             href="#">
             <span class="material-symbols-outlined" data-icon="dashboard"
                 style="font-variation-settings: 'FILL' 1;">dashboard</span>
             <span>Dashboard</span>
         </a>
-        <a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
+        <a id="manage-event" class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
             href="#">
             <span class="material-symbols-outlined" data-icon="event">event</span>
             <span>Manage Events</span>
         </a>
-        <a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
+        <a id="create-event" class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
             href="#">
             <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
             <span>Create Event</span>
