@@ -25,3 +25,6 @@ Route::get('/organizer', function () {
 Route::get('/manage/events', function() {
     return view('dashboard-views.manage-events');
 });
+Route::get('/create/event', function() {
+    return view('dashboard-views.create-event');
+});
