@@ -44,4 +44,14 @@ function addTicket() {
     })
 }
 
+function removeTicket() {
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('.remove-ticket')) {
+            const ticketItem = e.target.closest('.ticket-item');
+            ticketItem.remove();
+        }
+    });
+}
+
 addTicket()
+removeTicket()
