@@ -150,19 +150,19 @@
                         <div class="ticket-item flex flex-col md:flex-row gap-4 p-5 bg-surface-container-low rounded-2xl relative">
                             <div class="flex-1 space-y-2">
                                 <label class="text-xs font-bold text-slate-500 uppercase ml-1">Nom du niveau</label>
-                                <input
+                                <input name="ticket[0][name]"
                                     class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
                                     placeholder="e.g. VIP Access" type="text" />
                             </div>
                             <div class="w-full md:w-32 space-y-2">
                                 <label class="text-xs font-bold text-slate-500 uppercase ml-1">Prix (MAD)</label>
-                                <input
+                                <input name="ticket[0][price]"
                                     class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
                                     placeholder="0" type="number" />
                             </div>
                             <div class="w-full md:w-32 space-y-2">
                                 <label class="text-xs font-bold text-slate-500 uppercase ml-1">Quantité</label>
-                                <input
+                                <input name="ticket[0][quantity]"
                                     class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
                                     placeholder="0" type="number" />
                             </div>
