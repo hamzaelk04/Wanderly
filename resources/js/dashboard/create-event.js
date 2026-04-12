@@ -53,5 +53,70 @@ function removeTicket() {
     });
 }
 
+function uploadImage() {
+    const uploadBox = document.getElementById('upload-image');
+    const input = document.getElementById('image-input');
+    const grid = document.getElementById('image-grid');
+
+    let allFiles = [];
+
+    uploadBox.addEventListener('click', () => input.click());
+
+    input.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files);
+
+        files.forEach(file => {
+            if (!file.type.startsWith('image/')) return;
+
+            allFiles.push(file);
+            renderImage(file);
+        });
+
+        updateInputFiles();
+        input.value = "";
+    });
+
+    function renderImage(file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const wrapper = document.createElement('div');
+            wrapper.className = "aspect-square rounded-xl overflow-hidden relative group shadow-md";
+
+            wrapper.innerHTML = `
+                <img src="${e.target.result}" class="w-full h-full object-cover" />
+                <button type="button"
+                    class="absolute top-2 right-2 w-7 h-7 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-error opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+                </button>
+            `;
+
+            // Delete image properly
+            wrapper.querySelector('button').addEventListener('click', () => {
+                allFiles = allFiles.filter(f => f !== file);
+                updateInputFiles();
+                wrapper.remove();
+            });
+
+            const addBox = grid.lastElementChild;
+            grid.insertBefore(wrapper, addBox);
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    function updateInputFiles() {
+        const dataTransfer = new DataTransfer();
+
+        allFiles.forEach(file => {
+            dataTransfer.items.add(file);
+        });
+
+        input.files = dataTransfer.files;
+    }
+}
+
+uploadImage()
+
 addTicket()
 removeTicket()

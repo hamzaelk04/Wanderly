@@ -10,7 +10,7 @@
                 </p>
             </div>
         </div>
-        <form action="{{ route('create-event') }}" method="post">
+        <form action="{{ route('create-event') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="space-y-8 pb-20">
@@ -67,8 +67,9 @@
                         </div>
                         <h3 class="text-xl font-bold">Narration visuelle</h3>
                     </div>
-                    <div
+                    <div id="upload-image"
                         class="border-2 border-dashed border-outline-variant rounded-2xl p-10 text-center hover:bg-slate-50 transition-colors cursor-pointer group">
+                        <input type="file" id="image-input" name="images[]" multiple accept="image/*" class="hidden" />
                         <span
                             class="material-symbols-outlined text-5xl text-slate-300 group-hover:text-primary transition-colors"
                             data-icon="cloud_upload">cloud_upload</span>
@@ -78,29 +79,8 @@
                         <p class="text-xs text-slate-400 mt-1 uppercase tracking-widest">Recommandé: 1920x1080px (Max
                             10MB)</p>
                     </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 mt-6">
-                        <div class="aspect-square rounded-xl overflow-hidden relative group shadow-md">
-                            <img alt="Gallery item" class="w-full h-full object-cover"
-                                data-alt="atmospheric photo of a dark moody cocktail bar with warm glowing Edison bulbs and crystal glassware on a marble bar"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA-zxM_4y9pNTW8cbT0RVS-gVKunfczW2inoo8cshkbvYmg5izxO8QboeXI4WOi3eQf4_BrODKhFa1sglm92sG3Xv0PMNdi2KQdCd471FK9pgAAGVICosv1nGpFEVV92c5bC0Dseom01ipbs12jCgVUQXxXYd6xAn_I9wzqpllCAhehBVngsmxNum-Q603KsAA8U1MH7v2me4DBgPcgmVArYXN42rQEeCoRXFDtjijUKWtaIaF_DI8zKm9HuSMq0wLaDUMRklp-wk" />
-                            <button type="button"
-                                class="absolute top-2 right-2 w-7 h-7 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-error opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
-                            </button>
-                        </div>
-                        <div class="aspect-square rounded-xl overflow-hidden relative group shadow-md">
-                            <img alt="Gallery item" class="w-full h-full object-cover"
-                                data-alt="majestic high-altitude mountain peak shrouded in light mist under a clear deep blue morning sky"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPGiEgUc3eZklalP-GaOypRq87Z3tExGCDXLTXYjANcCHnzUV367NCMD3plmIp6YDm43ogGgPPFjqK8aL-nrBHtPmO6qQaxZiTYJM3ydOEB2JALauB2-ji3N-X7BP91hiGhM-8WgkVR2yL_BOjo5aM1UtcaoAQ0KSP5Oxa-LKsUYtI9T_oMoOK7Q_3g2KwzUN1p1Xx-2dqpfDAhUA0gj8g11xifQvy2ruukzqlYWwVyPCPmSHQXJcnqVMq3t6tWTH2WZTrG1fdkUY" />
-                            <button type="button"
-                                class="absolute top-2 right-2 w-7 h-7 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-error opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
-                            </button>
-                        </div>
-                        <div
-                            class="aspect-square rounded-xl border-2 border-slate-100 bg-slate-50 flex items-center justify-center text-slate-300">
-                            <span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
-                        </div>
+                    <div id="image-grid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 mt-6">
+                        
                     </div>
                 </section>
                 <!-- Section 4: Schedule -->
@@ -147,7 +127,8 @@
                     </div>
                     <!-- Ticket Row 1 -->
                     <div id="ticket-container">
-                        <div class="ticket-item flex flex-col md:flex-row gap-4 p-5 bg-surface-container-low rounded-2xl relative">
+                        <div
+                            class="ticket-item flex flex-col md:flex-row gap-4 p-5 bg-surface-container-low rounded-2xl relative">
                             <div class="flex-1 space-y-2">
                                 <label class="text-xs font-bold text-slate-500 uppercase ml-1">Nom du niveau</label>
                                 <input name="ticket[0][name]"
