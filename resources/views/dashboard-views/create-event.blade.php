@@ -25,19 +25,19 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-2 md:col-span-2">
                             <label class="text-sm font-semibold text-slate-700 ml-1">Titre de L'événement</label>
-                            <input
+                            <input name="title"
                                 class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
                                 placeholder="e.g., Midnight Gastronomy in Tokyo" type="text" />
                         </div>
                         <div class="space-y-2 md:col-span-2">
                             <label class="text-sm font-semibold text-slate-700 ml-1">La Destination</label>
-                            <input
+                            <input name="address"
                                 class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
                                 placeholder="Entrez le nom du lieu ou la rue..." type="text" />
                         </div>
                         <div class="space-y-2 md:col-span-2">
                             <label class="text-sm font-semibold text-slate-700 ml-1">Description</label>
-                            <textarea
+                            <textarea name="description"
                                 class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
                                 placeholder="Décrivez l’âme de cette expérience..." rows="5"></textarea>
                         </div>
@@ -78,18 +78,18 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
                         <div class="space-y-2">
                             <label class="text-sm font-semibold text-slate-700 ml-1">Date de l'événement</label>
-                            <input
+                            <input name="date"
                                 class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
                                 type="date" />
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm font-semibold text-slate-700 ml-1">Durée estimée</label>
                             <div class="relative">
-                                <input
+                                <input name="duration"
                                     class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface pr-12"
-                                    placeholder="3 hours" type="text" />
+                                    placeholder="90 minutes" type="number" />
                                 <span
-                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">HRS</span>
+                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">MIN</span>
                             </div>
                         </div>
                     </div>
