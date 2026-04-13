@@ -29,22 +29,6 @@
                                 class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
                                 placeholder="e.g., Midnight Gastronomy in Tokyo" type="text" />
                         </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-slate-700 ml-1">Catégorie</label>
-                            <select
-                                class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface appearance-none">
-                                <option>Cultural</option>
-                                <option>Sport</option>
-                                <option>Artistic</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="space-y-2 opacity-50 pointer-events-none">
-                            <label class="text-sm font-semibold text-slate-700 ml-1">Nouvelle catégorie (facultatif)</label>
-                            <input
-                                class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                placeholder="Custom label" type="text" />
-                        </div>
                         <div class="space-y-2 md:col-span-2">
                             <label class="text-sm font-semibold text-slate-700 ml-1">La Destination</label>
                             <input
