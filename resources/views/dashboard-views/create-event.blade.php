@@ -30,6 +30,12 @@
                                 placeholder="e.g., Midnight Gastronomy in Tokyo" type="text" />
                         </div>
                         <div class="space-y-2 md:col-span-2">
+                            <label class="text-sm font-semibold text-slate-700 ml-1">Titre de L'événement</label>
+                            <input name="city"
+                                class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
+                                placeholder="Ex: Youssoufia" type="text" />
+                        </div>
+                        <div class="space-y-2 md:col-span-2">
                             <label class="text-sm font-semibold text-slate-700 ml-1">La Destination</label>
                             <input name="address"
                                 class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
