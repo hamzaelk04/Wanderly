@@ -70,7 +70,7 @@
                             10MB)</p>
                     </div>
                     <div id="image-grid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 mt-6">
-                        
+
                     </div>
                 </section>
                 <!-- Section 4: Schedule -->
@@ -145,35 +145,35 @@
                             </div>
                         </div>
                     </div>
+                </section>
+                <!-- Section 6: Submission -->
+                <section
+                    class="bg-surface-container-low rounded-3xl p-8 border-2 border-dashed border-outline-variant/30 text-center">
+                    <div class="max-w-md mx-auto space-y-6">
+                        <div
+                            class="inline-flex items-center gap-2 bg-secondary-fixed px-4 py-2 rounded-full text-on-secondary-container">
+                            <span class="material-symbols-outlined text-lg" data-icon="security"
+                                data-weight="fill">security</span>
+                            <span class="text-xs font-bold uppercase tracking-wider">Quality Review Pending</span>
+                        </div>
+                        <p class="text-on-surface-variant leading-relaxed">Votre événement sera sélectionné et examiné par
+                            un
+                            administrateur Wanderly avant sa publication afin de garantir qu'il réponde à nos normes d'«
+                            Expérience de qualité supérieure ».</p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                            <button type="submit"
+                                class="w-full sm:w-auto px-10 py-4 bg-linear-to-r from-primary to-primary-container text-white rounded-full font-bold shadow-2xl shadow-primary/30 hover:-translate-y-1 transition-all active:translate-y-0">
+                                Submit for Review
+                            </button>
+                            <a class="w-full sm:w-auto px-10 py-4 font-bold text-on-surface-variant hover:text-on-surface transition-colors"
+                                href="/organizer">
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
+                </section>
             </div>
-            </section>
-            <!-- Section 6: Submission -->
-            <section
-                class="bg-surface-container-low rounded-3xl p-8 border-2 border-dashed border-outline-variant/30 text-center">
-                <div class="max-w-md mx-auto space-y-6">
-                    <div
-                        class="inline-flex items-center gap-2 bg-secondary-fixed px-4 py-2 rounded-full text-on-secondary-container">
-                        <span class="material-symbols-outlined text-lg" data-icon="security"
-                            data-weight="fill">security</span>
-                        <span class="text-xs font-bold uppercase tracking-wider">Quality Review Pending</span>
-                    </div>
-                    <p class="text-on-surface-variant leading-relaxed">Votre événement sera sélectionné et examiné par un
-                        administrateur Wanderly avant sa publication afin de garantir qu'il réponde à nos normes d'«
-                        Expérience de qualité supérieure ».</p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                        <button type="submit"
-                            class="w-full sm:w-auto px-10 py-4 bg-linear-to-r from-primary to-primary-container text-white rounded-full font-bold shadow-2xl shadow-primary/30 hover:-translate-y-1 transition-all active:translate-y-0">
-                            Submit for Review
-                        </button>
-                        <a class="w-full sm:w-auto px-10 py-4 font-bold text-on-surface-variant hover:text-on-surface transition-colors"
-                            href="/organizer">
-                            Cancel
-                        </a>
-                    </div>
-                </div>
-            </section>
-    </div>
-    </form>
+        </form>
     </div>
 @endsection
 
