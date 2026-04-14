@@ -41,6 +41,8 @@ function addTicket() {
 
         container.appendChild(div);
         ticketIndex++;
+
+        toggleCapacitySection();
     })
 }
 
@@ -49,8 +51,25 @@ function removeTicket() {
         if (e.target.closest('.remove-ticket')) {
             const ticketItem = e.target.closest('.ticket-item');
             ticketItem.remove();
+            toggleCapacitySection();
         }
     });
+}
+
+function toggleCapacitySection() {
+    const tickets = document.querySelectorAll('.ticket-item');
+    const section = document.getElementById('capacity-section');
+    const input = document.getElementById('capacity');
+
+    if (!section || !input) return;
+
+    if (tickets.length > 0) {
+        section.classList.add('hidden');
+        input.disabled = true;
+    } else {
+        section.classList.remove('hidden');
+        input.disabled = false;
+    }
 }
 
 function uploadImage() {
@@ -117,6 +136,6 @@ function uploadImage() {
 }
 
 uploadImage()
-
+toggleCapacitySection();
 addTicket()
 removeTicket()

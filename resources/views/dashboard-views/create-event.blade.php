@@ -112,41 +112,33 @@
                         <button id="ticket-button" type="button"
                             class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
                             <span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
-                            Ajouter une autre type
+                            Ajouter un type
                         </button>
                     </div>
-                    <!-- Ticket Row 1 -->
                     <div id="ticket-container">
-                        <div
-                            class="ticket-item flex flex-col md:flex-row gap-4 p-5 bg-surface-container-low rounded-2xl relative">
-                            <div class="flex-1 space-y-2">
-                                <label class="text-xs font-bold text-slate-500 uppercase ml-1">Nom du niveau</label>
-                                <input name="ticket[0][name]"
-                                    class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                    placeholder="e.g. VIP Access" type="text" />
-                            </div>
-                            <div class="w-full md:w-32 space-y-2">
-                                <label class="text-xs font-bold text-slate-500 uppercase ml-1">Prix (MAD)</label>
-                                <input name="ticket[0][price]"
-                                    class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                    placeholder="0" type="number" />
-                            </div>
-                            <div class="w-full md:w-32 space-y-2">
-                                <label class="text-xs font-bold text-slate-500 uppercase ml-1">Quantité</label>
-                                <input name="ticket[0][quantity]"
-                                    class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                    placeholder="0" type="number" />
-                            </div>
-                            <div class="flex items-end pb-1">
-                                <button type="button"
-                                    class="remove-ticket w-10 h-10 flex items-center justify-center text-error/40 hover:text-error transition-colors">
-                                    <span class="material-symbols-outlined" data-icon="delete">delete</span>
-                                </button>
-                            </div>
-                        </div>
+                        <!-- pour l'ajout des billets  -->
                     </div>
                 </section>
-                <!-- Section 6: Submission -->
+                <!-- section 6: capacity -->
+                <section id="capacity-section" class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm">
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined" data-icon="groups">groups</span>
+                            </div>
+                            <h3 class="text-xl font-bold">Capacité</h3>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                        <label for="capacity" class="text-sm font-semibold text-slate-700 ml-1">
+                            Nombre maximum de participants
+                        </label>
+                        <input id="capacity" name="capacity" type="number" min="1" placeholder="Ex: 100"
+                            class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface">
+                    </div>
+                </section>
+                <!-- Section 7: Submission -->
                 <section
                     class="bg-surface-container-low rounded-3xl p-8 border-2 border-dashed border-outline-variant/30 text-center">
                     <div class="max-w-md mx-auto space-y-6">
