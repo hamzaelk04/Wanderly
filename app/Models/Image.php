@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     protected $fillable = ['event_id', 'path'];
+
+    public function event()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
