@@ -8,11 +8,11 @@
         <p class="text-on-surface-variant mt-2 text-lg font-light">Your curated experiences are reaching new
           heights today.</p>
       </div>
-      <button
+      <a href="/create/event"
         class="bg-linear-to-br from-primary to-primary-container text-on-primary px-6 py-3 rounded-full font-semibold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
         <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
         Create New Event
-      </button>
+      </a>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- Total -->
