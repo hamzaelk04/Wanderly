@@ -51,8 +51,4 @@
       </div>
     </div>
   </section>
-
-  @foreach($events as $event)
-    <img src="{{ asset('storage/' . $event->images->first()->path ?? '') }}">
-  @endforeach
 @endsection
