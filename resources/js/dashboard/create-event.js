@@ -92,7 +92,7 @@ function uploadImage() {
         });
 
         updateInputFiles();
-        input.value = "";
+        // input.value = "";
     });
 
     function renderImage(file) {

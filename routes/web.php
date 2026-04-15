@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\OrganizerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 
@@ -19,9 +20,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/organizer', function () {
-    return view('dashboard.organizer');
-});
+Route::get('/organizer', [OrganizerController::class, 'index'])->name('dashboard.organizer');
 
 Route::get('/manage/events', function() {
     return view('dashboard-views.manage-events');
