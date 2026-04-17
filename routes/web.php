@@ -31,5 +31,8 @@ Route::get('/manage/events', function() {
 Route::get('/create/event', function() {
     return view('dashboard-views.create-event');
 });
+Route::get('/create/monument', function() {
+    return view('dashboard-views.create-monument');
+});
 
 Route::post('/create/event', [EventController::class, 'store'])->name('create-event');
