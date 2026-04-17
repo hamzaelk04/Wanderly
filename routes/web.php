@@ -21,6 +21,9 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/organizer', [OrganizerController::class, 'index'])->name('dashboard.organizer');
+Route::get('/admin', function() {
+    return view('dashboard.admin');
+});
 
 Route::get('/manage/events', function() {
     return view('dashboard-views.manage-events');

@@ -1,4 +1,5 @@
-<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-50 flex flex-col py-8 justify-between z-50 font-['Plus_Jakarta_Sans'] font-medium text-sm">
+<aside
+    class="h-screen w-64 fixed left-0 top-0 bg-slate-50 flex flex-col py-8 justify-between z-50 font-['Plus_Jakarta_Sans'] font-medium text-sm">
     <div class="mb-8 px-2 flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
             <span class="material-symbols-outlined" data-icon="explore"
@@ -11,18 +12,31 @@
     </div>
     <nav class="flex-1 flex flex-col gap-1">
         <!-- Dashboard Active -->
-        <a id="dashboard" class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
+        <a id="dashboard"
+            class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
             href="/organizer">
             <span class="material-symbols-outlined" data-icon="dashboard"
                 style="font-variation-settings: 'FILL' 1;">dashboard</span>
             <span>Dashboard</span>
         </a>
-        <a id="manage-event" class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
+        <a id="manage-event"
+            class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
             href="#">
             <span class="material-symbols-outlined" data-icon="event">event</span>
             <span>Manage Events</span>
         </a>
-        <a id="create-event" class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
+        <a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+            <span>Manage Monuments</span>
+        </a>
+        <a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+            <span>Create Monument</span>
+        </a>
+        <a id="create-event"
+            class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
             href="/create/event">
             <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
             <span>Create Event</span>
