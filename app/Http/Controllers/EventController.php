@@ -76,8 +76,7 @@ class EventController extends Controller
                 foreach ($request->file('images') as $image) {
                     $path = $image->store('events', 'public');
 
-                    Image::create([
-                        'event_id' => $event->id,
+                    $event->images()->create([
                         'path' => $path
                     ]);
                 }

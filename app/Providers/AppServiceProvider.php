@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Relation::morphMap([
+            'event' => \App\Models\Event::class,
+            'monument' => \App\Models\Monument::class, 
+            'user' => \App\Models\User::class,
+        ]);
     }
 }
