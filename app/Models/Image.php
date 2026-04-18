@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $fillable = ['event_id', 'path'];
+    protected $fillable = ['imageable_type', 'imageable_id', 'path'];
 
-    public function event()
+    public function imageable()
     {
-        return $this->belongsTo(User::class);
+        return $this->morphTo();
     }
 }
