@@ -25,7 +25,8 @@
                     @csrf
 
                     <div class="space-y-3">
-                        <label class="text-xs font-bold uppercase tracking-[0.15em] text-slate-500 ml-1">Nom De Catégorie</label>
+                        <label class="text-xs font-bold uppercase tracking-[0.15em] text-slate-500 ml-1">Nom De
+                            Catégorie</label>
                         <input name="name"
                             class="w-full px-6 py-4 bg-slate-50 rounded-[20px] focus:ring-2 focus:ring-primary-container/20 placeholder:text-slate-400 font-semibold text-slate-800 transition-all border border-transparent focus:border-primary-container/20"
                             placeholder="e.g. Mountain Treks" type="text" />
@@ -47,80 +48,23 @@
                             <h3 class="text-2xl font-bold tracking-tight text-slate-900">Taxonomies actives</h3>
                         </div>
                         <span
-                            class="text-xs font-extrabold text-primary-container px-5 py-2 bg-[#f0f9ff] rounded-full border border-blue-100">Total des catégories: 24</span>
+                            class="text-xs font-extrabold text-primary-container px-5 py-2 bg-[#f0f9ff] rounded-full border border-blue-100">Total
+                            des catégories: 24</span>
                     </div>
                     <div class="flex flex-wrap gap-4">
                         <!-- Category Chips with delete marks -->
-                        <div
-                            class="flex items-center gap-2 pl-6 pr-2 py-3 bg-slate-50 rounded-full border border-slate-100 hover:border-blue-200 hover:bg-white transition-all group">
-                            <span class="text-sm font-bold text-slate-700">Adventure</span>
-                            <button
-                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
-                                <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
-                            </button>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 pl-6 pr-2 py-3 bg-slate-50 rounded-full border border-slate-100 hover:border-blue-200 hover:bg-white transition-all group">
-                            <span class="text-sm font-bold text-slate-700">Beach Clubs</span>
-                            <button
-                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
-                                <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
-                            </button>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 pl-6 pr-2 py-3 bg-slate-50 rounded-full border border-slate-100 hover:border-blue-200 hover:bg-white transition-all group">
-                            <span class="text-sm font-bold text-slate-700">Cultural Heritage</span>
-                            <button
-                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
-                                <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
-                            </button>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 pl-6 pr-2 py-3 bg-slate-50 rounded-full border border-slate-100 hover:border-blue-200 hover:bg-white transition-all group">
-                            <span class="text-sm font-bold text-slate-700">Luxury Stays</span>
-                            <button
-                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
-                                <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
-                            </button>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 pl-6 pr-2 py-3 bg-slate-50 rounded-full border border-slate-100 hover:border-blue-200 hover:bg-white transition-all group">
-                            <span class="text-sm font-bold text-slate-700">Ecotourism</span>
-                            <button
-                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
-                                <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
-                            </button>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 pl-6 pr-2 py-3 bg-slate-50 rounded-full border border-slate-100 hover:border-blue-200 hover:bg-white transition-all group">
-                            <span class="text-sm font-bold text-slate-700">Foodie Tours</span>
-                            <button
-                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
-                                <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
-                            </button>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 pl-6 pr-2 py-3 bg-slate-50 rounded-full border border-slate-100 hover:border-blue-200 hover:bg-white transition-all group">
-                            <span class="text-sm font-bold text-slate-700">Wellness</span>
-                            <button
-                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
-                                <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
-                            </button>
-                        </div>
-                        <div
-                            class="flex items-center gap-2 pl-6 pr-2 py-3 bg-slate-50 rounded-full border border-slate-100 hover:border-blue-200 hover:bg-white transition-all group">
-                            <span class="text-sm font-bold text-slate-700">Nightlife</span>
-                            <button
-                                class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
-                                <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
-                            </button>
-                        </div>
-                        <!-- Add New Placeholder -->
-                        <button
-                            class="flex items-center gap-2 px-8 py-3 border-2 border-dashed border-slate-200 rounded-full text-slate-400 hover:border-primary-container hover:text-primary-container transition-all font-bold text-xs uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-lg" data-icon="add">add</span>
-                            Add Tag
-                        </button>
+                        @foreach ($categories as $category)
+                            <div
+                                class="flex items-center gap-2 pl-6 pr-2 py-3 bg-slate-50 rounded-full border border-slate-100 hover:border-blue-200 hover:bg-white transition-all group">
+                                <span class="text-sm font-bold text-slate-700">
+                                {{ $category->name }}
+                            </span>
+                                <button
+                                    class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
+                                    <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
+                                </button>
+                            </div>
+                        @endforeach
                     </div>
                     <!-- Footer metadata -->
                     <div
@@ -132,8 +76,7 @@
                             <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]"
                                     data-icon="update">update</span> Edited 2m ago</span>
                         </div>
-                        <button
-                            class="text-primary-container hover:text-primary transition-colors flex items-center gap-1">
+                        <button class="text-primary-container hover:text-primary transition-colors flex items-center gap-1">
                             <span class="material-symbols-outlined text-base" data-icon="list_alt">list_alt</span>
                             Bulk Edit
                         </button>
