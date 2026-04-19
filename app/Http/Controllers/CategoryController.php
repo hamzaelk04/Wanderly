@@ -28,4 +28,12 @@ class CategoryController extends Controller
 
         return redirect()->route('dashboard.category');
     }
+
+    public function destroy($id)
+    {
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        return redirect()->back();
+    }
 }

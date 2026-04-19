@@ -23,21 +23,23 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/organizer', [OrganizerController::class, 'index'])->name('dashboard.organizer');
-Route::get('/categories', [CategoryController::class, 'index'])->name('dashboard.category');
-Route::get('/admin', function() {
+Route::get('/admin', function () {
     return view('dashboard.admin');
 });
 
-Route::get('/manage/events', function() {
+Route::get('/categories', [CategoryController::class, 'index'])->name('dashboard.category');
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+Route::get('/manage/events', function () {
     return view('dashboard-views.manage-events');
 });
-Route::get('/create/event', function() {
+Route::get('/create/event', function () {
     return view('dashboard-views.create-event');
 });
-Route::get('/create/monument', function() {
+Route::get('/create/monument', function () {
     return view('dashboard-views.create-monument');
 });
-Route::get('/create/category', function() {
+Route::get('/create/category', function () {
     return view('dashboard-views.create-category');
 });
 

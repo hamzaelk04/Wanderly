@@ -49,7 +49,7 @@
                         </div>
                         <span
                             class="text-xs font-extrabold text-primary-container px-5 py-2 bg-[#f0f9ff] rounded-full border border-blue-100">Total
-                            des catégories: 24</span>
+                            des catégories: {{ $categories->count() }}</span>
                     </div>
                     <div class="flex flex-wrap gap-4">
                         <!-- Category Chips with delete marks -->
@@ -57,12 +57,17 @@
                             <div
                                 class="flex items-center gap-2 pl-6 pr-2 py-3 bg-slate-50 rounded-full border border-slate-100 hover:border-blue-200 hover:bg-white transition-all group">
                                 <span class="text-sm font-bold text-slate-700">
-                                {{ $category->name }}
-                            </span>
-                                <button
-                                    class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
-                                    <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
-                                </button>
+                                    {{ $category->name }}
+                                </span>
+                                <form action="{{ route('categories.destroy', $category->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+
+                                    <button type="submit"
+                                        class="w-8 h-8 rounded-full flex items-center justify-center text-slate-300 hover:bg-red-50 hover:text-red-500 transition-all">
+                                        <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
+                                    </button>
+                                </form>
                             </div>
                         @endforeach
                     </div>
