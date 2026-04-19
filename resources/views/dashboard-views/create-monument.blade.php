@@ -162,44 +162,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Accessibility
-                                    Features
-                                </h4> -->
-                                <!-- <div class="space-y-3">
-                                    <label class="flex items-center gap-3 group cursor-pointer">
-                                        <input
-                                            class="w-5 h-5 rounded-md border-slate-200 text-primary focus:ring-primary/20"
-                                            type="checkbox" />
-                                        <span
-                                            class="text-sm text-slate-600 group-hover:text-primary transition-colors">Wheelchair
-                                            Access</span>
-                                    </label>
-                                    <label class="flex items-center gap-3 group cursor-pointer">
-                                        <input
-                                            class="w-5 h-5 rounded-md border-slate-200 text-primary focus:ring-primary/20"
-                                            type="checkbox" />
-                                        <span
-                                            class="text-sm text-slate-600 group-hover:text-primary transition-colors">Parking
-                                            Available</span>
-                                    </label>
-                                    <label class="flex items-center gap-3 group cursor-pointer">
-                                        <input
-                                            class="w-5 h-5 rounded-md border-slate-200 text-primary focus:ring-primary/20"
-                                            type="checkbox" />
-                                        <span
-                                            class="text-sm text-slate-600 group-hover:text-primary transition-colors">Guided
-                                            Tours</span>
-                                    </label>
-                                    <label class="flex items-center gap-3 group cursor-pointer">
-                                        <input
-                                            class="w-5 h-5 rounded-md border-slate-200 text-primary focus:ring-primary/20"
-                                            type="checkbox" />
-                                        <span
-                                            class="text-sm text-slate-600 group-hover:text-primary transition-colors">Public
-                                            Transport
-                                            Access</span>
-                                    </label>
-                                </div> -->
                             </section>
                     </div>
                 </div>
