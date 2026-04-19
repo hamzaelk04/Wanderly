@@ -3,429 +3,505 @@
 <html class="light" lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Create New Event - The Elevated Explorer</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-variant": "#e1e3e4",
-                        "surface-container-low": "#f3f4f5",
-                        "on-primary-container": "#f3f7ff",
-                        "on-secondary-fixed": "#281800",
-                        "on-error": "#ffffff",
-                        "primary-fixed-dim": "#94ccff",
-                        "on-primary-fixed-variant": "#004b74",
-                        "surface-bright": "#f8f9fa",
-                        "outline-variant": "#bfc7d1",
-                        "on-primary": "#ffffff",
-                        "surface": "#f8f9fa",
-                        "error-container": "#ffdad6",
-                        "tertiary-fixed-dim": "#4cd6fb",
-                        "secondary": "#7f5600",
-                        "primary": "#005d90",
-                        "on-background": "#191c1d",
-                        "on-surface-variant": "#404850",
-                        "secondary-fixed": "#ffdeae",
-                        "on-tertiary-container": "#ecf9ff",
-                        "on-error-container": "#93000a",
-                        "tertiary": "#006176",
-                        "on-tertiary": "#ffffff",
-                        "secondary-container": "#f9ad00",
-                        "on-tertiary-fixed-variant": "#004e5f",
-                        "surface-tint": "#006399",
-                        "surface-container-lowest": "#ffffff",
-                        "inverse-surface": "#2e3132",
-                        "secondary-fixed-dim": "#ffba3f",
-                        "inverse-on-surface": "#f0f1f2",
-                        "outline": "#707881",
-                        "on-tertiary-fixed": "#001f27",
-                        "surface-dim": "#d9dadb",
-                        "on-primary-fixed": "#001d32",
-                        "on-secondary-container": "#664500",
-                        "primary-fixed": "#cde5ff",
-                        "on-surface": "#191c1d",
-                        "on-secondary": "#ffffff",
-                        "surface-container": "#edeeef",
-                        "inverse-primary": "#94ccff",
-                        "surface-container-highest": "#e1e3e4",
-                        "primary-container": "#0077b6",
-                        "error": "#ba1a1a",
-                        "background": "#f8f9fa",
-                        "on-secondary-fixed-variant": "#604100"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "fontFamily": {
-                        "headline": ["Plus Jakarta Sans"],
-                        "body": ["Inter"],
-                        "label": ["Inter"]
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Monuments | Wanderly</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#f3f4f5",
+            "inverse-on-surface": "#f0f1f2",
+            "surface-container-highest": "#e1e3e4",
+            "on-tertiary-container": "#ecf9ff",
+            "on-surface": "#191c1d",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#281800",
+            "surface-bright": "#f8f9fa",
+            "on-surface-variant": "#404850",
+            "secondary-fixed-dim": "#ffba3f",
+            "tertiary-container": "#007c95",
+            "surface-dim": "#d9dadb",
+            "on-secondary": "#ffffff",
+            "primary": "#005d90",
+            "surface-tint": "#006399",
+            "surface-container-high": "#e7e8e9",
+            "on-primary-container": "#f3f7ff",
+            "surface-variant": "#e1e3e4",
+            "on-tertiary-fixed": "#001f27",
+            "primary-fixed": "#cde5ff",
+            "error": "#ba1a1a",
+            "background": "#f8f9fa",
+            "on-primary-fixed-variant": "#004b74",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-background": "#191c1d",
+            "outline-variant": "#bfc7d1",
+            "secondary-container": "#f9ad00",
+            "error-container": "#ffdad6",
+            "outline": "#707881",
+            "on-tertiary-fixed-variant": "#004e5f",
+            "tertiary-fixed-dim": "#4cd6fb",
+            "secondary-fixed": "#ffdeae",
+            "on-secondary-fixed-variant": "#604100",
+            "on-secondary-container": "#664500",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#f8f9fa",
+            "primary-container": "#0077b6",
+            "tertiary-fixed": "#b3ebff",
+            "on-primary-fixed": "#001d32",
+            "tertiary": "#006176",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#94ccff",
+            "inverse-primary": "#94ccff",
+            "inverse-surface": "#2e3132",
+            "secondary": "#7f5600",
+            "surface-container": "#edeeef"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
 
-        h1,
-        h2,
-        h3,
-        .brand-font {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
 </head>
 
-<body class="bg-surface text-on-surface">
-    <!-- SideNavBar -->
-    <aside
-        class="fixed left-0 top-0 h-full w-64 z-40 bg-slate-50 dark:bg-slate-950 flex flex-col py-6 h-screen border-r border-slate-200 dark:border-slate-800 font-['Plus_Jakarta_Sans'] text-sm">
-        <div class="px-6 mb-10">
-            <h1 class="text-lg font-black text-sky-900 dark:text-white uppercase tracking-wider">Event Hub</h1>
-            <p class="text-xs text-slate-500">Organizer Portal</p>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+  <!-- Top Navigation Shell -->
+  <header
+    class="bg-white/70 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0px_4px_24px_rgba(0,0,0,0.04)]">
+    <nav class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+      <div class="flex items-center gap-8">
+        <a class="text-2xl font-extrabold tracking-tighter text-[#0077B6] font-headline" href="#">Wanderly</a>
+        <div class="hidden md:flex items-center gap-6">
+          <a class="text-[#0077B6] font-bold border-b-2 border-[#0077B6] pb-1 font-headline tracking-tight"
+            href="#">Destinations</a>
+          <a class="text-slate-500 font-medium hover:text-[#0077B6] transition-all duration-300 rounded-lg font-headline tracking-tight"
+            href="#">Experiences</a>
+          <a class="text-slate-500 font-medium hover:text-[#0077B6] transition-all duration-300 rounded-lg font-headline tracking-tight"
+            href="#">Journal</a>
         </div>
-        <nav class="flex-1 space-y-1">
-            <a class="flex items-center px-6 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all"
-                href="#">
-                <span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
-                <span>Dashboard</span>
-            </a>
-            <a class="flex items-center px-6 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all"
-                href="#">
-                <span class="material-symbols-outlined mr-3" data-icon="event">event</span>
-                <span>My Events</span>
-            </a>
-            <!-- Active State: Create Event -->
-            <a class="flex items-center px-6 py-3 text-sky-700 dark:text-sky-400 font-bold border-r-4 border-sky-600 dark:border-sky-400 bg-sky-50 dark:bg-sky-900/20 transition-all"
-                href="#">
-                <span class="material-symbols-outlined mr-3" data-icon="add_circle">add_circle</span>
-                <span>Create Event</span>
-            </a>
-            <a class="flex items-center px-6 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all"
-                href="#">
-                <span class="material-symbols-outlined mr-3" data-icon="leaderboard">leaderboard</span>
-                <span>Statistics</span>
-            </a>
-        </nav>
-        <div class="px-6 mt-auto space-y-1 border-t border-slate-200 pt-6">
-            <a class="flex items-center py-2 text-slate-600 hover:text-sky-600 transition-colors" href="#">
-                <span class="material-symbols-outlined mr-3" data-icon="help">help</span>
-                <span>Help</span>
-            </a>
-            <a class="flex items-center py-2 text-slate-600 hover:text-error transition-colors" href="#">
-                <span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
-                <span>Logout</span>
-            </a>
+      </div>
+      <div class="flex items-center gap-4">
+        <button class="p-2 transition-all duration-300 hover:bg-slate-100 rounded-lg scale-95 active:opacity-80">
+          <span class="material-symbols-outlined text-[#0077B6]">notifications</span>
+        </button>
+        <button class="p-2 transition-all duration-300 hover:bg-slate-100 rounded-lg scale-95 active:opacity-80">
+          <span class="material-symbols-outlined text-[#0077B6]">favorite</span>
+        </button>
+        <div class="h-10 w-10 rounded-full overflow-hidden border-2 border-surface-container-high">
+          <img class="w-full h-full object-cover"
+            data-alt="professional portrait of a traveler smiling in soft natural light"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNXU0JvjxHCo3HqVja03qwRdou8HzAl8A1yM_KsK6Qn9MbbFYoyRAEsZgAhZFIamNf3j46GqB-QqNJomgdWn6pzWdn56eIHrrWGiWsZgcSeYz2ka-Lu-azgFxLYyFMWYf9kjzpKLjjve1bfelGYOjozwURubagjhWWDKlh3IzTSykf3ebDxIWJuWN6lf8yhkXyfkbeJiKyPgOTJOzzAJaFkOwvO8Xbr7eBZQhoJJ6ieNdbJPxkr5lcJ9bJX3KT8I07ey61PnMsoKE" />
         </div>
-    </aside>
-    <!-- TopNavBar -->
-    <header
-        class="fixed top-0 right-0 left-64 h-16 z-50 bg-white/70 backdrop-blur-md flex justify-between items-center px-8 shadow-sm shadow-sky-900/5 font-['Plus_Jakarta_Sans'] tracking-tight">
-        <div class="flex items-center gap-4">
-            <span class="text-xl font-bold text-sky-800">The Elevated Explorer</span>
+      </div>
+    </nav>
+  </header>
+  <main class="max-w-7xl mx-auto px-6 py-12 pb-32 md:pb-12">
+    <!-- Search & Hero Section -->
+    <div class="mb-12">
+      <h1 class="font-headline font-extrabold text-5xl md:text-6xl text-on-surface tracking-tighter mb-4">Timeless
+        Echoes</h1>
+      <p class="text-on-surface-variant text-lg max-w-2xl font-medium leading-relaxed mb-10">Discover the architectural
+        marvels and sacred landmarks that define the spirit of civilizations past and present.</p>
+      <!-- Sticky Search Bar -->
+      <div class="sticky top-24 z-40">
+        <div
+          class="bg-surface-container-lowest shadow-[0px_4px_32px_rgba(0,0,0,0.06)] rounded-full p-2 flex items-center gap-2 max-w-3xl">
+          <div class="flex-1 flex items-center px-4 gap-3">
+            <span class="material-symbols-outlined text-outline">search</span>
+            <input
+              class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline py-3 font-medium"
+              placeholder="Search by name, city, or history..." type="text" />
+          </div>
+          <button
+            class="bg-gradient-to-br from-[#005d90] to-[#0077B6] text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all scale-100 active:scale-95">Explore</button>
         </div>
-        <div class="flex items-center gap-6">
-            <div class="relative hidden lg:block">
-                <input
-                    class="bg-surface-container-low border-none rounded-full py-2 px-10 text-sm focus:ring-2 focus:ring-primary/20 w-64"
-                    placeholder="Search experiences..." type="text" />
-                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg"
-                    data-icon="search">search</span>
+      </div>
+    </div>
+    <!-- Filters Section -->
+    <div class="flex flex-col md:flex-row gap-4 mb-12 overflow-x-auto hide-scrollbar">
+      <div class="flex items-center gap-4 min-w-max">
+        <div class="relative group">
+          <button
+            class="flex items-center gap-2 bg-surface-container-lowest px-6 py-3 rounded-full text-on-surface font-semibold shadow-sm hover:bg-surface-container-low transition-colors">
+            Category: All
+            <span class="material-symbols-outlined text-outline">expand_more</span>
+          </button>
+        </div>
+        <div class="relative group">
+          <button
+            class="flex items-center gap-2 bg-surface-container-lowest px-6 py-3 rounded-full text-on-surface font-semibold shadow-sm hover:bg-surface-container-low transition-colors">
+            Opening Hours
+            <span class="material-symbols-outlined text-outline">schedule</span>
+          </button>
+        </div>
+        <div class="relative group">
+          <button
+            class="flex items-center gap-2 bg-surface-container-lowest px-6 py-3 rounded-full text-on-surface font-semibold shadow-sm hover:bg-surface-container-low transition-colors">
+            Price Range
+            <span class="material-symbols-outlined text-outline">payments</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 md:ml-auto min-w-max">
+        <span class="text-label-sm font-semibold text-outline px-4">QUICK FILTERS:</span>
+        <button
+          class="px-5 py-2 rounded-full border border-outline-variant text-on-surface-variant font-medium hover:bg-surface-container-low transition-all">Historical
+          Site</button>
+        <button
+          class="px-5 py-2 rounded-full border border-outline-variant text-on-surface-variant font-medium hover:bg-surface-container-low transition-all">Museum</button>
+        <button
+          class="px-5 py-2 rounded-full border border-outline-variant text-on-surface-variant font-medium hover:bg-surface-container-low transition-all">Religious</button>
+      </div>
+    </div>
+    <!-- Bento Grid of Monument Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Card 1: Parthenon -->
+      <div
+        class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-500 group flex flex-col">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            data-alt="the ancient parthenon temple in athens at sunset with golden light hitting the marble columns"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2UVIetZd0CfZrVaQs_LTG9i-2MhLd3Zi88_CBcxvfOZC9k1KZ1DyrN9gjmqcGYZ1NGY4ZvZ_OozR9vATwHyUM1M4FPtfd0K6i2TXNP2fbxWPrqVf3NRe11rq5MP6UVqoA5LbmO214sVFWrI8VMqJ1eHrQnBA064MdzLCMp5WuVMW2J0zxmMJ276URO2WeYL3N-bEyT933Uzpuq-AOnGbnhaFwAZsUzzqkk4FsDvSyz6pNrR402yEKMtn2isBwC9knWPeN2RFlVWM" />
+          <div
+            class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest text-primary uppercase">
+            Historical Site</div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-headline font-bold text-2xl text-on-surface">The Parthenon</h3>
+            <span class="text-secondary font-bold">$22.00</span>
+          </div>
+          <div class="flex items-center gap-1 text-outline mb-4">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            <span class="text-xs font-semibold tracking-wide uppercase">Athens, Greece</span>
+          </div>
+          <p class="text-on-surface-variant text-sm mb-6 leading-relaxed line-clamp-2">A former temple on the Athenian
+            Acropolis dedicated to the goddess Athena, completed in 438 BC.</p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Hours</span>
+              <span class="text-sm font-semibold">08:00 - 20:00</span>
             </div>
-            <button class="text-slate-500 hover:text-primary transition-colors">
-                <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-            </button>
-            <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
-                <div class="text-right">
-                    <p class="text-sm font-semibold text-slate-900 leading-none">Marco Rossi</p>
-                    <p class="text-xs text-slate-500 uppercase tracking-tighter">Gold Curator</p>
-                </div>
-                <img alt="User avatar" class="w-10 h-10 rounded-full border-2 border-white shadow-sm"
-                    data-alt="close up headshot of a smiling professional man in his 40s with clean short hair against a neutral office background"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP77u2G4aBtjLtcI7MXHRblTWXsmYTUNMPSU0vS3xmLUW8PTVxMIjyFO2a6LNSO886vjyfKriQ-QtmafcDksKEqH3-EESE2sHKYcoSyxojkA50CvidBvmrAyR9_JviA08YrkDhe3VclY0HYUsOKVCVM3x_yclvbxiqXBLhW7Egx24U5AlgY15j31zHWoSmuPFKGynzNgx5YY16EMbu4tGEj3jCZrI1R2vC_HM9TYmlcCZV1tfkqqTHxcCp6N1dzZnnzABuvLwANiw" />
+            <div class="flex gap-2">
+              <span
+                class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors cursor-help"
+                title="Wheelchair Accessible">accessible</span>
+              <span
+                class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors cursor-help"
+                title="Audio Guide Available">audio_file</span>
             </div>
+          </div>
+          <button
+            class="mt-6 w-full py-4 rounded-xl bg-surface-container-low text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300">View
+            Details</button>
         </div>
-    </header>
-    <!-- Main Content Area -->
-    <main class="ml-64 mt-16 p-8 min-h-screen bg-surface">
-        <div class="max-w-4xl mx-auto">
-            <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                <div>
-                    <span class="text-primary font-bold text-sm tracking-widest uppercase mb-2 block">Curation
-                        Portal</span>
-                    <h2 class="text-4xl font-extrabold tracking-tight text-on-surface">Design New Journey</h2>
-                    <p class="text-on-surface-variant mt-2 text-lg">Every great adventure begins with a single detail.
-                    </p>
-                </div>
-                <div class="flex items-center gap-3">
-                    <button
-                        class="px-6 py-2.5 rounded-full border border-outline-variant font-semibold text-on-surface-variant hover:bg-surface-container transition-all">Save
-                        Draft</button>
-                    <button
-                        class="px-8 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Publish
-                        Experience</button>
-                </div>
-            </div>
-            <div class="space-y-8 pb-20">
-                <!-- Section 1: Basic Information -->
-                <section class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                            <span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
-                        </div>
-                        <h3 class="text-xl font-bold">Basic Information</h3>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="space-y-2 md:col-span-2">
-                            <label class="text-sm font-semibold text-slate-700 ml-1">Event Title</label>
-                            <input
-                                class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                placeholder="e.g., Midnight Gastronomy in Tokyo" type="text" />
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-slate-700 ml-1">Category</label>
-                            <select
-                                class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface appearance-none">
-                                <option>Cultural</option>
-                                <option>Sport</option>
-                                <option>Artistic</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="space-y-2 opacity-50 pointer-events-none">
-                            <label class="text-sm font-semibold text-slate-700 ml-1">New Category (Optional)</label>
-                            <input
-                                class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                placeholder="Custom label" type="text" />
-                        </div>
-                        <div class="space-y-2 md:col-span-2">
-                            <label class="text-sm font-semibold text-slate-700 ml-1">The Destination</label>
-                            <input
-                                class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                placeholder="Enter venue name or street..." type="text" />
-                        </div>
-                        <div class="space-y-2 md:col-span-2">
-                            <label class="text-sm font-semibold text-slate-700 ml-1">Description</label>
-                            <textarea
-                                class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                placeholder="Describe the soul of this experience..." rows="5"></textarea>
-                        </div>
-                    </div>
-                </section>
-                <!-- Section 2: Media Upload -->
-                <section class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                            <span class="material-symbols-outlined" data-icon="image">image</span>
-                        </div>
-                        <h3 class="text-xl font-bold">Visual Storytelling</h3>
-                    </div>
-                    <div
-                        class="border-2 border-dashed border-outline-variant rounded-2xl p-10 text-center hover:bg-slate-50 transition-colors cursor-pointer group">
-                        <span
-                            class="material-symbols-outlined text-5xl text-slate-300 group-hover:text-primary transition-colors"
-                            data-icon="cloud_upload">cloud_upload</span>
-                        <p class="mt-4 text-on-surface-variant font-medium">Drag and drop high-resolution images here
-                        </p>
-                        <p class="text-xs text-slate-400 mt-1 uppercase tracking-widest">Recommended: 1920x1080px (Max
-                            10MB)</p>
-                    </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 mt-6">
-                        <div class="aspect-square rounded-xl overflow-hidden relative group shadow-md">
-                            <img alt="Gallery item" class="w-full h-full object-cover"
-                                data-alt="atmospheric photo of a dark moody cocktail bar with warm glowing Edison bulbs and crystal glassware on a marble bar"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA-zxM_4y9pNTW8cbT0RVS-gVKunfczW2inoo8cshkbvYmg5izxO8QboeXI4WOi3eQf4_BrODKhFa1sglm92sG3Xv0PMNdi2KQdCd471FK9pgAAGVICosv1nGpFEVV92c5bC0Dseom01ipbs12jCgVUQXxXYd6xAn_I9wzqpllCAhehBVngsmxNum-Q603KsAA8U1MH7v2me4DBgPcgmVArYXN42rQEeCoRXFDtjijUKWtaIaF_DI8zKm9HuSMq0wLaDUMRklp-wk" />
-                            <button
-                                class="absolute top-2 right-2 w-7 h-7 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-error opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
-                            </button>
-                        </div>
-                        <div class="aspect-square rounded-xl overflow-hidden relative group shadow-md">
-                            <img alt="Gallery item" class="w-full h-full object-cover"
-                                data-alt="majestic high-altitude mountain peak shrouded in light mist under a clear deep blue morning sky"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPGiEgUc3eZklalP-GaOypRq87Z3tExGCDXLTXYjANcCHnzUV367NCMD3plmIp6YDm43ogGgPPFjqK8aL-nrBHtPmO6qQaxZiTYJM3ydOEB2JALauB2-ji3N-X7BP91hiGhM-8WgkVR2yL_BOjo5aM1UtcaoAQ0KSP5Oxa-LKsUYtI9T_oMoOK7Q_3g2KwzUN1p1Xx-2dqpfDAhUA0gj8g11xifQvy2ruukzqlYWwVyPCPmSHQXJcnqVMq3t6tWTH2WZTrG1fdkUY" />
-                            <button
-                                class="absolute top-2 right-2 w-7 h-7 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-error opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
-                            </button>
-                        </div>
-                        <div
-                            class="aspect-square rounded-xl border-2 border-slate-100 bg-slate-50 flex items-center justify-center text-slate-300">
-                            <span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
-                        </div>
-                    </div>
-                </section>
-                <!-- Section 4: Schedule -->
-                <section class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                            <span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
-                        </div>
-                        <h3 class="text-xl font-bold">Schedule</h3>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-slate-700 ml-1">Event Date</label>
-                            <input
-                                class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                type="date" />
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-slate-700 ml-1">Estimated Duration</label>
-                            <div class="relative">
-                                <input
-                                    class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface pr-12"
-                                    placeholder="3 hours" type="text" />
-                                <span
-                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">HRS</span>
-                            </div>
-                        </div>
-                        <div class="pb-4">
-                            <label class="flex items-center gap-3 cursor-pointer group">
-                                <div
-                                    class="w-6 h-6 rounded-md bg-surface-container-low flex items-center justify-center text-white transition-colors group-hover:bg-slate-200">
-                                    <input class="hidden" type="checkbox" />
-                                    <span class="material-symbols-outlined text-sm hidden"
-                                        data-icon="check">check</span>
-                                </div>
-                                <span class="text-sm font-medium text-slate-600">Date to be announced</span>
-                            </label>
-                        </div>
-                    </div>
-                </section>
-                <!-- Section 5: Tickets & Pricing -->
-                <section class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm">
-                    <div class="flex items-center justify-between mb-8">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                                <span class="material-symbols-outlined" data-icon="payments">payments</span>
-                            </div>
-                            <h3 class="text-xl font-bold">Tickets &amp; Pricing</h3>
-                        </div>
-                        <button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
-                            <span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
-                            Add Ticket Type
-                        </button>
-                    </div>
-                    <div class="space-y-4">
-                        <!-- Ticket Row 1 -->
-                        <div class="flex flex-col md:flex-row gap-4 p-5 bg-surface-container-low rounded-2xl relative">
-                            <div class="flex-1 space-y-2">
-                                <label class="text-xs font-bold text-slate-500 uppercase ml-1">Tier Name</label>
-                                <input
-                                    class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                    type="text" value="Standard Pass" />
-                            </div>
-                            <div class="w-full md:w-32 space-y-2">
-                                <label class="text-xs font-bold text-slate-500 uppercase ml-1">Price (USD)</label>
-                                <input
-                                    class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                    type="number" value="45" />
-                            </div>
-                            <div class="w-full md:w-32 space-y-2">
-                                <label class="text-xs font-bold text-slate-500 uppercase ml-1">Quantity</label>
-                                <input
-                                    class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                    type="number" value="100" />
-                            </div>
-                            <div class="flex items-end pb-1">
-                                <button
-                                    class="w-10 h-10 flex items-center justify-center text-error/40 hover:text-error transition-colors">
-                                    <span class="material-symbols-outlined" data-icon="delete">delete</span>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Ticket Row 2 -->
-                        <div class="flex flex-col md:flex-row gap-4 p-5 bg-surface-container-low rounded-2xl relative">
-                            <div class="flex-1 space-y-2">
-                                <label class="text-xs font-bold text-slate-500 uppercase ml-1">Tier Name</label>
-                                <input
-                                    class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                    placeholder="e.g. VIP Access" type="text" />
-                            </div>
-                            <div class="w-full md:w-32 space-y-2">
-                                <label class="text-xs font-bold text-slate-500 uppercase ml-1">Price (USD)</label>
-                                <input
-                                    class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                    placeholder="0" type="number" />
-                            </div>
-                            <div class="w-full md:w-32 space-y-2">
-                                <label class="text-xs font-bold text-slate-500 uppercase ml-1">Quantity</label>
-                                <input
-                                    class="w-full bg-white border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface"
-                                    placeholder="0" type="number" />
-                            </div>
-                            <div class="flex items-end pb-1">
-                                <button
-                                    class="w-10 h-10 flex items-center justify-center text-error/40 hover:text-error transition-colors">
-                                    <span class="material-symbols-outlined" data-icon="delete">delete</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Section 6: Submission -->
-                <section
-                    class="bg-surface-container-low rounded-3xl p-8 border-2 border-dashed border-outline-variant/30 text-center">
-                    <div class="max-w-md mx-auto space-y-6">
-                        <div
-                            class="inline-flex items-center gap-2 bg-secondary-fixed px-4 py-2 rounded-full text-on-secondary-container">
-                            <span class="material-symbols-outlined text-lg" data-icon="security"
-                                data-weight="fill">security</span>
-                            <span class="text-xs font-bold uppercase tracking-wider">Quality Review Pending</span>
-                        </div>
-                        <p class="text-on-surface-variant leading-relaxed">Your event will be curated and reviewed by a
-                            Wanderly
-                            administrator before publication to ensure it meets our "Elevated Experience" standards.</p>
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                            <button
-                                class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-primary to-primary-container text-white rounded-full font-bold shadow-2xl shadow-primary/30 hover:-translate-y-1 transition-all active:translate-y-0">
-                                Submit for Review
-                            </button>
-                            <button
-                                class="w-full sm:w-auto px-10 py-4 font-bold text-on-surface-variant hover:text-on-surface transition-colors">
-                                Cancel
-                            </button>
-                        </div>
-                    </div>
-                </section>
-            </div>
+      </div>
+      <!-- Card 2: Notre Dame -->
+      <div
+        class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-500 group flex flex-col">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            data-alt="close up architecture of notre dame cathedral in paris with intricate stone carvings under a clear blue sky"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCswumqQ_L0d-JKNF2mF5UH0RWuHvjf0GcAfbo-eHlyQpxi8bjgGgwF2LehTI9SgVLyuo69_C6IMFkybiFq0c5Vt1nSvo4Z_wTgV7ALDq4Pux-6bPIgUG5Hj9C2qxAoDrTpam-V6D05ItJ6od8QRY2msyqVHEsHGmw6zAwqAzgbIn2q3HUjg-PqOw2axGujjA91QbGg52WsuF5gEiDzZRwCbEMlAlXo8aARA44NGuqT5s_g7cLyHXCg7Q1mkMm85ve7sRyqsthzbX4" />
+          <div
+            class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest text-primary uppercase">
+            Religious Monument</div>
         </div>
-    </main>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-headline font-bold text-2xl text-on-surface">Notre-Dame</h3>
+            <span class="text-secondary font-bold">Free</span>
+          </div>
+          <div class="flex items-center gap-1 text-outline mb-4">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            <span class="text-xs font-semibold tracking-wide uppercase">Paris, France</span>
+          </div>
+          <p class="text-on-surface-variant text-sm mb-6 leading-relaxed line-clamp-2">A medieval Catholic cathedral on
+            the Île de la Cité, one of the finest examples of French Gothic architecture.</p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Hours</span>
+              <span class="text-sm font-semibold">Temporarily Closed</span>
+            </div>
+            <div class="flex gap-2">
+              <span
+                class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors cursor-help"
+                title="Tactile Map Available">blind</span>
+            </div>
+          </div>
+          <button
+            class="mt-6 w-full py-4 rounded-xl bg-surface-container-low text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300">View
+            Restoration</button>
+        </div>
+      </div>
+      <!-- Card 3: Statue of Liberty -->
+      <div
+        class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-500 group flex flex-col">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            data-alt="the statue of liberty standing tall against a bright blue sky on a clear day in new york harbor"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDR0Lj4XtV3UyEHDlC0c7DadamcXf1ChTLg7dH1hiaiB3hmsDJq9huU2nwK6sbSoqyTTN9SwpqUxFjgaSjC_mN71uLmgP85RP9wmhnu3b5KIP0GUdSCPMBKoJnIiw8-8Qh-cBl7VOx3b3dJ1ehNFM3hkyeZ-_f9uYtXl0RiD0faNzJxoBvEeXcpy4HIwdmJazze3eERDGPHVCVBorFH-e3CFqKxoIUPsnNAFpXbtNiulEnC38v6qNffTcXwpFgjXue8zcsCUcBwTk" />
+          <div
+            class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest text-primary uppercase">
+            Statue</div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-headline font-bold text-2xl text-on-surface">Statue of Liberty</h3>
+            <span class="text-secondary font-bold">$18.50</span>
+          </div>
+          <div class="flex items-center gap-1 text-outline mb-4">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            <span class="text-xs font-semibold tracking-wide uppercase">New York, USA</span>
+          </div>
+          <p class="text-on-surface-variant text-sm mb-6 leading-relaxed line-clamp-2">A colossal neoclassical sculpture
+            on Liberty Island, a gift from the people of France to the United States.</p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Hours</span>
+              <span class="text-sm font-semibold">09:00 - 17:00</span>
+            </div>
+            <div class="flex gap-2">
+              <span
+                class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors cursor-help"
+                title="Wheelchair Accessible">accessible</span>
+              <span
+                class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors cursor-help"
+                title="Elevator Available">elevator</span>
+            </div>
+          </div>
+          <button
+            class="mt-6 w-full py-4 rounded-xl bg-surface-container-low text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300">View
+            Details</button>
+        </div>
+      </div>
+      <!-- Card 4: Giza Pyramids -->
+      <div
+        class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-500 group flex flex-col">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            data-alt="the great pyramids of giza at dawn with soft morning light illuminating the ancient stone structures"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrIPySMFev4fCP6MAPOUtnA4ORLGd7_5xCMC3CztSsbhpfpf07dlg0DPZYzAFZtJZnFPKMnAVpme1EkIdbfMfIgr0VejKCZDqmwClBsk5nHmCl19hmDPToNQfLgTdGxAFT88QiT1dvxwNfE-2gxvOqhqeiEz_WyknRy6twsc2yFPnbC-ys6GrV1OqXkYCYIJtYn-uqzz4aBb9JaaFhSXQ94R6UvJ3xScobvH2a2H_6W3w8X-R8UQoqHKK5LKxxenFx8SI2BPi0lFs" />
+          <div
+            class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest text-primary uppercase">
+            Archaeological Site</div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-headline font-bold text-2xl text-on-surface">Great Pyramid</h3>
+            <span class="text-secondary font-bold">$15.00</span>
+          </div>
+          <div class="flex items-center gap-1 text-outline mb-4">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            <span class="text-xs font-semibold tracking-wide uppercase">Giza, Egypt</span>
+          </div>
+          <p class="text-on-surface-variant text-sm mb-6 leading-relaxed line-clamp-2">The oldest and largest of the
+            pyramids in the Giza pyramid complex, one of the Seven Wonders of the Ancient World.</p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Hours</span>
+              <span class="text-sm font-semibold">08:00 - 16:00</span>
+            </div>
+            <div class="flex gap-2">
+              <span
+                class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors cursor-help"
+                title="Guided Tours">groups</span>
+            </div>
+          </div>
+          <button
+            class="mt-6 w-full py-4 rounded-xl bg-surface-container-low text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300">View
+            Details</button>
+        </div>
+      </div>
+      <!-- Card 5: Colosseum -->
+      <div
+        class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-500 group flex flex-col">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            data-alt="the majestic colosseum in rome at twilight with street lamps glowing and a dramatic blue hour sky"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuALo0Azft2Ob7fquHe2ZKQKIs1yn9z-VBwrwssujrYhpKEMsJM38rxposfp6ILh0NnnrSuMC_nNbU0nXZOu6p5owJybsbjpDir0Nm1TQv11CA0OkcoA8ykMlbzDeZ0bhHaAavf8sz9hOPJJP1KzR9kE6uWRMc1k1J4NKK86plec_gdVRHjgELhqZVMjLtqj6xZ9BC6TdHR4X3lfJcNNO9i7zwrEFml6QZG3F0_kXnF6E8UeXO_KE_wMlZQVc5vyszXx25LTTdudSXc" />
+          <div
+            class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest text-primary uppercase">
+            Historical Site</div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-headline font-bold text-2xl text-on-surface">Colosseum</h3>
+            <span class="text-secondary font-bold">$24.00</span>
+          </div>
+          <div class="flex items-center gap-1 text-outline mb-4">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            <span class="text-xs font-semibold tracking-wide uppercase">Rome, Italy</span>
+          </div>
+          <p class="text-on-surface-variant text-sm mb-6 leading-relaxed line-clamp-2">An oval amphitheatre in the
+            centre of the city of Rome, the largest ancient amphitheatre ever built.</p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Hours</span>
+              <span class="text-sm font-semibold">09:00 - 19:15</span>
+            </div>
+            <div class="flex gap-2">
+              <span
+                class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors cursor-help"
+                title="Wheelchair Accessible">accessible</span>
+            </div>
+          </div>
+          <button
+            class="mt-6 w-full py-4 rounded-xl bg-surface-container-low text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300">View
+            Details</button>
+        </div>
+      </div>
+      <!-- Card 6: Louvre Museum -->
+      <div
+        class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-500 group flex flex-col">
+        <div class="relative h-64 overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            data-alt="the glass pyramid entrance of the louvre museum in paris during golden hour with clear reflections"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDif-PhIXhyueF8Bk3iBuK-IIw1OMmOzlis38vT48q9aJKZeEtvH319Y8AZqpkK8TZOGrYvwVdVoEIo6YHnhkoI0x5J8016o00-pZMzQ0suCtOGnH79uys0pmKT1bZ-jtzNJfEPS-6WOJOiA2kQCS_Fdkm05zvnAtuvaF-j9w1X7agcSNzn2S5OyusKmlhN3Ke3Us4eGsd86_MYWzWDUSDVIY15VQe_S2ifID1kriYL0PamZMtaulUqBMma-u_nNDqS0L1idcU5Rlo" />
+          <div
+            class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold tracking-widest text-primary uppercase">
+            Museum</div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-headline font-bold text-2xl text-on-surface">Louvre Museum</h3>
+            <span class="text-secondary font-bold">$17.00</span>
+          </div>
+          <div class="flex items-center gap-1 text-outline mb-4">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            <span class="text-xs font-semibold tracking-wide uppercase">Paris, France</span>
+          </div>
+          <p class="text-on-surface-variant text-sm mb-6 leading-relaxed line-clamp-2">The world's most-visited museum
+            and a historic monument in Paris, home to the Mona Lisa.</p>
+          <div class="flex items-center justify-between mt-auto">
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Hours</span>
+              <span class="text-sm font-semibold">09:00 - 18:00</span>
+            </div>
+            <div class="flex gap-2">
+              <span
+                class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors cursor-help"
+                title="Wheelchair Accessible">accessible</span>
+              <span
+                class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors cursor-help"
+                title="Audio Guide Available">audio_file</span>
+            </div>
+          </div>
+          <button
+            class="mt-6 w-full py-4 rounded-xl bg-surface-container-low text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300">View
+            Details</button>
+        </div>
+      </div>
+    </div>
+    <!-- Map Preview Section -->
+    <section class="mt-24 mb-12">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+        <div>
+          <h2 class="font-headline font-extrabold text-3xl text-on-surface tracking-tight mb-2">Heritage Map</h2>
+          <p class="text-on-surface-variant font-medium">Navigate through centuries of history spatially.</p>
+        </div>
+        <button class="flex items-center gap-2 text-primary font-bold hover:underline underline-offset-4">
+          Open Interactive View
+          <span class="material-symbols-outlined">map</span>
+        </button>
+      </div>
+      <div class="h-[500px] w-full bg-surface-container rounded-[32px] relative overflow-hidden group shadow-inner">
+        <img
+          class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-[20s] ease-linear"
+          data-alt="a stylized topographical map illustration with subtle architectural icons and soft wanderly color palette"
+          data-location="Europe"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJscgCRNPyYtGSYHyEZ5v637793DYsf-BKg8JNxD8zBcYLYwX4AvOfRDAaxJI3FDrhNfzc41sscG_hTomoeYS4D9DhtKu6EkVEp2-8AzYTg-HSJINhMZdmyf8QNUzTnuDof82sWg6bt0f1L-GlQ86IwVPpg0Ec4bf5W_hapjNpqQl-9uZZuPPbc8cbRfNh3Xmk_pRO6uPV65ic5s5zmsJEeii6i67HPXCQg9S4RTeKMSlQvfe67at186IOGQEMDimVOeYvJlAq6Sc" />
+        <!-- Floating Info Card on Map -->
+        <div
+          class="absolute bottom-8 left-8 bg-white/80 backdrop-blur-xl p-6 rounded-2xl shadow-2xl max-w-sm border border-white/50">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary">explore</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-outline uppercase tracking-widest">Closest to you</p>
+              <h4 class="font-bold text-on-surface">Brandenburg Gate</h4>
+            </div>
+          </div>
+          <p class="text-sm text-on-surface-variant leading-relaxed mb-4">You are currently 4.2 miles away from the
+            neoclassical monument in Berlin.</p>
+          <button class="w-full py-3 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/20">Navigate
+            Now</button>
+        </div>
+        <!-- Mock Map Pins -->
+        <div
+          class="absolute top-1/4 left-1/3 p-2 bg-white rounded-full shadow-lg border-2 border-primary animate-pulse">
+        </div>
+        <div class="absolute top-1/2 right-1/4 p-2 bg-white rounded-full shadow-lg border-2 border-secondary"></div>
+        <div class="absolute bottom-1/3 left-1/2 p-2 bg-white rounded-full shadow-lg border-2 border-primary"></div>
+      </div>
+    </section>
+  </main>
+  <!-- Bottom Navigation Shell (Mobile) -->
+  <nav
+    class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white shadow-[0_-10px_40px_rgba(0,0,0,0.05)] rounded-t-[32px]">
+    <div
+      class="flex flex-col items-center justify-center bg-gradient-to-br from-[#005d90] to-[#0077B6] text-white rounded-full p-3 shadow-lg scale-110 duration-200 ease-out">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+      <span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Explore</span>
+    </div>
+    <div class="flex flex-col items-center justify-center text-slate-400 p-3 hover:text-[#0077B6] transition-colors">
+      <span class="material-symbols-outlined">bookmark</span>
+      <span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Saved</span>
+    </div>
+    <div class="flex flex-col items-center justify-center text-slate-400 p-3 hover:text-[#0077B6] transition-colors">
+      <span class="material-symbols-outlined">map</span>
+      <span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Trips</span>
+    </div>
+    <div class="flex flex-col items-center justify-center text-slate-400 p-3 hover:text-[#0077B6] transition-colors">
+      <span class="material-symbols-outlined">person</span>
+      <span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+    </div>
+  </nav>
+  <!-- Contextual FAB (Only on main explore pages) -->
+  <button
+    class="fixed bottom-24 right-6 md:bottom-12 md:right-12 h-16 w-16 rounded-full bg-secondary-container text-on-secondary-container shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40">
+    <span class="material-symbols-outlined text-3xl">add_location_alt</span>
+  </button>
 </body>
 
 </html>

@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MonumentController;
 use App\Http\Controllers\OrganizerController;
+use App\Models\Monument;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 
@@ -27,7 +28,7 @@ Route::get('/admin', function () {
     return view('dashboard.admin');
 });
 
-Route::get('/categories', [CategoryController::class, 'index'])->name('dashboard.category');
+Route::get('/create/category', [CategoryController::class, 'index'])->name('dashboard.category');
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 Route::get('/manage/events', function () {
@@ -46,3 +47,5 @@ Route::get('/create/category', function () {
 Route::post('/create/event', [EventController::class, 'store'])->name('create-event');
 Route::post('/create/monument', [MonumentController::class, 'store'])->name('create-monument');
 Route::post('/create/category', [CategoryController::class, 'store'])->name('create-category');
+
+Route::get('/monument', [MonumentController::class, 'index']);

@@ -13,7 +13,9 @@ class MonumentController extends Controller
      */
     public function index()
     {
-        //
+        $monuments = Monument::all();
+
+        return view('monument', compact('monuments'));
     }
 
     /**
