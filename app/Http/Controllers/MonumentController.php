@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Monument;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MonumentController extends Controller
 {
@@ -27,7 +29,49 @@ class MonumentController extends Controller
      */
     public function store(Request $request)
     {
-        return dd($request);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'history' => 'nullable|string',
+            'openning' => 'nullable|date_format:H:i',
+            'closing' => 'nullable|date_format:H:i',
+            'fees' => 'nullable|numeric',
+            'images.*' => 'image|max:10240',
+        ]);
+
+        DB::beginTransaction();
+
+        try {
+            $monument = Monument::create([
+                'name' => $request->name,
+                'city' => $request->city,
+                'address' => $request->address,
+                'description' => $request->description,
+                'history' => $request->history,
+                'openning' => $request->openning,
+                'closing' => $request->closing,
+                'fees' => $request->fees,
+            ]);
+
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $path = $image->store('monuments', 'public');
+
+                    $monument->images()->create([
+                        'path' => $path
+                    ]);
+                }
+            }
+
+            DB::commit();
+
+            return redirect()->route('dashboard.organizer');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            dd($th->getMessage());
+        }
     }
 
     /**
