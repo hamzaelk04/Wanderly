@@ -162,10 +162,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Accessibility
+                                <!-- <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Accessibility
                                     Features
-                                </h4>
-                                <div class="space-y-3">
+                                </h4> -->
+                                <!-- <div class="space-y-3">
                                     <label class="flex items-center gap-3 group cursor-pointer">
                                         <input
                                             class="w-5 h-5 rounded-md border-slate-200 text-primary focus:ring-primary/20"
@@ -199,7 +199,7 @@
                                             Transport
                                             Access</span>
                                     </label>
-                                </div>
+                                </div> -->
                             </section>
                     </div>
                 </div>
