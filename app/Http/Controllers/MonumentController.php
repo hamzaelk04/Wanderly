@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Monument;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +24,9 @@ class MonumentController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('dashboard-views.create-monument', compact('categories'));
     }
 
     /**

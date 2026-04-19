@@ -34,11 +34,9 @@
                                     class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Catégorie</label>
                                 <select name="category"
                                     class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/20 appearance-none">
-                                    <option>Historical Site</option>
-                                    <option>Museum</option>
-                                    <option>Religious Monument</option>
-                                    <option>Statue</option>
-                                    <option>Archaeological Site</option>
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div>
