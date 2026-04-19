@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <form action="">
+    <form action="{{ route('create-monument') }}" method="post" enctype="multipart/form-data">
         <div class="p-8 max-w-6xl mx-auto w-full">
             <!-- Header Section -->
             <div class="mb-10 flex justify-between items-end">
@@ -11,7 +11,9 @@
                         nos explorateurs à trouver leur prochain éveil culturel..</p>
                 </div>
             </div>
-            <form action="">
+            <form action="{{ route('create-monument') }}" method="post" enctype="multipart/form-data">
+                @csrf
+
                 <div class="grid grid-cols-12 gap-8">
                     <!-- Section 1: Basic Information -->
                     <div class="col-span-12 md:col-span-7 space-y-8">
@@ -100,7 +102,7 @@
                                     class="hidden" />
                                 <p class="text-sm font-semibold text-slate-700">Déposez vos photos haute résolution ici</p>
                                 <p class="text-xs text-slate-400 mt-1">PNG, JPG jusqu'à 10 Mo chacun</p>
-                                <button
+                                <button type="button"
                                     class="mt-4 px-4 py-2 bg-white rounded-lg text-xs font-bold text-primary shadow-sm border border-slate-100">Parcourir
                                     les fichiers
                                 </button>
@@ -129,40 +131,40 @@
                                     <span class="material-symbols-outlined">add</span>
                                 </div>
                             </div>
-                            <section class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <span class="material-symbols-outlined text-primary">analytics</span>
-                                    <h3 class="text-xl font-bold tracking-tight">Logistique</h3>
+                        </section>
+                        <section class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm">
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="material-symbols-outlined text-primary">analytics</span>
+                                <h3 class="text-xl font-bold tracking-tight">Logistique</h3>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mb-8">
+                                <div>
+                                    <label
+                                        class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Ouverture</label>
+                                    <input name="openning"
+                                        class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-sm focus:ring-2 focus:ring-primary/20"
+                                        type="time" />
                                 </div>
-                                <div class="grid grid-cols-2 gap-4 mb-8">
-                                    <div>
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Ouverture</label>
-                                        <input name="openning"
-                                            class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-sm focus:ring-2 focus:ring-primary/20"
-                                            type="time" />
-                                    </div>
-                                    <div>
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Fermeture</label>
-                                        <input name="closing"
-                                            class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-sm focus:ring-2 focus:ring-primary/20"
-                                            type="time" />
-                                    </div>
-                                    <div class="col-span-2">
-                                        <label
-                                            class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Frais
-                                            d'entrée (MAD)</label>
-                                        <div class="relative">
-                                            <span
-                                                class="absolute end pr-4 top-1/2 -translate-y-1/2 text-slate-400">MAD</span>
-                                            <input name="fees"
-                                                class="w-full bg-surface-container-low border-none rounded-xl py-3 pl-8 pr-4 text-sm focus:ring-2 focus:ring-primary/20"
-                                                placeholder="0.00" type="number" />
-                                        </div>
+                                <div>
+                                    <label
+                                        class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Fermeture</label>
+                                    <input name="closing"
+                                        class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-sm focus:ring-2 focus:ring-primary/20"
+                                        type="time" />
+                                </div>
+                                <div class="col-span-2">
+                                    <label
+                                        class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Frais
+                                        d'entrée (MAD)</label>
+                                    <div class="relative">
+                                        <span class="absolute end pr-4 top-1/2 -translate-y-1/2 text-slate-400">MAD</span>
+                                        <input name="fees"
+                                            class="w-full bg-surface-container-low border-none rounded-xl py-3 pl-8 pr-4 text-sm focus:ring-2 focus:ring-primary/20"
+                                            placeholder="0.00" type="number" />
                                     </div>
                                 </div>
-                            </section>
+                            </div>
+                        </section>
                     </div>
                 </div>
                 <!-- Mobile Action Bar -->
@@ -172,9 +174,10 @@
                         <span>Draft autosaved 2 minutes ago</span>
                     </div>
                     <div class="flex gap-4">
-                        <button
-                            class="px-6 py-3 rounded-full text-slate-600 font-semibold hover:bg-slate-100 transition-all">Annuler</button>
-                        <button
+                        <button type="button"
+                            class="px-6 py-3 rounded-full text-slate-600 font-semibold hover:bg-slate-100 transition-all">Annuler
+                        </button>
+                        <button type="submit"
                             class="px-8 py-3 rounded-full bg-linear-to-br from-primary to-primary-container text-white font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">Soumettre
                             un monument</button>
                     </div>

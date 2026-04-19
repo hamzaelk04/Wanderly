@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\MonumentController;
 use App\Http\Controllers\OrganizerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
@@ -36,3 +37,4 @@ Route::get('/create/monument', function() {
 });
 
 Route::post('/create/event', [EventController::class, 'store'])->name('create-event');
+Route::post('/create/monument', [MonumentController::class, 'store'])->name('create-monument');
