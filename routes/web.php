@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MonumentController;
 use App\Http\Controllers\OrganizerController;
@@ -22,6 +23,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/organizer', [OrganizerController::class, 'index'])->name('dashboard.organizer');
+Route::get('/categories', [CategoryController::class, 'index'])->name('dashboard.category');
 Route::get('/admin', function() {
     return view('dashboard.admin');
 });
@@ -41,3 +43,4 @@ Route::get('/create/category', function() {
 
 Route::post('/create/event', [EventController::class, 'store'])->name('create-event');
 Route::post('/create/monument', [MonumentController::class, 'store'])->name('create-monument');
+Route::post('/create/category', [CategoryController::class, 'store'])->name('create-category');

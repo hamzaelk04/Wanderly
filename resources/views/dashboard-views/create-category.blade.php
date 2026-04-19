@@ -21,21 +21,14 @@
                         <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">Créer une catégorie</p>
                     </div>
                 </div>
-                <form class="space-y-6" method="post" action="">
+                <form class="space-y-6" method="post" action="{{ Route('create-category') }}">
+                    @csrf
+
                     <div class="space-y-3">
                         <label class="text-xs font-bold uppercase tracking-[0.15em] text-slate-500 ml-1">Nom De Catégorie</label>
                         <input name="name"
                             class="w-full px-6 py-4 bg-slate-50 rounded-[20px] focus:ring-2 focus:ring-primary-container/20 placeholder:text-slate-400 font-semibold text-slate-800 transition-all border border-transparent focus:border-primary-container/20"
                             placeholder="e.g. Mountain Treks" type="text" />
-                    </div>
-                    <div class="space-y-3">
-                        <label class="text-xs font-bold uppercase tracking-[0.15em] text-slate-500 ml-1">Slug</label>
-                        <div class="relative">
-                            <span class="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 font-mono text-sm">/</span>
-                            <input name="slug"
-                                class="w-full pl-10 pr-6 py-4 bg-slate-50 border-transparent rounded-[20px] focus:ring-2 focus:ring-primary-container/20 placeholder:text-slate-400 font-mono text-sm text-slate-600 transition-all border focus:border-primary-container/20"
-                                placeholder="mountain-treks" type="text" />
-                        </div>
                     </div>
                     <button
                         class="w-full py-4.5 bg-primary-container text-white rounded-[20px] font-bold shadow-lg shadow-blue-500/25 hover:bg-primary transition-all active:scale-[0.98] mt-6 flex items-center justify-center gap-2"
