@@ -10,4 +10,9 @@ class Monument extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
+
+    public function categories()
+    {
+        return $this->morphToMany(Category::class, 'categoryable');
+    }
 }
