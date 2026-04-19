@@ -92,7 +92,6 @@ function uploadImage() {
         });
 
         updateInputFiles();
-        // input.value = "";
     });
 
     function renderImage(file) {
