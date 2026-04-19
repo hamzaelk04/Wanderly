@@ -40,6 +40,7 @@ class MonumentController extends Controller
             'address' => 'required|string|max:255',
             'description' => 'nullable|string',
             'history' => 'nullable|string',
+            'category_id' => 'required|exists:categories,id',
             'openning' => 'nullable|date_format:H:i',
             'closing' => 'nullable|date_format:H:i',
             'fees' => 'nullable|numeric',
@@ -59,6 +60,8 @@ class MonumentController extends Controller
                 'closing' => $request->closing,
                 'fees' => $request->fees,
             ]);
+
+            $monument->categories()->attach($request->category_id);
 
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {

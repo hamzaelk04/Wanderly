@@ -32,7 +32,7 @@
                             <div>
                                 <label
                                     class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Catégorie</label>
-                                <select name="category"
+                                <select name="category_id"
                                     class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/20 appearance-none">
                                     @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
