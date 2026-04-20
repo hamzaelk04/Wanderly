@@ -91,3 +91,7 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    @vite('resources/js/dashboard/create-event.js')
+@endpush
