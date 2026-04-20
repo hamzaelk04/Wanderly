@@ -14,7 +14,7 @@ class MonumentController extends Controller
      */
     public function index()
     {
-        $monuments = Monument::all();
+        $monuments = Monument::with(['categories', 'images'])->get();
 
         return view('monument', compact('monuments'));
     }
