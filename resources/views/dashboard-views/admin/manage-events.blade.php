@@ -32,7 +32,7 @@
                     <span class="animate-pulse w-2 h-2 bg-secondary-container rounded-full"></span>
                 </div>
                 <p class="text-sm font-medium text-slate-500 mb-1">Pending Approval</p>
-                <h3 class="text-2xl font-bold">42</h3>
+                <h3 class="text-2xl font-bold">{{ $events->where('status', 'pending')->count() }}</h3>
             </div>
             <div
                 class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(25,28,29,0.04)] border border-white/50">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <p class="text-sm font-medium text-slate-500 mb-1">Accepted</p>
-                <h3 class="text-2xl font-bold">1,198</h3>
+                <h3 class="text-2xl font-bold">{{ $events->where('status', 'accepted')->count() }}</h3>
             </div>
             <div
                 class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(25,28,29,0.04)] border border-white/50">
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <p class="text-sm font-medium text-slate-500 mb-1">Rejected</p>
-                <h3 class="text-2xl font-bold">44</h3>
+                <h3 class="text-2xl font-bold">{{ $events->where('status', 'rejected')->count() }}</h3>
             </div>
         </div>
         <!-- Filters Section -->
@@ -84,18 +84,74 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100">
+                        @foreach ($events as $event)
+                            <tr class="hover:bg-slate-50/50 transition-colors group">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 bg-slate-200">
+                                            <img alt="Music Event" class="w-full h-full object-cover"
+                                                data-alt="energetic crowd with raised hands at a music festival with dramatic blue stage lighting and smoke effects"
+                                                src="{{ asset('storage/' . optional($event->images->first())->path) }}" />
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold text-on-background">{{ $event->title }}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <div
+                                            class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">
+                                            {{ substr($event->user->firstname, 0, 1) }}{{ substr($event->user->lastname, 0, 1) }}</div>
+                                        <p class="text-sm text-on-surface-variant font-medium">{{ $event->user->firstname }} {{ $event->user->lastname }}</p>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <p class="text-sm text-on-surface font-medium">Oct 12, 2024</p>
+                                    <p class="text-xs text-slate-500">07:00 PM - 11:30 PM</p>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-1 text-sm text-slate-600">
+                                        <span class="material-symbols-outlined text-xs"
+                                            data-icon="location_on">location_on</span>
+                                        Denver, CO
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold tracking-wider uppercase shadow-sm">
+                                        <span class="w-1.5 h-1.5 bg-secondary-container rounded-full animate-pulse"></span>
+                                        Pending
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button
+                                            class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-all">View
+                                            Details</button>
+                                        <button
+                                            class="w-8 h-8 rounded-full bg-green-500/10 text-green-600 hover:bg-green-500 hover:text-white transition-all flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+                                        </button>
+                                        <button
+                                            class="w-8 h-8 rounded-full bg-error/10 text-error hover:bg-error hover:text-white transition-all flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                         <!-- Row 1 -->
                         <tr class="hover:bg-slate-50/50 transition-colors group">
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-slate-200">
+                                    <div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 bg-slate-200">
                                         <img alt="Music Event" class="w-full h-full object-cover"
                                             data-alt="energetic crowd with raised hands at a music festival with dramatic blue stage lighting and smoke effects"
                                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBgtP5zBE958GNV0F9i0u8yGe7fPaVY3-OYY9IDmKAx9Nfz4l6VGbwu33oI2d-cwlV0EipBcLoRryoxT3ViNg2vgSkdjYfQmv9JzIZUtq2DebAFL6iAm1cA1PtH9xOrIbcp9oMOG9bxidBqoj16_kwGjvP6bistPKyYEq60smno97qC7r-W4eUUWR6mTXgZCZrWYDp1cUIj_dfMWqKvMQZ8JNkm8gLw9vuqMIVmNLau9LlBJy0AK3PI9WCBvkYsxJ16DwmdzSexyU" />
                                     </div>
                                     <div>
                                         <p class="text-sm font-bold text-on-background">Summit Music Fest</p>
-                                        <p class="text-xs text-slate-500">Arts &amp; Culture</p>
                                     </div>
                                 </div>
                             </td>

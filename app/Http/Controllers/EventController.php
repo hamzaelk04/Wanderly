@@ -15,7 +15,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::has('user')->with('user')->get();
 
         return view('dashboard-views.admin.manage-events', compact('events'));
     }

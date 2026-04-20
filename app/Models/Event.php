@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $fillable = [
-        'title', 'description', 'city', 'date', 'duration', 'address', 'capacity'
+        'title',
+        'description',
+        'city',
+        'date',
+        'duration',
+        'address',
+        'capacity'
     ];
 
     public function images()
@@ -23,5 +29,10 @@ class Event extends Model
     public function categories()
     {
         return $this->morphToMany(Category::class, 'categoryable');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'organizer_id');
     }
 }
