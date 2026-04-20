@@ -34,6 +34,7 @@ Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name(
 Route::get('/manage/events', function () {
     return view('dashboard-views.manage-events');
 });
+Route::get('/admin/manage/events', [EventController::class, 'index']);
 Route::get('/create/event', function () {
     return view('dashboard-views.create-event');
 });
