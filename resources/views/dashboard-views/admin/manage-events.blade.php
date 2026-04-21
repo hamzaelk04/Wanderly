@@ -137,19 +137,23 @@
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 text-right">
-                                    <div class="flex items-center justify-end gap-2">
-                                        <a href="{{ route('events.review', $event->id) }}"
-                                            class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-all">View
-                                            Details</a>
-                                        <button
-                                            class="w-8 h-8 rounded-full bg-green-500/10 text-green-600 hover:bg-green-500 hover:text-white transition-all flex items-center justify-center">
-                                            <span class="material-symbols-outlined text-sm" data-icon="check">check</span>
-                                        </button>
-                                        <button
-                                            class="w-8 h-8 rounded-full bg-error/10 text-error hover:bg-error hover:text-white transition-all flex items-center justify-center">
-                                            <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
-                                        </button>
-                                    </div>
+                                    <form action="{{ route('events.update.status', $event->id) }}" method="POST">
+                                        @csrf
+                                        @method('put')
+                                        <div class="flex items-center justify-end gap-2">
+                                            <a href="{{ route('events.review', $event->id) }}"
+                                                class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-all">View
+                                                Details</a>
+                                            <button type="submit" name="status" value="accepted"
+                                                class="w-8 h-8 rounded-full bg-green-500/10 text-green-600 hover:bg-green-500 hover:text-white transition-all flex items-center justify-center">
+                                                <span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+                                            </button>
+                                            <button type="submit" name="status" value="rejected"
+                                                class="w-8 h-8 rounded-full bg-error/10 text-error hover:bg-error hover:text-white transition-all flex items-center justify-center">
+                                                <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+                                            </button>
+                                        </div>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
@@ -163,19 +167,20 @@
                 </p>
                 <div class="flex items-center gap-2">
                     <a href="{{ $events->previousPageUrl() }}" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-white transition-all
-                    {{ !$events->onFirstPage() ? '' : 'pointer-events-none opacity-50' }}">
+                            {{ !$events->onFirstPage() ? '' : 'pointer-events-none opacity-50' }}">
                         <span class="material-symbols-outlined text-lg">chevron_left</span>
                     </a>
 
                     @for ($i = 1; $i <= $events->lastPage(); $i++)
-                                <a href="{{ $events->url($i) }}" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold transition-all
-                           {{ $events->currentPage() == $i ? 'bg-primary text-white' : 'text-slate-600 hover:bg-white' }}">
-                                    {{ $i }}
-                                </a>
+                        <a href="{{ $events->url($i) }}"
+                            class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold transition-all
+                                           {{ $events->currentPage() == $i ? 'bg-primary text-white' : 'text-slate-600 hover:bg-white' }}">
+                            {{ $i }}
+                        </a>
                     @endfor
 
                     <a href="{{ $events->nextPageUrl() }}" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-white transition-all
-                    {{ $events->hasMorePages() ? '' : 'pointer-events-none opacity-50' }}">
+                            {{ $events->hasMorePages() ? '' : 'pointer-events-none opacity-50' }}">
                         <span class="material-symbols-outlined text-lg">chevron_right</span>
                     </a>
 
@@ -222,5 +227,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/dashboard/manage-events.js')    
+    @vite('resources/js/dashboard/manage-events.js')
 @endpush

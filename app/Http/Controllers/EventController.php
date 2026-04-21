@@ -164,6 +164,21 @@ class EventController extends Controller
         return redirect()->to('/admin/manage/events');
     }
 
+    public function updateStatus(Request $request, string $id)
+    {
+        $event = Event::findOrFail($id);
+
+        $request->validate([
+            'status' => 'required|in:accepted,rejected',
+        ]);
+
+        $event->update([
+            'status' => $request->status,
+        ]);
+
+        return redirect()->to('/admin/manage/events');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
