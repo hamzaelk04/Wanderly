@@ -138,9 +138,9 @@
                                 </td>
                                 <td class="px-6 py-4 text-right">
                                     <div class="flex items-center justify-end gap-2">
-                                        <button
+                                        <a href="{{ route('events.review', $event->id) }}"
                                             class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-all">View
-                                            Details</button>
+                                            Details</a>
                                         <button
                                             class="w-8 h-8 rounded-full bg-green-500/10 text-green-600 hover:bg-green-500 hover:text-white transition-all flex items-center justify-center">
                                             <span class="material-symbols-outlined text-sm" data-icon="check">check</span>

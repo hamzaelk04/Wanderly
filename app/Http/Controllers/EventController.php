@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Image;
+use App\Models\Category;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -134,5 +135,11 @@ class EventController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function review(Event $event)
+    {
+        $categories = Category::all();
+        return view('dashboard-views.admin.event-review', compact('event', 'categories'));
     }
 }

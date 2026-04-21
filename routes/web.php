@@ -44,4 +44,9 @@ Route::post('/create/event', [EventController::class, 'store'])->name('create-ev
 Route::post('/create/monument', [MonumentController::class, 'store'])->name('create-monument');
 Route::post('/create/category', [CategoryController::class, 'store'])->name('create-category');
 
+// see the monuments
 Route::get('/monument', [MonumentController::class, 'index']);
+
+// update the events by admin
+Route::get('/events/{event}/review', [EventController::class, 'review'])
+    ->name('events.review');
