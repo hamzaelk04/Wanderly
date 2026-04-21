@@ -50,3 +50,5 @@ Route::get('/monument', [MonumentController::class, 'index']);
 // update the events by admin
 Route::get('/events/{event}/review', [EventController::class, 'review'])
     ->name('events.review');
+Route::put('/events/{event}/review', [EventController::class, 'update'])
+    ->name('events.update');

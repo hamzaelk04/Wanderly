@@ -12,6 +12,7 @@ class Event extends Model
         'city',
         'date',
         'duration',
+        'status',
         'address',
         'capacity'
     ];
@@ -28,7 +29,7 @@ class Event extends Model
 
     public function categories()
     {
-        return $this->morphToMany(Category::class, 'categoryable');
+        return $this->morphToMany(Category::class, 'categoryables');
     }
 
     public function user()

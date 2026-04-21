@@ -34,7 +34,7 @@ class EventController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {   
+    {
         $request->validate([
             'title' => 'required|string|max:255',
             'city' => 'required|string|max:255',
@@ -72,6 +72,7 @@ class EventController extends Controller
                 'address' => $request->address,
                 'description' => $request->description,
                 'date' => $request->date,
+                'status' => 'pending',
                 'duration' => $request->duration,
                 'capacity' => $capacity,
             ]);
@@ -126,7 +127,41 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $event = Event::with('tickets')->findOrFail($id);
+
+        $request->validate([
+            'description' => 'nullable|string',
+            'category_id' => 'required|exists:categories,id',
+            'status' => 'required|in:accepted,rejected',
+
+            'ticket' => 'nullable|array',
+
+            'ticket.*.price' => 'required_with:ticket|numeric',
+        ]);
+
+        $event->categories()->attach($request->category_id);
+
+        $event->update([
+            'status' => $request->status,
+        ]);
+
+        foreach ($request->tickets ?? [] as $ticketData) {
+
+            $ticket = $event->tickets()->find($ticketData['id']);
+
+            if (!$ticket)
+                continue;
+
+            $percent = $ticketData['percent'] ?? 0;
+
+            $newPrice = $ticket->price + ($ticket->price * $percent / 100);
+
+            $ticket->update([
+                'price' => $newPrice,
+            ]);
+        }
+
+        return redirect()->to('/admin/manage/events');
     }
 
     /**
