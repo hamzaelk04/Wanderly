@@ -124,18 +124,19 @@
             <div class="lg:col-span-5 space-y-8">
                 <!-- Media Preview -->
                 <div x-data="{
-                            images: @js($event->images->pluck('path')),
-                            index: 0,
-                            get current() {
-                            return this.images.length ? this.images[this.index] : null;
-                        },
-                        next() {
-                            this.index = (this.index + 1) % this.images.length;
-                        },
-                        prev() {
-                            this.index = (this.index - 1 + this.images.length) % this.images.length;
-                        }
-                    }" class="rounded-3xl overflow-hidden relative group aspect-video shadow-lg ring-1 ring-black/5">
+                                    images: @js($event->images->pluck('path')),
+                                    index: 0,
+                                    get current() {
+                                    return this.images.length ? this.images[this.index] : null;
+                                },
+                                next() {
+                                    this.index = (this.index + 1) % this.images.length;
+                                },
+                                prev() {
+                                    this.index = (this.index - 1 + this.images.length) % this.images.length;
+                                }
+                            }"
+                    class="rounded-3xl overflow-hidden relative group aspect-video shadow-lg ring-1 ring-black/5">
 
                     <!-- Image -->
                     <template x-if="current">
@@ -167,74 +168,47 @@
                     </button>
 
                 </div>
-                <!-- Ticket Tiers -->
-                <section
-                    class="bg-surface-container-lowest rounded-3xl p-8 shadow-[0_4px_24px_rgba(25,28,29,0.02)] border border-white/50">
-                    <h3 class="text-xl font-bold text-on-surface flex items-center gap-3 mb-6">
-                        <span class="material-symbols-outlined text-primary">confirmation_number</span>
-                        Ticket Tiers
-                    </h3>
-                    <div class="space-y-4">
-                        <!-- Ticket Tier 1 -->
-                        <div class="p-5 rounded-2xl border border-outline-variant/20 bg-surface-container-low/30 relative">
-                            <div class="flex items-center justify-between mb-4">
-                                <input
-                                    class="bg-transparent border-none p-0 text-on-surface font-bold text-lg focus:ring-0 w-2/3"
-                                    type="text" value="Standard Pass" />
-                                <div class="text-right">
-                                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest">In Stock</p>
-                                    <p class="text-on-surface font-bold">1,200</p>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/10">
-                                <div>
-                                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Base Price
-                                    </p>
-                                    <p class="text-on-surface font-bold text-xl">$50.00</p>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">% Increase
-                                    </p>
-                                    <div class="flex items-center gap-2">
-                                        <input
-                                            class="w-16 bg-white border border-outline-variant/30 rounded-lg px-2 py-1 text-sm text-primary font-bold focus:ring-primary/20"
-                                            type="number" value="20" />
-                                        <span class="text-xs font-bold text-primary">→ $60.00</span>
+                @if ($event->tickets->isNotEmpty())
+                    <section
+                        class="bg-surface-container-lowest rounded-3xl p-8 shadow-[0_4px_24px_rgba(25,28,29,0.02)] border border-white/50">
+                        <h3 class="text-xl font-bold text-on-surface flex items-center gap-3 mb-6">
+                            <span class="material-symbols-outlined text-primary">confirmation_number</span>
+                            Ticket Tiers
+                        </h3>
+                        <div class="space-y-4">
+                            <!-- Ticket Tier 1 -->
+                            @foreach ($event->tickets as $ticket)
+                                <div class="p-5 rounded-2xl border border-outline-variant/20 bg-surface-container-low/30 relative">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <p
+                                            class="bg-transparent border-none p-0 text-on-surface font-bold text-lg focus:ring-0 w-2/3">{{ $ticket->name }}
+                                        </p>
+                                        <div class="text-right">
+                                            <p class="text-[10px] font-bold text-outline uppercase tracking-widest">In Stock</p>
+                                            <p class="text-on-surface font-bold">{{ $ticket->quantity }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/10">
+                                        <div>
+                                            <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Base Price
+                                            </p>
+                                            <p class="text-on-surface font-bold text-xl">{{ $ticket->price }}</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">% Increase
+                                            </p>
+                                            <div class="flex items-center gap-2">
+                                                <input
+                                                    class="w-16 bg-white border border-outline-variant/30 rounded-lg px-2 py-1 text-sm text-primary font-bold focus:ring-primary/20"
+                                                    type="number" value="20" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <!-- Ticket Tier 2 -->
-                        <div class="p-5 rounded-2xl border border-outline-variant/20 bg-surface-container-low/30 relative">
-                            <div class="flex items-center justify-between mb-4">
-                                <input
-                                    class="bg-transparent border-none p-0 text-on-surface font-bold text-lg focus:ring-0 w-2/3"
-                                    type="text" value="VIP Backstage" />
-                                <div class="text-right">
-                                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest">In Stock</p>
-                                    <p class="text-on-surface font-bold">300</p>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/10">
-                                <div>
-                                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Base Price
-                                    </p>
-                                    <p class="text-on-surface font-bold text-xl">$150.00</p>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">% Increase
-                                    </p>
-                                    <div class="flex items-center gap-2">
-                                        <input
-                                            class="w-16 bg-white border border-outline-variant/30 rounded-lg px-2 py-1 text-sm text-primary font-bold focus:ring-primary/20"
-                                            type="number" value="15" />
-                                        <span class="text-xs font-bold text-primary">→ $172.50</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                    </section>
+                @endif
             </div>
         </div>
     </div>

@@ -140,6 +140,7 @@ class EventController extends Controller
     public function review(Event $event)
     {
         $categories = Category::all();
+        $event->load(['images', 'tickets']);
         return view('dashboard-views.admin.event-review', compact('event', 'categories'));
     }
 }
