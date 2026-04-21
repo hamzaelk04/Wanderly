@@ -102,26 +102,38 @@
                                     <div class="flex items-center gap-2">
                                         <div
                                             class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">
-                                            {{ substr($event->user->firstname, 0, 1) }}{{ substr($event->user->lastname, 0, 1) }}</div>
-                                        <p class="text-sm text-on-surface-variant font-medium">{{ $event->user->firstname }} {{ $event->user->lastname }}</p>
+                                            {{ substr($event->user->firstname, 0, 1) }}{{ substr($event->user->lastname, 0, 1) }}
+                                        </div>
+                                        <p class="text-sm text-on-surface-variant font-medium">{{ $event->user->firstname }}
+                                            {{ $event->user->lastname }}
+                                        </p>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <p class="text-sm text-on-surface font-medium">Oct 12, 2024</p>
-                                    <p class="text-xs text-slate-500">07:00 PM - 11:30 PM</p>
+                                    <p class="text-sm text-on-surface font-medium">
+                                        {{ \Carbon\Carbon::parse($event->date)->format('d M, Y') }}
+                                    </p>
+                                    <p class="text-xs text-slate-500">{{ \Carbon\Carbon::parse($event->date)->format('h:i A') }}
+                                    </p>
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-1 text-sm text-slate-600">
                                         <span class="material-symbols-outlined text-xs"
                                             data-icon="location_on">location_on</span>
-                                        Denver, CO
+                                        {{ $event->address }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span
-                                        class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold tracking-wider uppercase shadow-sm">
-                                        <span class="w-1.5 h-1.5 bg-secondary-container rounded-full animate-pulse"></span>
-                                        Pending
+                                    <span @class([
+                                        'inline-flex items-center gap-1 px-3 py-1 rounded-full font-bold tracking-wider uppercase text-[10px]',
+                                        'bg-secondary-fixed text-on-secondary-fixed' => $event->status === 'pending',
+                                        'bg-green-100 text-green-700' => $event->status === 'accepted',
+                                        'bg-error-container text-on-error-container' => $event->status === 'rejected'
+                                        ])>
+                                        @if($event->status === 'pending')
+                                            <span class="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse"></span>
+                                        @endif
+                                        {{ $event->status }}
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 text-right">
@@ -141,225 +153,6 @@
                                 </td>
                             </tr>
                         @endforeach
-                        <!-- Row 1 -->
-                        <tr class="hover:bg-slate-50/50 transition-colors group">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 bg-slate-200">
-                                        <img alt="Music Event" class="w-full h-full object-cover"
-                                            data-alt="energetic crowd with raised hands at a music festival with dramatic blue stage lighting and smoke effects"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBgtP5zBE958GNV0F9i0u8yGe7fPaVY3-OYY9IDmKAx9Nfz4l6VGbwu33oI2d-cwlV0EipBcLoRryoxT3ViNg2vgSkdjYfQmv9JzIZUtq2DebAFL6iAm1cA1PtH9xOrIbcp9oMOG9bxidBqoj16_kwGjvP6bistPKyYEq60smno97qC7r-W4eUUWR6mTXgZCZrWYDp1cUIj_dfMWqKvMQZ8JNkm8gLw9vuqMIVmNLau9LlBJy0AK3PI9WCBvkYsxJ16DwmdzSexyU" />
-                                    </div>
-                                    <div>
-                                        <p class="text-sm font-bold text-on-background">Summit Music Fest</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-2">
-                                    <div
-                                        class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">
-                                        EA</div>
-                                    <p class="text-sm text-on-surface-variant font-medium">Echo Agency</p>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <p class="text-sm text-on-surface font-medium">Oct 12, 2024</p>
-                                <p class="text-xs text-slate-500">07:00 PM - 11:30 PM</p>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-1 text-sm text-slate-600">
-                                    <span class="material-symbols-outlined text-xs"
-                                        data-icon="location_on">location_on</span>
-                                    Denver, CO
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span
-                                    class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold tracking-wider uppercase shadow-sm">
-                                    <span class="w-1.5 h-1.5 bg-secondary-container rounded-full animate-pulse"></span>
-                                    Pending
-                                </span>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <div class="flex items-center justify-end gap-2">
-                                    <button
-                                        class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-all">View
-                                        Details</button>
-                                    <button
-                                        class="w-8 h-8 rounded-full bg-green-500/10 text-green-600 hover:bg-green-500 hover:text-white transition-all flex items-center justify-center">
-                                        <span class="material-symbols-outlined text-sm" data-icon="check">check</span>
-                                    </button>
-                                    <button
-                                        class="w-8 h-8 rounded-full bg-error/10 text-error hover:bg-error hover:text-white transition-all flex items-center justify-center">
-                                        <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Row 2 -->
-                        <tr class="hover:bg-slate-50/50 transition-colors group">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-slate-200">
-                                        <img alt="Food Event" class="w-full h-full object-cover"
-                                            data-alt="top-down shot of a beautifully arranged mediterranean spread with hummus, pita, and grilled vegetables on a rustic table"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbTfvRyYAtbR1ghzGMwtNmb6hhucgbBHFkj5kNMrmTCnL_YD6hWX0nBOdX8Ad3w1AQBWncKwT5uoNn7nJF-lCKjBW2LRIZGz3Fe6xcJo9Iw7txEPRnupQSihPEmQo60AfxKn4KI5wceOkY__gzTvWrJcArfvICbj2QCaM7XWIx9OoxddptTzfA31KGhKLcvlwOjLIfXe-JTev49iBxbwehZCmJRXzoBP7JYq5RJerN717b39kdXWenY-4Vb37VBNGP9YLcFkO3BwM" />
-                                    </div>
-                                    <div>
-                                        <p class="text-sm font-bold text-on-background">Mediterranean Food Tour</p>
-                                        <p class="text-xs text-slate-500">Food &amp; Drink</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-2">
-                                    <div
-                                        class="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center text-[10px] font-bold text-secondary">
-                                        GC</div>
-                                    <p class="text-sm text-on-surface-variant font-medium">Gourmet Curators</p>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <p class="text-sm text-on-surface font-medium">Nov 05, 2024</p>
-                                <p class="text-xs text-slate-500">11:00 AM - 04:00 PM</p>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-1 text-sm text-slate-600">
-                                    <span class="material-symbols-outlined text-xs"
-                                        data-icon="location_on">location_on</span>
-                                    Rome, Italy
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span
-                                    class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold tracking-wider uppercase">
-                                    Accepted
-                                </span>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <div
-                                    class="flex items-center justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
-                                    <button
-                                        class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg">View
-                                        Details</button>
-                                    <button
-                                        class="w-8 h-8 rounded-full text-slate-400 hover:text-error hover:bg-error/10 transition-all flex items-center justify-center">
-                                        <span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Row 3 -->
-                        <tr class="hover:bg-slate-50/50 transition-colors group">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-slate-200">
-                                        <img alt="Tech Event" class="w-full h-full object-cover"
-                                            data-alt="futuristic conference room with neon glowing accents and people looking at holographic displays in soft focus"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUFr_2PStshcJWtaaeNJgcJsS3EkHlyCSX8nSBu81CvOyeAY2YhJvIkpLg_wtuTwRkBS1OZkdtD70qOUmuwGvSy8mLCO5Y5rkBOrb4GwwaNkd9mPhFMENyNixmKF3k2XW_UqzxF9M-vD0RuNOh_tt8_3Z9jIEOmXjqTePU6YBvCexCQdr3N1Fg3wSgoLfYPFKjdSd9VeHzIEv_ziArv0FdJ2x23-XaPSXZl3eNC0aAgTTJSxaCaulxzJZL8_dWDaFG3uIntgmJdCI" />
-                                    </div>
-                                    <div>
-                                        <p class="text-sm font-bold text-on-background">Future Tech Expo</p>
-                                        <p class="text-xs text-slate-500">Technology</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-2">
-                                    <div
-                                        class="w-6 h-6 rounded-full bg-tertiary/10 flex items-center justify-center text-[10px] font-bold text-tertiary">
-                                        NV</div>
-                                    <p class="text-sm text-on-surface-variant font-medium">NextVenture</p>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <p class="text-sm text-on-surface font-medium">Dec 15, 2024</p>
-                                <p class="text-xs text-slate-500">09:00 AM - 06:00 PM</p>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-1 text-sm text-slate-600">
-                                    <span class="material-symbols-outlined text-xs"
-                                        data-icon="location_on">location_on</span>
-                                    San Francisco, CA
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span
-                                    class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-error-container text-on-error-container text-[10px] font-bold tracking-wider uppercase">
-                                    Rejected
-                                </span>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <div
-                                    class="flex items-center justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
-                                    <button
-                                        class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg">Appeal</button>
-                                    <button
-                                        class="w-8 h-8 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-all flex items-center justify-center">
-                                        <span class="material-symbols-outlined text-sm"
-                                            data-icon="more_vert">more_vert</span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Row 4 -->
-                        <tr class="hover:bg-slate-50/50 transition-colors group">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-slate-200">
-                                        <img alt="Wellness Event" class="w-full h-full object-cover"
-                                            data-alt="serene group yoga session in a bright airy studio with floor-to-ceiling windows overlooking a green forest"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3p6l6A1vGFfj2UyNHX5vWkV45vdwZdMSl21DPD-EZBEa2NCXifa4jWFgzXGk_2pijKuxmztZwBM-PmHo1d3L3IhZC44HvT1OZL8wXKCBuv2X4h_dgIuVsy3wPMnEvkwdVP46xOHrp7Bjw2Rwba2MwlL8jjwk3JM0mO28PhvL2VagFxHg8thj36hmcjsa7mPY2qFBgBo9lmzNeY5OvH9YXnwNzEKxWZSvLvAW5bxIl2l9G0Lp9daDmJJRAgKfHuR1g0VKkkBMDZjk" />
-                                    </div>
-                                    <div>
-                                        <p class="text-sm font-bold text-on-background">Sunrise Yoga Retreat</p>
-                                        <p class="text-xs text-slate-500">Health &amp; Wellness</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-2">
-                                    <div
-                                        class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">
-                                        SM</div>
-                                    <p class="text-sm text-on-surface-variant font-medium">Soul Movement</p>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <p class="text-sm text-on-surface font-medium">Oct 20, 2024</p>
-                                <p class="text-xs text-slate-500">06:00 AM - 09:00 AM</p>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-1 text-sm text-slate-600">
-                                    <span class="material-symbols-outlined text-xs"
-                                        data-icon="location_on">location_on</span>
-                                    Bali, Indonesia
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span
-                                    class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold tracking-wider uppercase shadow-sm">
-                                    <span class="w-1.5 h-1.5 bg-secondary-container rounded-full animate-pulse"></span>
-                                    Pending
-                                </span>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <div class="flex items-center justify-end gap-2">
-                                    <button
-                                        class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-all">View
-                                        Details</button>
-                                    <button
-                                        class="w-8 h-8 rounded-full bg-green-500/10 text-green-600 hover:bg-green-500 hover:text-white transition-all flex items-center justify-center">
-                                        <span class="material-symbols-outlined text-sm" data-icon="check">check</span>
-                                    </button>
-                                    <button
-                                        class="w-8 h-8 rounded-full bg-error/10 text-error hover:bg-error hover:text-white transition-all flex items-center justify-center">
-                                        <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
