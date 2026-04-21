@@ -20,7 +20,7 @@
                     <span class="text-xs font-bold text-primary bg-primary-fixed px-2 py-1 rounded-full">+12%</span>
                 </div>
                 <p class="text-sm font-medium text-slate-500 mb-1">Total Events</p>
-                <h3 class="text-2xl font-bold">{{ $events->count() }}</h3>
+                <h3 class="text-2xl font-bold">{{ $statistics->count() }}</h3>
             </div>
             <div
                 class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(25,28,29,0.04)] border border-white/50 border-l-4 border-l-secondary-container">
@@ -32,7 +32,7 @@
                     <span class="animate-pulse w-2 h-2 bg-secondary-container rounded-full"></span>
                 </div>
                 <p class="text-sm font-medium text-slate-500 mb-1">Pending Approval</p>
-                <h3 class="text-2xl font-bold">{{ $events->where('status', 'pending')->count() }}</h3>
+                <h3 class="text-2xl font-bold">{{ $statistics->where('status', 'pending')->count() }}</h3>
             </div>
             <div
                 class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(25,28,29,0.04)] border border-white/50">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <p class="text-sm font-medium text-slate-500 mb-1">Accepted</p>
-                <h3 class="text-2xl font-bold">{{ $events->where('status', 'accepted')->count() }}</h3>
+                <h3 class="text-2xl font-bold">{{ $statistics->where('status', 'accepted')->count() }}</h3>
             </div>
             <div
                 class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(25,28,29,0.04)] border border-white/50">
@@ -129,7 +129,7 @@
                                         'bg-secondary-fixed text-on-secondary-fixed' => $event->status === 'pending',
                                         'bg-green-100 text-green-700' => $event->status === 'accepted',
                                         'bg-error-container text-on-error-container' => $event->status === 'rejected'
-                                        ])>
+                                    ])>
                                         @if($event->status === 'pending')
                                             <span class="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse"></span>
                                         @endif
@@ -158,22 +158,27 @@
             </div>
             <!-- Pagination -->
             <div class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
-                <p class="text-xs font-medium text-slate-500">Showing 1 to 10 of 42 results</p>
+                <p class="text-xs font-medium text-slate-500">
+                    Showing {{ $events->firstItem() }} to {{ $events->lastItem() }} of {{ $events->total() }} results
+                </p>
                 <div class="flex items-center gap-2">
-                    <button
-                        class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-white transition-all">
-                        <span class="material-symbols-outlined text-lg" data-icon="chevron_left">chevron_left</span>
-                    </button>
-                    <button
-                        class="w-8 h-8 rounded-lg flex items-center justify-center bg-primary text-white font-bold text-xs">1</button>
-                    <button
-                        class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white font-bold text-xs">2</button>
-                    <button
-                        class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white font-bold text-xs">3</button>
-                    <button
-                        class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-white transition-all">
-                        <span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
-                    </button>
+                    <a href="{{ $events->previousPageUrl() }}" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-white transition-all
+                    {{ !$events->onFirstPage() ? '' : 'pointer-events-none opacity-50' }}">
+                        <span class="material-symbols-outlined text-lg">chevron_left</span>
+                    </a>
+
+                    @for ($i = 1; $i <= $events->lastPage(); $i++)
+                                <a href="{{ $events->url($i) }}" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold transition-all
+                           {{ $events->currentPage() == $i ? 'bg-primary text-white' : 'text-slate-600 hover:bg-white' }}">
+                                    {{ $i }}
+                                </a>
+                    @endfor
+
+                    <a href="{{ $events->nextPageUrl() }}" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-white transition-all
+                    {{ $events->hasMorePages() ? '' : 'pointer-events-none opacity-50' }}">
+                        <span class="material-symbols-outlined text-lg">chevron_right</span>
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -215,3 +220,7 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    @vite('resources/js/dashboard/manage-events.js')    
+@endpush
