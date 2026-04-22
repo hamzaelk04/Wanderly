@@ -90,10 +90,16 @@
                                     {{ \Carbon\Carbon::parse($monument->closing)->format('H:i') }} - </span>
                             </div>
                         </div>
-                        <button
-                            class="mt-6 w-full py-4 rounded-xl bg-surface-container-low text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300">View
-                            Details
-                        </button>
+                        <div class="flex items-center justify-between gap-3">
+                            <button
+                                class="mt-6 w-full py-4 rounded-xl bg-surface-container-low text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300">View
+                                Details
+                            </button>
+                            <button
+                                class="mt-6 p-4 rounded-xl hover:text-red-500 transition-all duration-300">
+                                <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             @endforeach
