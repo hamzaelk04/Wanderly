@@ -13,6 +13,12 @@ class AuthController extends Controller
 {
     public function showRegister()
     {
+        $previous = url()->previous();
+
+        if (!str_contains($previous, route('register'))) {
+            session(['url.intended' => $previous]);
+        }
+
         return view('auth.register');
     }
 
@@ -38,11 +44,17 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return view('test');
+        return redirect()->to(session('url.intended', '/default'));
     }
 
     public function showLogin()
     {
+        $previous = url()->previous();
+
+        if (!str_contains($previous, route('login'))) {
+            session(['url.intended' => $previous]);
+        }
+
         return view('auth.login');
     }
 
@@ -53,12 +65,11 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        if(Auth::attempt($credentials))
-        {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/test');
+            return redirect()->to(session('url.intended', '/default'));
         } else {
-            return back();
+            return redirect()->to(session('url.intended', '/default'));
         }
     }
 

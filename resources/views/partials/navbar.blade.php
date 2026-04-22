@@ -6,7 +6,7 @@
         </span>
         <div class="hidden md:flex gap-8 items-center h-full">
             <a class="font-headline tracking-tight font-semibold text-slate-600 hover:text-sky-600 transition-colors duration-300"
-                href="">
+                href="/">
                 Home
             </a>
             <a class="font-headline tracking-tight font-semibold text-slate-600 hover:text-sky-600 transition-colors duration-300"
@@ -14,7 +14,7 @@
                 Evénements
             </a>
             <a class="font-headline tracking-tight font-semibold text-slate-600 hover:text-sky-600 transition-colors duration-300"
-                href="">
+                href="/monument">
                 Monuments
             </a>
         </div>
