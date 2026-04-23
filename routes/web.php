@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\AuthController;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/events', [EventController::class, 'index']);
 Route::get('/test', function () {
     return view('test');
 });

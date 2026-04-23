@@ -16,10 +16,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::has('user')->with('user')->paginate(5)->withQueryString();
-        $statistics = Event::all();
+        $events = Event::where('status', 'accepted')->with(['categories', 'images', 'tickets'])->get();
 
-        return view('dashboard-views.admin.manage-events', compact('events', 'statistics'));
+        return view('event', compact('events'));
     }
 
     /**
