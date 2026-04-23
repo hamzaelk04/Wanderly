@@ -44,6 +44,10 @@ class AuthController extends Controller
 
         Auth::login($user);
 
+        if ($user->role->name === 'organizer') {
+            return redirect()->route('organizer.dashboard');
+        }
+
         return redirect()->to(session('url.intended', '/default'));
     }
 
@@ -67,10 +71,22 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->to(session('url.intended', '/default'));
-        } else {
+
+            $user = Auth::user();
+
+            if ($user->role->name === 'admin') {
+                return redirect()->route('admin.dashboard', compact('user'));
+            }
+
+            if ($user->role->name === 'organizer') {
+                return redirect()->route('organizer.dashboard');
+            }
+
             return redirect()->to(session('url.intended', '/default'));
         }
+        return back()->withErrors([
+            'email' => 'Invalid credentials',
+        ]);
     }
 
     public function logout()

@@ -18,8 +18,8 @@
         </div>
         <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
             <div class="text-right hidden sm:block">
-                <p class="text-sm font-bold text-on-surface leading-tight">Alex Rivera</p>
-                <p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Organizer</p>
+                <p class="text-sm font-bold text-on-surface leading-tight">{{ auth()->user()->firstname }}</p>
+                <p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{{ auth()->user()->role->name }}</p>
             </div>
             <img class="w-10 h-10 rounded-full border-2 border-primary/20 object-cover"
                 data-alt="close-up portrait of a professional man with a friendly expression in a modern office environment"

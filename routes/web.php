@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MonumentController;
@@ -23,10 +24,8 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/organizer', [OrganizerController::class, 'index'])->name('dashboard.organizer');
-Route::get('/admin', function () {
-    return view('dashboard.admin');
-});
+Route::get('/organizer', [OrganizerController::class, 'index'])->name('organizer.dashboard');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 
 Route::get('/create/category', [CategoryController::class, 'index'])->name('dashboard.category');
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');

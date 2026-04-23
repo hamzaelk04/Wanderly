@@ -1,68 +1,75 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html class="light" lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Moderate Event: Summit Music Fest | Wanderly Admin</title>
+  <title>Wanderly Explorer Admin - Event Analytics</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
     rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
           "colors": {
-            "surface-dim": "#d9dadb",
-            "on-tertiary-container": "#ecf9ff",
-            "error": "#ba1a1a",
-            "on-secondary-container": "#664500",
-            "surface-tint": "#006399",
-            "secondary": "#7f5600",
-            "inverse-surface": "#2e3132",
-            "primary-fixed-dim": "#94ccff",
-            "on-secondary": "#ffffff",
-            "on-background": "#191c1d",
-            "outline-variant": "#bfc7d1",
-            "primary": "#005d90",
-            "tertiary-fixed-dim": "#4cd6fb",
-            "surface-container-high": "#e7e8e9",
-            "outline": "#707881",
-            "surface-variant": "#e1e3e4",
-            "background": "#f8f9fa",
-            "surface-container-highest": "#e1e3e4",
-            "on-tertiary-fixed-variant": "#004e5f",
-            "on-surface": "#191c1d",
-            "error-container": "#ffdad6",
             "surface-container-lowest": "#ffffff",
-            "surface-container-low": "#f3f4f5",
-            "on-secondary-fixed-variant": "#604100",
             "on-secondary-fixed": "#281800",
-            "on-tertiary": "#ffffff",
-            "surface": "#f8f9fa",
-            "inverse-on-surface": "#f0f1f2",
-            "primary-container": "#0077b6",
-            "on-primary-container": "#f3f7ff",
-            "tertiary": "#006176",
-            "tertiary-fixed": "#b3ebff",
-            "tertiary-container": "#007c95",
-            "on-primary": "#ffffff",
-            "secondary-fixed-dim": "#ffba3f",
-            "secondary-container": "#f9ad00",
-            "on-surface-variant": "#404850",
-            "on-primary-fixed-variant": "#004b74",
-            "on-error-container": "#93000a",
-            "primary-fixed": "#cde5ff",
-            "on-tertiary-fixed": "#001f27",
-            "on-error": "#ffffff",
+            "surface-container-low": "#f3f4f5",
             "inverse-primary": "#94ccff",
-            "surface-bright": "#f8f9fa",
-            "secondary-fixed": "#ffdeae",
+            "surface-container": "#edeeef",
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-dim": "#d9dadb",
+            "tertiary": "#006176",
+            "inverse-on-surface": "#f0f1f2",
+            "on-tertiary-fixed-variant": "#004e5f",
             "on-primary-fixed": "#001d32",
-            "surface-container": "#edeeef"
+            "background": "#f8f9fa",
+            "tertiary-fixed": "#b3ebff",
+            "outline": "#707881",
+            "error": "#ba1a1a",
+            "secondary": "#7f5600",
+            "primary-container": "#0077b6",
+            "surface-variant": "#e1e3e4",
+            "on-primary-fixed-variant": "#004b74",
+            "secondary-fixed-dim": "#ffba3f",
+            "surface-container-high": "#e7e8e9",
+            "primary-fixed-dim": "#94ccff",
+            "surface-bright": "#f8f9fa",
+            "on-primary-container": "#f3f7ff",
+            "secondary-fixed": "#ffdeae",
+            "on-secondary-container": "#664500",
+            "surface-container-highest": "#e1e3e4",
+            "on-tertiary": "#ffffff",
+            "primary": "#005d90",
+            "on-secondary-fixed-variant": "#604100",
+            "on-error": "#ffffff",
+            "on-background": "#191c1d",
+            "on-tertiary-container": "#ecf9ff",
+            "inverse-surface": "#2e3132",
+            "on-tertiary-fixed": "#001f27",
+            "on-surface-variant": "#404850",
+            "tertiary-container": "#007c95",
+            "primary-fixed": "#cde5ff",
+            "on-surface": "#191c1d",
+            "surface-tint": "#006399",
+            "outline-variant": "#bfc7d1",
+            "on-secondary": "#ffffff",
+            "surface": "#f8f9fa",
+            "on-error-container": "#93000a",
+            "secondary-container": "#f9ad00",
+            "tertiary-fixed-dim": "#4cd6fb"
           },
           "borderRadius": {
             "DEFAULT": "0.25rem",
@@ -72,6 +79,7 @@
           },
           "fontFamily": {
             "headline": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
             "body": ["Inter"],
             "label": ["Inter"]
           }
@@ -80,331 +88,339 @@
     }
   </script>
   <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-
     body {
       font-family: 'Inter', sans-serif;
     }
 
-    h1,
-    h2,
-    h3,
-    .headline {
+    .headline-lg {
       font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
   </style>
 </head>
 
-<body class="bg-background text-on-background min-h-screen">
-  <!-- SideNavBar (Exact copy from SCREEN_7) -->
+<body class="bg-background text-on-background min-h-screen flex flex-col lg:flex-row">
+  <!-- SideNavBar (Desktop) -->
   <aside
-    class="fixed left-0 top-0 h-screen w-64 z-50 bg-white dark:bg-slate-950 flex flex-col p-6 border-r-0 font-['Inter'] font-medium text-sm">
-    <div class="flex items-center gap-3 mb-10 px-2">
-      <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
-        <span class="material-symbols-outlined">explore</span>
-      </div>
-      <div>
-        <h1 class="font-['Plus_Jakarta_Sans'] font-bold text-[#0077B6] text-xl px-2">Wanderly</h1>
-        <p class="text-[10px] text-slate-500 uppercase tracking-widest px-2">Admin Portal</p>
-      </div>
+    class="h-screen w-64 hidden lg:flex flex-col sticky top-0 bg-[#f8f9fa] dark:bg-slate-950 flex flex-col gap-2 p-4 border-r border-slate-200 dark:border-slate-800">
+    <div class="mb-8 px-2">
+      <h1 class="text-lg font-bold text-[#0077B6]">The Curator</h1>
+      <p class="text-xs text-slate-500 font-medium">System Oversight</p>
     </div>
     <nav class="flex-1 space-y-1">
-      <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-[#0077B6] hover:translate-x-1 transition-all scale-100 hover:scale-[1.02] duration-300"
+      <a class="bg-white dark:bg-slate-900 text-[#0077B6] font-bold rounded-lg shadow-sm flex items-center gap-3 px-3 py-2.5 transition-all hover:translate-x-1 duration-150"
         href="#">
         <span class="material-symbols-outlined">dashboard</span>
-        <span>Dashboard</span>
+        <span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Dashboard</span>
       </a>
-      <a class="flex items-center gap-3 px-4 py-3 text-[#0077B6] bg-slate-50 dark:bg-slate-900 font-bold rounded-lg scale-100 hover:scale-[1.02] duration-300"
+      <a class="text-slate-600 dark:text-slate-400 flex items-center gap-3 px-3 py-2.5 hover:bg-[#e7e8e9] dark:hover:bg-slate-800 transition-all hover:translate-x-1 duration-150"
         href="#">
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_available</span>
-        <span>Event Management</span>
+        <span class="material-symbols-outlined">confirmation_number</span>
+        <span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Sales</span>
       </a>
-      <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-[#0077B6] hover:translate-x-1 transition-all scale-100 hover:scale-[1.02] duration-300"
+      <a class="text-slate-600 dark:text-slate-400 flex items-center gap-3 px-3 py-2.5 hover:bg-[#e7e8e9] dark:hover:bg-slate-800 transition-all hover:translate-x-1 duration-150"
         href="#">
-        <span class="material-symbols-outlined">group</span>
-        <span>User Moderation</span>
+        <span class="material-symbols-outlined">event_available</span>
+        <span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Reservations</span>
       </a>
-      <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-[#0077B6] hover:translate-x-1 transition-all scale-100 hover:scale-[1.02] duration-300"
+      <a class="text-slate-600 dark:text-slate-400 flex items-center gap-3 px-3 py-2.5 hover:bg-[#e7e8e9] dark:hover:bg-slate-800 transition-all hover:translate-x-1 duration-150"
         href="#">
-        <span class="material-symbols-outlined">insights</span>
-        <span>Analytics</span>
+        <span class="material-symbols-outlined">payments</span>
+        <span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Revenue</span>
       </a>
-      <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-[#0077B6] hover:translate-x-1 transition-all scale-100 hover:scale-[1.02] duration-300"
+      <a class="text-slate-600 dark:text-slate-400 flex items-center gap-3 px-3 py-2.5 hover:bg-[#e7e8e9] dark:hover:bg-slate-800 transition-all hover:translate-x-1 duration-150"
         href="#">
-        <span class="material-symbols-outlined">settings_ethernet</span>
-        <span>System Logs</span>
+        <span class="material-symbols-outlined">analytics</span>
+        <span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Reports</span>
       </a>
     </nav>
-    <div class="mt-auto pt-6 space-y-1">
+    <div class="mt-auto border-t border-slate-200 dark:border-slate-800 pt-4 px-2">
       <button
-        class="w-full bg-[#0077B6] text-white py-3 rounded-xl font-bold mb-6 shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-95 duration-200">
+        class="w-full bg-[#0077b6] text-white py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
         <span class="material-symbols-outlined text-sm">add</span>
-        Create New Event
+        New Report
       </button>
-      <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-[#0077B6] transition-all"
-        href="#">
-        <span class="material-symbols-outlined">help</span>
-        <span>Support</span>
-      </a>
-      <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-error transition-all"
-        href="#">
-        <span class="material-symbols-outlined">logout</span>
-        <span>Logout</span>
-      </a>
     </div>
   </aside>
-  <main class="ml-64 min-h-screen flex flex-col">
-    <!-- TopAppBar (Exact copy from SCREEN_7) -->
-    <header
-      class="w-full sticky top-0 z-40 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md flex justify-between items-center px-8 py-3 shadow-[0_4px_24px_rgba(25,28,29,0.04)]">
-      <div class="flex items-center gap-4 flex-1">
-        <div class="relative w-full max-w-md">
-          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-          <input
-            class="w-full pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary/20 text-sm"
-            placeholder="Search events, organizers, or locations..." type="text" />
+  <!-- TopAppBar -->
+  <header
+    class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow-sm dark:shadow-none lg:pl-64">
+    <div class="flex justify-between items-center px-6 py-4 w-full">
+      <div class="flex items-center gap-4">
+        <span class="text-xl font-extrabold text-[#0077B6] dark:text-[#0096C7]">Explorer Admin</span>
+        <div class="hidden md:flex items-center bg-slate-100 dark:bg-slate-800 rounded-full px-4 py-1.5 gap-2">
+          <span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+          <input class="bg-transparent border-none text-sm focus:ring-0 w-48 text-on-background"
+            placeholder="Search analytics..." type="text" />
         </div>
       </div>
-      <div class="flex items-center gap-6">
-        <div class="flex items-center gap-2">
-          <button
-            class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors relative">
-            <span class="material-symbols-outlined">notifications</span>
-            <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
-          </button>
-          <button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
-            <span class="material-symbols-outlined">settings</span>
-          </button>
-        </div>
-        <div class="h-8 w-[1px] bg-outline-variant/30"></div>
-        <div class="flex items-center gap-3">
-          <div class="text-right hidden sm:block">
-            <p class="text-sm font-bold text-on-background">Admin User</p>
-            <p class="text-[10px] text-slate-500 font-medium">Super Admin</p>
-          </div>
-          <img alt="Admin Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHTGKs8c_sM1561a5ar4dj1VwruQ-4QdNUVqRGb_0Okg8gca4Fb9YQ4hkBAB3m5EWLgFy4UJmJysUgEbhKdvIJGkTtD06MCB4xUS8IToTBiWj6VjpctoX1bFGSNYcw2_rOr-pLVsWLiW6nriLqpqrGu1Ukp0iMaIGasXkeSF1r4GymIA5zBOZxPuRo9NUnLPYCUJ-pJ-NJemtB3zZWA11bmQDD9yM-ppMzWGlgbs2FGoQw60lxSN4RnctLYOrTyRiYqkuLSAIjdCk" />
-        </div>
-      </div>
-    </header>
-    <!-- Main Content Area -->
-    <div class="p-8 pb-32 max-w-7xl mx-auto w-full">
-      <!-- Header Section -->
-      <div class="flex items-center justify-between mb-10">
-        <div class="flex items-center gap-4">
-          <button
-            class="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors">
-            <span class="material-symbols-outlined">arrow_back</span>
-          </button>
-          <div>
-            <h2 class="text-3xl font-['Plus_Jakarta_Sans'] font-extrabold tracking-tight text-on-background">Moderate
-              Event: Summit Music Fest</h2>
-            <p class="text-on-surface-variant font-medium flex items-center gap-2 mt-1">
-              Reviewing submission from <span class="font-bold text-primary">Peak Productions</span>
-            </p>
-          </div>
-        </div>
-        <div
-          class="flex items-center gap-3 px-4 py-2 bg-secondary-fixed text-on-secondary-fixed rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">
-          <span class="material-symbols-outlined text-sm"
-            style="font-variation-settings: 'FILL' 1;">pending_actions</span>
-          Pending Approval
-        </div>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <!-- Left Column: Editable Details -->
-        <div class="lg:col-span-7 space-y-8">
-          <section
-            class="bg-surface-container-lowest rounded-3xl p-8 shadow-[0_4px_24px_rgba(25,28,29,0.02)] border border-white/50">
-            <h3 class="text-xl font-bold text-on-surface flex items-center gap-3 mb-8">
-              <span class="material-symbols-outlined text-primary">info</span>
-              Event Core Details
-            </h3>
-            <div class="space-y-6">
-              <!-- Title -->
-              <div
-                class="group flex items-start justify-between p-4 rounded-2xl hover:bg-surface-container-low transition-colors">
-                <div class="flex-1">
-                  <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Title</p>
-                  <input
-                    class="w-full bg-transparent border-none p-0 text-lg font-semibold text-on-surface focus:ring-0"
-                    type="text" value="Summit Music Fest 2024" />
-                </div>
-                <span
-                  class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-2">edit</span>
-              </div>
-              <!-- Description -->
-              <div
-                class="group flex items-start justify-between p-4 rounded-2xl hover:bg-surface-container-low transition-colors">
-                <div class="flex-1">
-                  <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Description</p>
-                  <textarea
-                    class="w-full bg-transparent border-none p-0 text-on-surface-variant leading-relaxed focus:ring-0 resize-none h-20">A high-altitude acoustic music festival featuring independent artists from across the Pacific Northwest. Three days of music, mountain air, and local cuisine.</textarea>
-                </div>
-                <span
-                  class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-2">edit</span>
-              </div>
-              <!-- Category & Capacity -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="p-4 rounded-2xl bg-surface-container-low">
-                  <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-2">Category</p>
-                  <select
-                    class="w-full bg-transparent border-none text-on-surface font-semibold focus:ring-0 p-0 cursor-pointer appearance-none">
-                    <option selected="">Music &amp; Concerts</option>
-                    <option>Outdoor &amp; Adventure</option>
-                    <option>Food &amp; Drink</option>
-                    <option>Art &amp; Culture</option>
-                  </select>
-                </div>
-                <div
-                  class="group flex items-start justify-between p-4 rounded-2xl hover:bg-surface-container-low transition-colors">
-                  <div>
-                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Capacity</p>
-                    <input class="w-full bg-transparent border-none p-0 font-semibold text-on-surface focus:ring-0"
-                      type="text" value="1,500 Attendees" />
-                  </div>
-                  <span
-                    class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-1">edit</span>
-                </div>
-              </div>
-              <!-- Date & Duration -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div
-                  class="group flex items-start justify-between p-4 rounded-2xl hover:bg-surface-container-low transition-colors">
-                  <div>
-                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Date</p>
-                    <input class="w-full bg-transparent border-none p-0 font-semibold text-on-surface focus:ring-0"
-                      type="text" value="Aug 15 - Aug 17, 2024" />
-                  </div>
-                  <span
-                    class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-1">edit</span>
-                </div>
-                <div
-                  class="group flex items-start justify-between p-4 rounded-2xl hover:bg-surface-container-low transition-colors">
-                  <div>
-                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Duration</p>
-                    <input class="w-full bg-transparent border-none p-0 font-semibold text-on-surface focus:ring-0"
-                      type="text" value="72 Hours" />
-                  </div>
-                  <span
-                    class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-1">edit</span>
-                </div>
-              </div>
-              <!-- Address -->
-              <div
-                class="group flex items-start justify-between p-4 rounded-2xl hover:bg-surface-container-low transition-colors">
-                <div class="flex-1">
-                  <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Address</p>
-                  <input class="w-full bg-transparent border-none p-0 font-semibold text-on-surface focus:ring-0"
-                    type="text" value="Skyline Ridge, Alpine Valley, Washington" />
-                </div>
-                <span
-                  class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-2">edit</span>
-              </div>
-            </div>
-          </section>
-        </div>
-        <!-- Right Column: Media & Tickets -->
-        <div class="lg:col-span-5 space-y-8">
-          <!-- Media Preview -->
-          <div class="rounded-3xl overflow-hidden relative group aspect-video shadow-lg ring-1 ring-black/5">
-            <img alt="Summit Music Fest"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZJ9hkgGf26n2KmTYtspWxJhTKJlEktp2xRJS87J8PA-M_HVREQyQf8Qv2W9sBCspyGgEw0Urb2aALjhQ1OHlN17pAYSdaJV2GEC0Smv-crEnQO3P-qABKtpsSeD4E0PLft4LkfWhw2JNZis2ftdiRv2QokZzBn7n8oLt3-wxYNutK375xcCGu7cDlILv2QznJQowzHNkFgdi00KV-aYEvVh5GisBCbYz4ajUt0eTQMX1s7KDYsakt6kEy2oySTJ3t4oka7Q9LYpA" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <span
-                class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-[10px] font-bold tracking-widest uppercase">Hero
-                Image Preview</span>
-            </div>
-          </div>
-          <!-- Ticket Tiers -->
-          <section
-            class="bg-surface-container-lowest rounded-3xl p-8 shadow-[0_4px_24px_rgba(25,28,29,0.02)] border border-white/50">
-            <h3 class="text-xl font-bold text-on-surface flex items-center gap-3 mb-6">
-              <span class="material-symbols-outlined text-primary">confirmation_number</span>
-              Ticket Tiers
-            </h3>
-            <div class="space-y-4">
-              <!-- Ticket Tier 1 -->
-              <div class="p-5 rounded-2xl border border-outline-variant/20 bg-surface-container-low/30 relative">
-                <div class="flex items-center justify-between mb-4">
-                  <input class="bg-transparent border-none p-0 text-on-surface font-bold text-lg focus:ring-0 w-2/3"
-                    type="text" value="Standard Pass" />
-                  <div class="text-right">
-                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest">In Stock</p>
-                    <p class="text-on-surface font-bold">1,200</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/10">
-                  <div>
-                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Base Price</p>
-                    <p class="text-on-surface font-bold text-xl">$50.00</p>
-                  </div>
-                  <div>
-                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">% Increase</p>
-                    <div class="flex items-center gap-2">
-                      <input
-                        class="w-16 bg-white border border-outline-variant/30 rounded-lg px-2 py-1 text-sm text-primary font-bold focus:ring-primary/20"
-                        type="number" value="20" />
-                      <span class="text-xs font-bold text-primary">→ $60.00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Ticket Tier 2 -->
-              <div class="p-5 rounded-2xl border border-outline-variant/20 bg-surface-container-low/30 relative">
-                <div class="flex items-center justify-between mb-4">
-                  <input class="bg-transparent border-none p-0 text-on-surface font-bold text-lg focus:ring-0 w-2/3"
-                    type="text" value="VIP Backstage" />
-                  <div class="text-right">
-                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest">In Stock</p>
-                    <p class="text-on-surface font-bold">300</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/10">
-                  <div>
-                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Base Price</p>
-                    <p class="text-on-surface font-bold text-xl">$150.00</p>
-                  </div>
-                  <div>
-                    <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">% Increase</p>
-                    <div class="flex items-center gap-2">
-                      <input
-                        class="w-16 bg-white border border-outline-variant/30 rounded-lg px-2 py-1 text-sm text-primary font-bold focus:ring-primary/20"
-                        type="number" value="15" />
-                      <span class="text-xs font-bold text-primary">→ $172.50</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+      <div class="flex items-center gap-4">
+        <button
+          class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-full transition-colors active:scale-95 duration-200">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <button
+          class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-full transition-colors active:scale-95 duration-200">
+          <span class="material-symbols-outlined">settings</span>
+        </button>
+        <div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ml-2">
+          <img alt="Administrator Profile" class="w-full h-full object-cover"
+            data-alt="professional male administrator portrait in corporate setting with soft daylight and bokeh office background"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAezO9LYDeZ90yqFVQUlLh2YFZA4lT077jggeSH23XBfPnP1jguPPaQqU-eKeOX3loxP2Zj5PqjMcI4Jlqe2TYcbcPk3fOi5VPdDIkiT17DfKwXv7dq31AoOgbY1tR0v9LJ_tbqA4TqV5sDj2VNc68-xs5gVA9GsT-S5u6-64BUcfPlUBwEULQSQ8Adn7DysJu0Uxj4_1lmWdReKaLHuyi6V1yA6mNegbFXBz2O4H4d7fqq4in36UV-3E1628YkTd203w6G1cS6ag" />
         </div>
       </div>
     </div>
-    <!-- Sticky Bottom Action Bar -->
-    <footer
-      class="fixed bottom-0 right-0 left-64 bg-white/90 backdrop-blur-xl border-t border-outline-variant/20 px-12 py-6 flex items-center justify-between z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.03)]">
-      <div class="flex items-center gap-4">
-        <span class="material-symbols-outlined text-outline">verified_user</span>
-        <p class="text-sm text-outline font-medium">Finalizing this action will notify the event organizer.</p>
+  </header>
+  <!-- Main Content Canvas -->
+  <main class="flex-1 pt-24 pb-20 lg:pb-8 px-6 lg:px-10 overflow-y-auto bg-background">
+    <!-- Welcome Header -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold font-['Plus_Jakarta_Sans'] tracking-tight text-on-background">Event Analytics
+        Dashboard</h2>
+      <p class="text-slate-500 text-sm">Reviewing Wanderly's performance for Q3 2023</p>
+    </div>
+    <!-- Top Summary Row -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <!-- Card 1 -->
+      <div
+        class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-transparent flex items-center gap-5">
+        <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined">confirmation_number</span>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Tickets Sold</p>
+          <div class="flex items-baseline gap-2">
+            <span class="text-2xl font-bold text-on-background">12,450</span>
+            <span class="text-xs font-bold text-green-600">+12%</span>
+          </div>
+        </div>
       </div>
-      <div class="flex items-center gap-4">
-        <button
-          class="px-8 py-3 rounded-full border-2 border-error text-error font-bold text-sm tracking-wide hover:bg-error/5 transition-all active:scale-95">
-          Reject Event
-        </button>
-        <button
-          class="px-10 py-3.5 rounded-full bg-[#0077B6] text-white font-bold text-sm tracking-wide shadow-lg shadow-primary/20 hover:shadow-[#0077B6]/40 transition-all active:scale-95 flex items-center gap-2">
-          <span class="material-symbols-outlined text-sm">check_circle</span>
-          Accept Event
-        </button>
+      <!-- Card 2 -->
+      <div
+        class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-transparent flex items-center gap-5">
+        <div class="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+          <span class="material-symbols-outlined">event_available</span>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Reservations</p>
+          <div class="flex items-baseline gap-2">
+            <span class="text-2xl font-bold text-on-background">8,920</span>
+            <span class="text-xs font-bold text-green-600">+8%</span>
+          </div>
+        </div>
       </div>
-    </footer>
+      <!-- Card 3 -->
+      <div
+        class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-transparent flex items-center gap-5">
+        <div class="h-12 w-12 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+          <span class="material-symbols-outlined">payments</span>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Revenue</p>
+          <div class="flex items-baseline gap-2">
+            <span class="text-2xl font-bold text-on-background">$245,600</span>
+            <span class="text-xs font-bold text-green-600">+15%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Analytics Grid -->
+    <div class="grid grid-cols-12 gap-8">
+      <!-- Line Chart: Tickets Over Time -->
+      <div
+        class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-transparent">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="font-bold font-['Plus_Jakarta_Sans'] text-lg">Ticket Reservations Over Time</h3>
+          <select class="text-xs border-none bg-surface-container-low rounded-lg px-3 py-1 font-medium focus:ring-0">
+            <option>Last 6 Months</option>
+            <option>Year to Date</option>
+          </select>
+        </div>
+        <div class="h-72 w-full">
+          <canvas id="reservationsChart"></canvas>
+        </div>
+      </div>
+      <!-- Doughnut Chart: Revenue Breakdown -->
+      <div
+        class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-transparent">
+        <h3 class="font-bold font-['Plus_Jakarta_Sans'] text-lg mb-6 text-center">Revenue Breakdown</h3>
+        <div class="h-64 flex items-center justify-center">
+          <canvas id="revenueBreakdownChart"></canvas>
+        </div>
+        <div class="mt-6 space-y-3">
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#0077b6]"></span>
+              <span class="text-sm font-medium text-slate-600">Ticket Revenue</span>
+            </div>
+            <span class="text-sm font-bold">$184,200</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#f9ad00]"></span>
+              <span class="text-sm font-medium text-slate-600">Profit Revenue</span>
+            </div>
+            <span class="text-sm font-bold">$61,400</span>
+          </div>
+        </div>
+      </div>
+      <!-- Bar Chart: Revenue from Events -->
+      <div class="col-span-12 bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-transparent">
+        <div class="flex justify-between items-center mb-8">
+          <div>
+            <h3 class="font-bold font-['Plus_Jakarta_Sans'] text-lg">Revenue from Events</h3>
+            <p class="text-xs text-slate-400">Comparing top performing curator experiences</p>
+          </div>
+          <button class="text-sm text-primary font-semibold hover:underline">View Detailed Rankings</button>
+        </div>
+        <div class="h-80 w-full">
+          <canvas id="eventRevenueChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- Featured Experiences (Asymmetric Bento Style) -->
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="md:col-span-2 relative group overflow-hidden rounded-xl h-48">
+        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          data-alt="vibrant nightlife scene at a modern music festival with purple and blue stage lights and silhouette of a cheering crowd"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYU0MvQDbHWHmCHqD3AkPhsS8P8HCj_t-WkWjKORQwW--5hGiYna1lT-H5r4l1-9ShiCFAWfcMrDkfL5Q_CeG_S88x6V9KQfINUCyH9Zgfo5fGBbd4tgdlCBGQ_Bvk6M9MoWzzQyiCjIA0XQEuF4t6gKIbKXwg1dLODUg-X3y9ecIvW4UgtHgKYf-hoHC_01h7e5DYgnjDWbGGYfUn6ly3iMkF2tjAZ0smKTpkNrR8wAQGSwxrIFEr3ZFb5ATnVv_fl8AVTp6ZMmM" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-5">
+          <span
+            class="bg-primary/80 backdrop-blur-md text-white text-[10px] uppercase font-bold tracking-widest px-2 py-1 rounded w-max mb-2">Top
+            Performer</span>
+          <h4 class="text-white font-bold text-lg">Neon Horizon Festival</h4>
+        </div>
+      </div>
+      <div class="relative group overflow-hidden rounded-xl h-48">
+        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          data-alt="elegant speakeasy cocktail bar with dark wood textures and amber lighting focusing on a crystal glass drink"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLTZvhdkh3EWONra3XOoeyStoOx7MntStvTgYnmQIsof2HMfqqbSRNdfO_pwyvTk-5HzkoP49WIYlTYkIAPLPDfJ53pj7tgVFwXFPTC-J3B2zJZEGm3zcnwvZS_Y5gqJOV7wOTXFNjxzE8UcVGZ_NT3n_nlxTkbluQzUKjWibmV4JPSstykaErBt8jEhflv-EwD89uqEti7S10097ixnVsU5EzwfewIFticJtH0Y_wieMLKyiHvvL3e4axVK-03nuv8Y92Xhl4Zjg" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-5">
+          <h4 class="text-white font-bold text-sm">The Hidden Cask</h4>
+        </div>
+      </div>
+      <div class="relative group overflow-hidden rounded-xl h-48">
+        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          data-alt="zen minimalist art gallery space with white walls and a large contemporary painting under focused spotlight"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUuuw7YzM73nD_M9y-oDgt6DiI-FV4OviapoHasenuIGbboB-uAVs5BeKvfCn2GKhMG75-vQSXPcdMq5vwESnTUVJUUC7HwN-Dujjl2McMjTRbHEmruKnesdYgZog2mBcNYlUclAO7YLDkbx7qGdqrV6K9znI9c6j2YiS6si72cmHzDXvOH2iazl5q5t3T50NQbubNkgVXClRvyzBUToSa06b4tvRQw578YQELvbD14zuMqAqxkncSH9RKEyYBuHigPuKQWoB6aa0" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-5">
+          <h4 class="text-white font-bold text-sm">Elysium Gallery Tour</h4>
+        </div>
+      </div>
+    </div>
   </main>
+  <!-- BottomNavBar (Mobile) -->
+  <nav
+    class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg lg:hidden rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)] border-t border-slate-100 dark:border-slate-800">
+    <a class="flex flex-col items-center text-[#0077B6] dark:text-[#0096C7] font-bold active:scale-90 transition-transform"
+      href="#">
+      <span class="material-symbols-outlined">home</span>
+      <span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-wider">Home</span>
+    </a>
+    <a class="flex flex-col items-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform"
+      href="#">
+      <span class="material-symbols-outlined">sell</span>
+      <span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-wider">Sales</span>
+    </a>
+    <a class="flex flex-col items-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform"
+      href="#">
+      <span class="material-symbols-outlined">calendar_month</span>
+      <span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-wider">Bookings</span>
+    </a>
+    <a class="flex flex-col items-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform"
+      href="#">
+      <span class="material-symbols-outlined">person</span>
+      <span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-wider">Profile</span>
+    </a>
+  </nav>
+  <script>
+    // Charts Implementation
+
+    // Ticket Reservations Line Chart
+    const resCtx = document.getElementById('reservationsChart').getContext('2d');
+    const gradient = resCtx.createLinearGradient(0, 0, 0, 300);
+    gradient.addColorStop(0, 'rgba(0, 93, 144, 0.2)');
+    gradient.addColorStop(1, 'rgba(0, 93, 144, 0)');
+
+    new Chart(resCtx, {
+      type: 'line',
+      data: {
+        labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+        datasets: [{
+          label: 'Reservations',
+          data: [1200, 1900, 1700, 2500, 3200, 2800],
+          borderColor: '#005d90',
+          borderWidth: 3,
+          tension: 0.4,
+          fill: true,
+          backgroundColor: gradient,
+          pointBackgroundColor: '#005d90',
+          pointRadius: 0,
+          pointHoverRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { family: 'Inter' } } },
+          y: { border: { display: false }, grid: { color: '#f1f5f9' }, ticks: { color: '#94a3b8', font: { family: 'Inter' } } }
+        }
+      }
+    });
+
+    // Revenue Breakdown Doughnut
+    const revCtx = document.getElementById('revenueBreakdownChart').getContext('2d');
+    new Chart(revCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Tickets', 'Profit'],
+        datasets: [{
+          data: [75, 25],
+          backgroundColor: ['#0077b6', '#f9ad00'],
+          borderWidth: 0,
+          hoverOffset: 10
+        }]
+      },
+      options: {
+        cutout: '75%',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    // Revenue from Events Bar Chart
+    const eventCtx = document.getElementById('eventRevenueChart').getContext('2d');
+    new Chart(eventCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Neon Horizon', 'Hidden Cask', 'Gallery Tour', 'Summit Hike', 'Coastal Sail', 'Jazz Night'],
+        datasets: [{
+          label: 'Revenue ($)',
+          data: [65000, 42000, 38000, 29000, 51000, 20000],
+          backgroundColor: [
+            '#005d90', '#0077b6', '#006176', '#7f5600', '#0096c7', '#f9ad00'
+          ],
+          borderRadius: 8,
+          barThickness: 40
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { color: '#94a3b8' } },
+          y: { border: { display: false }, grid: { color: '#f1f5f9' }, ticks: { color: '#94a3b8' } }
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

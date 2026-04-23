@@ -66,7 +66,7 @@
             <span class="font-label">Help</span>
         </a>
         <a class="flex items-center space-x-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-lg transition-all duration-300"
-            href="#">
+            href="logout">
             <span class="material-symbols-outlined" data-icon="logout">logout</span>
             <span class="font-label">Logout</span>
         </a>
