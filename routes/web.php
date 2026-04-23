@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
             ->name('events.review');
         Route::put('/events/{event}/review', [EventController::class, 'update'])
             ->name('events.update');
-        Route::put('/events/{event}/review', [EventController::class, 'updateStatus'])
+        Route::put('/events/{event}/status', [EventController::class, 'updateStatus'])
             ->name('events.update.status');
 
         Route::get('/admin/manage/events', [EventController::class, 'index']);

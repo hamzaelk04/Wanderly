@@ -137,6 +137,7 @@ class EventController extends Controller
             'ticket' => 'nullable|array',
 
             'ticket.*.price' => 'required_with:ticket|numeric',
+            'ticket.*.percent' => ['numeric', 'min:0', 'max:100'],
         ]);
 
         $event->categories()->attach($request->category_id);
@@ -154,10 +155,8 @@ class EventController extends Controller
 
             $percent = $ticketData['percent'] ?? 0;
 
-            $newPrice = $ticket->price + ($ticket->price * $percent / 100);
-
             $ticket->update([
-                'price' => $newPrice,
+                'service_fee' => $percent,
             ]);
         }
 
