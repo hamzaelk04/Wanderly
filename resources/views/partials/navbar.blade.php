@@ -21,7 +21,7 @@
     </div>
     <!-- Adding the search bar later -->
     <div class="flex items-center gap-6">
-        <div class="felx items-center gap-3">
+            @stack('favorite')
             @guest
             <a class="px-5 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 rounded-full transition-all active:scale-95" href="login">
                 Login
@@ -35,6 +35,5 @@
                 Log Out
             </a>
             @endauth
-        </div>
     </div>
 </nav>
