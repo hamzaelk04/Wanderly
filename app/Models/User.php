@@ -53,6 +53,26 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function hasRole($roleName)
+    {
+        return $this->role && $this->role->name === $roleName;
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasRole('admin');
+    }
+
+    public function isOrganizer()
+    {
+        return $this->hasRole('organizer');
+    }
+
+    public function isClient()
+    {
+        return $this->hasRole('client');
+    }
+
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
