@@ -22,7 +22,9 @@ class RoleMiddleware
         }
 
         if (!$user->role || !in_array($user->role->name, $roles)) {
-            return response()->view('forbidden.forbidden', [], 403);
+            return response()->view('forbidden.forbidden', [
+                'previous' => url()->previous(),
+            ], 403);
         }
 
         return $next($request);
