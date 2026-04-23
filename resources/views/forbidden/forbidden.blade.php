@@ -145,6 +145,10 @@
           class="adventure-gradient text-on-primary font-display font-semibold px-8 py-4 rounded-full shadow-sm hover:shadow-lg hover:scale-[1.02] active:scale-95 transition-all duration-300">
           Back to Dashboard
         </a>
+        <a href="{{ $previous }}"
+          class="px-8 py-4 text-primary font-display font-semibold rounded-full hover:bg-surface-container-low transition-all duration-300">
+          Go Back
+        </a>
       </div>
     </div>
     <!-- Minimal Footer Reference (As per Wanderly Branding) -->
