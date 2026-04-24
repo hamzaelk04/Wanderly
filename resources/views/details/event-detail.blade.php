@@ -1,155 +1,28 @@
-<!DOCTYPE html>
+@extends('layouts.app')
 
-<html class="scroll-smooth" lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Wanderly | Event Details</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "on-tertiary": "#ffffff",
-            "on-background": "#191c1d",
-            "on-error": "#ffffff",
-            "primary-fixed": "#cde5ff",
-            "surface-container-lowest": "#ffffff",
-            "surface-container-low": "#f3f4f5",
-            "primary": "#005d90",
-            "secondary-container": "#f9ad00",
-            "inverse-on-surface": "#f0f1f2",
-            "on-secondary-fixed": "#281800",
-            "primary-fixed-dim": "#94ccff",
-            "on-primary-container": "#f3f7ff",
-            "on-secondary-container": "#664500",
-            "tertiary-fixed-dim": "#4cd6fb",
-            "surface-container": "#edeeef",
-            "on-tertiary-container": "#ecf9ff",
-            "background": "#f8f9fa",
-            "on-error-container": "#93000a",
-            "outline": "#707881",
-            "secondary": "#7f5600",
-            "tertiary": "#006176",
-            "surface": "#f8f9fa",
-            "on-surface-variant": "#404850",
-            "on-tertiary-fixed-variant": "#004e5f",
-            "surface-container-high": "#e7e8e9",
-            "tertiary-container": "#007c95",
-            "error-container": "#ffdad6",
-            "secondary-fixed": "#ffdeae",
-            "inverse-primary": "#94ccff",
-            "on-primary-fixed": "#001d32",
-            "secondary-fixed-dim": "#ffba3f",
-            "on-tertiary-fixed": "#001f27",
-            "on-secondary-fixed-variant": "#604100",
-            "on-primary-fixed-variant": "#004b74",
-            "surface-dim": "#d9dadb",
-            "surface-bright": "#f8f9fa",
-            "on-surface": "#191c1d",
-            "inverse-surface": "#2e3132",
-            "tertiary-fixed": "#b3ebff",
-            "outline-variant": "#bfc7d1",
-            "surface-variant": "#e1e3e4",
-            "primary-container": "#0077b6",
-            "on-primary": "#ffffff",
-            "on-secondary": "#ffffff",
-            "error": "#ba1a1a",
-            "surface-tint": "#006399",
-            "surface-container-highest": "#e1e3e4"
-          },
-          fontFamily: {
-            "headline": ["Plus Jakarta Sans"],
-            "body": ["Inter"],
-            "label": ["Inter"]
-          },
-          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-        },
-      },
-    }
-  </script>
-  <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-
-    .tonal-shift {
-      transition: background-color 0.3s ease;
-    }
-  </style>
-</head>
-
-<body class="bg-background font-body text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
-  <!-- TopNavBar -->
-  <nav
-    class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm shadow-sky-900/5 h-20 flex justify-between items-center px-8 max-w-full">
-    <div class="flex items-center gap-8">
-      <span class="text-2xl font-bold text-sky-800 tracking-tight font-headline">Wanderly</span>
-      <div class="hidden md:flex gap-6 items-center">
-        <a class="font-headline tracking-tight font-semibold text-slate-600 hover:text-sky-600 transition-colors duration-300"
-          href="#">Home</a>
-        <a class="font-headline tracking-tight font-semibold text-sky-700 border-b-2 border-sky-600 pb-1"
-          href="#">Events</a>
-        <a class="font-headline tracking-tight font-semibold text-slate-600 hover:text-sky-600 transition-colors duration-300"
-          href="#">Monuments</a>
-      </div>
-    </div>
-    <div class="flex items-center gap-4">
-      <div class="relative hidden lg:block">
-        <input
-          class="bg-surface-container-low border-none rounded-full px-6 py-2 w-64 focus:ring-2 focus:ring-primary/20 text-sm"
-          placeholder="Search experiences..." type="text" />
-        <span class="material-symbols-outlined absolute right-4 top-2 text-outline text-lg">search</span>
-      </div>
-      <button
-        class="px-6 py-2 text-sm font-semibold text-sky-700 hover:bg-slate-50 transition-colors rounded-full">Login</button>
-      <button
-        class="px-6 py-2 text-sm font-semibold bg-primary text-white rounded-full shadow-md shadow-primary/20 hover:scale-95 active:scale-100 transition-transform">Sign
-        Up</button>
-    </div>
-  </nav>
-  <main class="pt-20">
+@section('content')
     <!-- Hero Section -->
-    <section class="relative h-[716px] w-full overflow-hidden">
+    <section class="relative h-179 w-full overflow-hidden">
       <img class="w-full h-full object-cover"
         data-alt="Stunning architectural detail of a historical gothic cathedral during sunset with golden light hitting the intricate stone carvings and stained glass."
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOREQw4u2pETzf68HHDz_Mm1sL1TGKk2ygM3cJnFsF-lmWRPQsjGvbAAuEYZc8zW2EUvpnqWVdt_SmR1KVkkqdvlJC0CTd1AqtfNkZlHDXyKnK7TMGjqq6bXVREj9LUSYxLJBZCYvmXhCTbHwKyN5Tm5sGSRCJbFkb_rZsmVKsa9EIWQ2qv5nrSm-gkwFcbBGNo2DORza__U_ONgGyRybNB8X3MAZpTFxhwmD8AWNLkoFLPhYIkfFes84mRoQX5IutkkdBn_t-OME" />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        src="{{ asset('storage/' . optional($event->images->first())->path) }}" />
+      <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"></div>
       <div
         class="absolute bottom-12 left-12 right-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-6">
         <div class="text-white max-w-2xl">
           <nav class="flex gap-2 text-sm font-medium mb-4 opacity-90">
-            <span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full">UNESCO Heritage</span>
-            <span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full">Architecture</span>
+            <span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full">{{ optional($event->categories->first())->name }}</span>
           </nav>
-          <h1 class="text-5xl md:text-7xl font-extrabold font-headline leading-tight tracking-tight">The Cathedral of
-            Whispers</h1>
+          <h1 class="text-5xl md:text-7xl font-extrabold font-headline leading-tight tracking-tight">{{ $event->title }}</h1>
         </div>
       </div>
     </section>
-    <!-- Content Grid (Asymmetric) -->
+
     <section class="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
-      <!-- Main Content Area -->
       <div class="lg:col-span-8 space-y-12">
-        <!-- Overview -->
         <div class="space-y-6">
           <h2 class="text-3xl font-bold font-headline text-primary">A Journey Through Time</h2>
-          <p class="text-lg text-on-surface-variant leading-relaxed font-body">
-            Standing as a testament to centuries of craftsmanship, the Cathedral of Whispers offers an unparalleled look
-            into medieval architectural genius. Built between 1245 and 1320, the structure is famous for its unique
-            acoustic properties that allow even a whisper to travel across the vast central nave.
+          <p class="text-lg text-on-surface-variant leading-relaxed font-body">{{ $event->description }}
           </p>
           <p class="text-lg text-on-surface-variant leading-relaxed font-body">
             Today, it serves not only as a place of quiet reflection but as a vibrant cultural hub, hosting
@@ -157,14 +30,14 @@
             rarely seen by the casual observer.
           </p>
         </div>
-        <!-- Bento Info Grid -->
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div
             class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10 flex items-start gap-4">
             <span class="material-symbols-outlined text-primary text-3xl">calendar_today</span>
             <div>
               <span class="block text-sm font-bold text-outline uppercase tracking-widest mb-1">Date &amp; Time</span>
-              <span class="text-xl font-semibold text-on-background">Open Daily: 09:00 - 18:00</span>
+              <span class="text-xl font-semibold text-on-background">{{ \Carbon\Carbon::parse($event->date)->format('M d • h:i A') }}</span>
             </div>
           </div>
           <div
@@ -172,7 +45,7 @@
             <span class="material-symbols-outlined text-primary text-3xl">schedule</span>
             <div>
               <span class="block text-sm font-bold text-outline uppercase tracking-widest mb-1">Avg. Duration</span>
-              <span class="text-xl font-semibold text-on-background">2 - 3 Hours</span>
+              <span class="text-xl font-semibold text-on-background">{{ $event->duration }} MIN</span>
             </div>
           </div>
           <div
@@ -180,7 +53,7 @@
             <div class="flex-1">
               <span class="block text-sm font-bold text-outline uppercase tracking-widest mb-1">Crowd Level</span>
               <div class="flex items-center gap-4 mt-2">
-                <span class="text-xl font-semibold text-on-background">Medium</span>
+                <span class="text-xl font-semibold text-on-background">{{ strtoupper($event->crowd_level) }}</span>
                 <div class="flex-1 bg-surface-container h-3 rounded-full overflow-hidden">
                   <div class="bg-secondary-container h-full w-[65%]" title="65% capacity"></div>
                 </div>
@@ -194,11 +67,8 @@
         <div class="space-y-6">
           <div class="flex justify-between items-center">
             <h3 class="text-2xl font-bold font-headline">Location &amp; Access</h3>
-            <a class="text-primary font-semibold flex items-center gap-2 hover:underline" href="#">
-              Open in Maps <span class="material-symbols-outlined text-sm">open_in_new</span>
-            </a>
           </div>
-          <div class="rounded-xl overflow-hidden h-[300px] relative bg-surface-container">
+          <div class="rounded-xl overflow-hidden h-75 relative bg-surface-container">
             <img class="w-full h-full object-cover grayscale opacity-60"
               data-alt="A stylized minimalist map view showing a historic European city center with a prominent cathedral icon in the middle."
               data-location="Strasbourg, France"
@@ -209,8 +79,8 @@
                   <span class="material-symbols-outlined">location_on</span>
                 </div>
                 <div>
-                  <p class="font-bold text-sm">12 Place de la Cathédrale</p>
-                  <p class="text-xs text-outline">Strasbourg, France</p>
+                  <p class="font-bold text-sm">{{ $event->address }}</p>
+                  <p class="text-xs text-outline">{{$event->city}}</p>
                 </div>
               </div>
             </div>
@@ -259,23 +129,6 @@
             class="w-full py-4 bg-secondary-container text-on-secondary-container font-extrabold rounded-full shadow-lg shadow-secondary-container/20 hover:scale-95 active:scale-100 transition-transform">
             Book Ticket Now
           </button>
-          <div class="pt-6 border-t border-outline-variant/20 space-y-4">
-            <div class="flex items-center gap-3 text-sm text-on-surface-variant">
-              <span class="material-symbols-outlined text-primary text-xl"
-                style="font-variation-settings: 'FILL' 1;">check_circle</span>
-              Free cancellation up to 24h before
-            </div>
-            <div class="flex items-center gap-3 text-sm text-on-surface-variant">
-              <span class="material-symbols-outlined text-primary text-xl"
-                style="font-variation-settings: 'FILL' 1;">check_circle</span>
-              Mobile tickets accepted
-            </div>
-            <div class="flex items-center gap-3 text-sm text-on-surface-variant">
-              <span class="material-symbols-outlined text-primary text-xl"
-                style="font-variation-settings: 'FILL' 1;">check_circle</span>
-              Audio guide included
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -344,44 +197,5 @@
         </div>
       </div>
     </section>
-  </main>
-  <!-- Footer -->
-  <footer class="bg-slate-50 dark:bg-slate-950 w-full border-t-0">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-12 py-16 w-full">
-      <div class="space-y-4">
-        <span class="text-lg font-bold text-sky-900 dark:text-sky-100 font-headline">Wanderly</span>
-        <p class="font-body text-sm text-slate-500 max-w-xs leading-relaxed">
-          © 2024 Wanderly Platform. Curating culture. We believe the world is best explored through the lens of local
-          hidden gems.
-        </p>
-      </div>
-      <div class="flex flex-col gap-4">
-        <span class="text-sm font-bold text-on-background uppercase tracking-widest">Platform</span>
-        <a class="font-body text-sm text-slate-400 hover:text-sky-500 underline underline-offset-4 opacity-80 hover:opacity-100 transition-all"
-          href="#">About Us</a>
-        <a class="font-body text-sm text-slate-400 hover:text-sky-500 underline underline-offset-4 opacity-80 hover:opacity-100 transition-all"
-          href="#">Terms of Service</a>
-      </div>
-      <div class="flex flex-col gap-4">
-        <span class="text-sm font-bold text-on-background uppercase tracking-widest">Support</span>
-        <a class="font-body text-sm text-slate-400 hover:text-sky-500 underline underline-offset-4 opacity-80 hover:opacity-100 transition-all"
-          href="#">Privacy Policy</a>
-        <a class="font-body text-sm text-slate-400 hover:text-sky-500 underline underline-offset-4 opacity-80 hover:opacity-100 transition-all"
-          href="#">Contact</a>
-      </div>
-      <div class="space-y-4">
-        <span class="text-sm font-bold text-on-background uppercase tracking-widest">Newsletter</span>
-        <div class="flex gap-2">
-          <input
-            class="bg-white border border-outline-variant/30 rounded-lg px-4 py-2 text-sm flex-1 focus:ring-primary focus:border-primary"
-            placeholder="Email address" type="email" />
-          <button class="bg-primary text-white p-2 rounded-lg">
-            <span class="material-symbols-outlined">send</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </footer>
-</body>
+@endsection
 
-</html>

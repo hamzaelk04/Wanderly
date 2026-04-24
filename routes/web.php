@@ -12,6 +12,7 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/{event}/detail', [EventController::class, 'show'])->name('event.detail');
 Route::get('/test', function () {
     return view('test');
 });
@@ -32,8 +33,8 @@ Route::middleware('auth')->group(function () {
 
     // admin:
     Route::middleware('role:admin')->group(function () {
-        Route::get('/admin', [AdminController::class, 'index'])
-            ->name('admin.dashboard');
+        // Route::get('/admin', [AdminController::class, 'index'])
+        //     ->name('admin.dashboard');
 
         // categories
         Route::get('/create/category', [CategoryController::class, 'index'])

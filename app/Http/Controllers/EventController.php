@@ -110,7 +110,11 @@ class EventController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $event = Event::with(['categories', 'images', 'tickets'])
+        ->where('status', 'accepted')
+        ->findOrFail($id);
+
+        return view('details.event-detail', compact('event'));
     }
 
     /**
@@ -191,4 +195,5 @@ class EventController extends Controller
         $event->load(['images', 'tickets']);
         return view('dashboard-views.admin.event-review', compact('event', 'categories'));
     }
+
 }

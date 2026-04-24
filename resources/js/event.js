@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Attach click handlers to all favorite buttons
     document.querySelectorAll(".favorite-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const id = btn.dataset.eventId;
@@ -56,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
         updateUI(btn.dataset.eventId);
     });
 
-    // ---- MODAL PART (your existing code) ----
     function openModal() {
         renderFavorites();
         modal.classList.remove("hidden");
@@ -99,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const img = card.querySelector("img")?.src || "";
 
             miniCard.innerHTML = `
-                <img src="${img}" class="w-10 h-10 rounded-lg object-cover flex-shrink-0" />
+                <img src="${img}" class="w-10 h-10 rounded-lg object-cover shrink-0" />
 
                 <span class="font-semibold text-sm text-gray-800 truncate flex-1">
                     ${title}
