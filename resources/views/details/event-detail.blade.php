@@ -92,58 +92,61 @@
     </div>
     <!-- Sidebar / Booking Card -->
     <div class="lg:col-span-4">
-      <div
-        class="sticky top-28 bg-surface-container-lowest p-8 rounded-2xl shadow-xl shadow-sky-900/5 border border-outline-variant/10 space-y-8">
-        @foreach ($event->tickets as $ticket)
-          <div class="flex justify-between items-center">
-            <div>
-              <span class="text-sm font-medium text-outline">Starting from</span>
-              <div class="flex items-baseline gap-1">
-                <span
-                  class="text-3xl font-extrabold text-on-background font-headline">{{ $ticket->price + $ticket->price * $ticket->service_fee / 100 }}
-                  MAD</span>
-                <span class="text-outline text-sm">/ person</span>
-              </div>
-            </div>
-            <div class="bg-tertiary-container/10 px-3 py-1 rounded-lg">
-              <span class="text-tertiary font-bold text-sm">Fast Track</span>
-            </div>
-          </div>
-          <div class="space-y-4">
-            <div class="p-4 bg-surface rounded-xl border border-outline-variant/30 flex justify-between items-center">
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-outline uppercase tracking-tighter">Tickets</span>
-                <span class="font-semibold">{{$ticket->name}}</span>
-              </div>
-              <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
-              <div class="flex items-center gap-4">
-                <button onclick="this.nextElementSibling.stepDown()"
-                  class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-variant transition-colors">
-                  -
-                </button>
+      <form method="POST" action="{{ route('checkout') }}">
+        @csrf
 
-                <input type="number" value="1" min="0" max="{{ $ticket->quantity }}" name="tickets[{{ $ticket->id }}]"
-                  class="w-12 text-center font-bold bg-transparent border-none focus:outline-none appearance-none" />
+        <div
+          class="sticky top-28 bg-surface-container-lowest p-8 rounded-2xl shadow-xl shadow-sky-900/5 border border-outline-variant/10 space-y-8">
+          @foreach ($event->tickets as $ticket)
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-sm font-medium text-outline">Starting from</span>
+                <div class="flex items-baseline gap-1">
+                  <span
+                    class="text-3xl font-extrabold text-on-background font-headline">{{ $ticket->price + $ticket->price * $ticket->service_fee / 100 }}
+                    MAD</span>
+                  <span class="text-outline text-sm">/ person</span>
+                </div>
+              </div>
+              <div class="bg-tertiary-container/10 px-3 py-1 rounded-lg">
+                <span class="text-tertiary font-bold text-sm">Fast Track</span>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="p-4 bg-surface rounded-xl border border-outline-variant/30 flex justify-between items-center">
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-outline uppercase tracking-tighter">Tickets</span>
+                  <span class="font-semibold">{{$ticket->name}}</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <button type="button" onclick="this.nextElementSibling.stepDown()"
+                    class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-variant transition-colors">
+                    -
+                  </button>
 
-                <button onclick="this.previousElementSibling.stepUp()"
-                  class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-variant transition-colors">
-                  +
-                </button>
+                  <input type="number" value="1" min="0" max="{{ $ticket->quantity }}" name="tickets[{{ $ticket->id }}]"
+                    class="w-12 text-center font-bold bg-transparent border-none focus:outline-none appearance-none" />
+
+                  <button type="button" onclick="this.previousElementSibling.stepUp()"
+                    class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-variant transition-colors">
+                    +
+                  </button>
+                </div>
+              </div>
+              <div class="p-4 bg-surface rounded-xl border border-outline-variant/30 flex justify-between items-center">
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-outline uppercase tracking-tighter">Date</span>
+                  <span class="font-semibold">{{ \Carbon\Carbon::parse($event->date)->format('M d') }}</span>
+                </div>
               </div>
             </div>
-            <div class="p-4 bg-surface rounded-xl border border-outline-variant/30 flex justify-between items-center">
-              <div class="flex flex-col">
-                <span class="text-xs font-bold text-outline uppercase tracking-tighter">Date</span>
-                <span class="font-semibold">{{ \Carbon\Carbon::parse($event->date)->format('M d') }}</span>
-              </div>
-            </div>
-          </div>
-        @endforeach
-        <button
-          class="w-full py-4 bg-secondary-container text-on-secondary-container font-extrabold rounded-full shadow-lg shadow-secondary-container/20 hover:scale-95 active:scale-100 transition-transform">
-          Book Ticket Now
-        </button>
-      </div>
+          @endforeach
+          <button
+            class="w-full py-4 bg-secondary-container text-on-secondary-container font-extrabold rounded-full shadow-lg shadow-secondary-container/20 hover:scale-95 active:scale-100 transition-transform">
+            Buy Ticket Now
+          </button>
+        </div>
+      </form>
     </div>
   </section>
   <!-- Related Section -->

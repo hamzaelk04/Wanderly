@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MonumentController;
 use App\Http\Controllers\OrganizerController;
+use App\Http\Controllers\Paymenet\PaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 
@@ -75,4 +76,5 @@ Route::middleware('auth')->group(function () {
         });
     });
 
+    Route::post('/checkout', [PaymentController::class, 'checkout'])->name('checkout');
 });
