@@ -21,9 +21,18 @@
                 <p class="text-sm font-bold text-on-surface leading-tight">{{ auth()->user()->firstname }}</p>
                 <p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">{{ auth()->user()->role->name }}</p>
             </div>
-            <img class="w-10 h-10 rounded-full border-2 border-primary/20 object-cover"
-                data-alt="close-up portrait of a professional man with a friendly expression in a modern office environment"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzELzgH-aJtTqCQFbNKiYSRlD4jpaL9x6wzNmuv3bC47yEdk8IOS5zpOBU-oeu4-Eb_KRYDACAYERhAnVMBYr44HYziCuY0J4iqgd0llMnxOE-pizmpR_zVbyl4orUK5NLsfZasC3Vtl_jaErlYHVO1z604j1HymYdapN08lSJ2JLy9AKfnvxJGRMtaVGKSmUpPw2z_NDr2Ha2Wx061gXuobahoYCKb9OkDCrbbett8-k2Uwdv66pAqhmXbS-d7GvzFdaDa4LOesE" />
+            @if (auth()->user() && auth()->user()->role && auth()->user()->role->name !== 'admin')
+                <a href="{{ route('profile.show', auth()->id()) }}" class="w-10 h-10 flex items-center">
+                    @if (auth()->user()->image)
+                        <img alt=" Admin Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
+                            src="{{ asset('storage/' . optional(auth()->user()->image)->path) }}" />
+                    @else
+                        <span class="material-symbols-outlined text-sky-700 dark:text-sky-700 text-8xl">
+                            account_circle
+                        </span>
+                    @endif
+                </a>
+            @endif
         </div>
     </div>
 </header>

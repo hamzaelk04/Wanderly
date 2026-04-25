@@ -43,11 +43,13 @@
                             {{ $user->lastname }}
                         </h3>
                         <p class="text-on-surface-variant text-sm mb-6">{{ $user->email }}</p>
+                        @if (auth()->user()->isClient())
                         <a
                             class="w-full py-4 px-6 bg-secondary-container text-on-secondary-fixed font-semibold rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95">
                             <span class="material-symbols-outlined">history_edu</span>
                             View Order History
                         </a>
+                        @endif
                     </div>
                     <div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
                         <h4 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant mb-4">

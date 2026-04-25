@@ -11,6 +11,13 @@ class ProfileController extends Controller
 {
     public function show(User $user)
     {
+        $previous = url()->previous();
+        if ($user->id !== auth()->id()) {
+            return view('forbidden.forbidden', [
+                'previous' => $previous
+            ]);
+        }
+
         $user->load(['role', 'image']);
 
         $hideFooter = true;
@@ -18,8 +25,10 @@ class ProfileController extends Controller
         return view('dashboard.profile', compact('user', 'hideFooter'));
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
+        $user = auth()->user();
+
         $rules = [
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
@@ -41,8 +50,8 @@ class ProfileController extends Controller
 
         $user->update([
             'firstname' => $request->firstname,
-            'lastname'  => $request->lastname,
-            'email'     => $request->email,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
         ]);
 
         if ($request->hasFile('image')) {
