@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\Paymenet\PaymentController;
 use App\Http\Controllers\Paymenet\StripeWebhookController;
+use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 
@@ -16,6 +17,8 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event}/detail', [EventController::class, 'show'])->name('event.detail');
+
+Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
 
 Route::get('/monument', [MonumentController::class, 'index']);
 Route::get('/monuments/{event}/detail', [MonumentController::class, 'show'])->name('monument.detail');

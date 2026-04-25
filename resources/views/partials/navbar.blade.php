@@ -21,19 +21,35 @@
     </div>
     <!-- Adding the search bar later -->
     <div class="flex items-center gap-6">
-            @stack('favorite')
-            @guest
-            <a class="px-5 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 rounded-full transition-all active:scale-95" href="login">
+        @stack('favorite')
+        @guest
+            <a class="px-5 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 rounded-full transition-all active:scale-95"
+                href="login">
                 Login
             </a>
-            <a class="px-5 py-2 text-sm font-bold bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95" href="register">
+            <a class="px-5 py-2 text-sm font-bold bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95"
+                href="register">
                 Sign Up
-            </a> 
-            @endguest
-            @auth
-            <a class="px-5 py-2 text-sm font-bold bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95" href="logout">
+            </a>
+        @endguest
+        @auth
+            @if (auth()->user() && auth()->user()->role && auth()->user()->role->name !== 'admin')
+                <a href="{{ route('profile.show', auth()->id()) }}" class="w-10 h-10 flex items-center">
+                            @if (auth()->user()->image)
+                                            <img alt=" Admin Avatar"
+                                class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
+                                src="{{ asset('storage/' . optional(auth()->user()->image)->path) }}" />
+                            @else
+                    <span class="material-symbols-outlined text-sky-700 dark:text-sky-700 text-8xl">
+                        account_circle
+                    </span>
+                @endif
+                </a>
+            @endif
+            <a class="px-5 py-2 text-sm font-bold bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-95"
+                href="logout">
                 Log Out
             </a>
-            @endauth
+        @endauth
     </div>
 </nav>
