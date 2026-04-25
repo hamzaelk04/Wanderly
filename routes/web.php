@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MonumentController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\Paymenet\PaymentController;
 use App\Http\Controllers\Paymenet\StripeWebhookController;
@@ -21,6 +22,8 @@ Route::get('/test', function () {
 
 Route::get('/success', [PaymentController::class, 'success'])->name('payment.success');
 Route::get('/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
+
+Route::get('/tickets/{order}/download', [OrderController::class, 'download'])->name('tickets.download');
 
 
 Route::middleware('guest')->group(function () {

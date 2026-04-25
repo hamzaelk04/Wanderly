@@ -90,11 +90,11 @@
             </div>
             <!-- Primary Action -->
             <div class="md:col-span-12 flex flex-col items-center mt-6">
-                <button
+                <a href="{{ route('tickets.download', $order->id) }}"
                     class="w-full cursor-pointer md:w-auto px-12 py-4 bg-linear-to-br from-primary to-primary-container text-on-primary font-bold rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 flex items-center justify-center gap-2">
                     <span class="material-symbols-outlined">download</span>
                     Download Tickets
-                </button>
+                </a>
                 <div class="flex flex-wrap justify-center gap-8 mt-8">
                     <a class="text-primary font-semibold hover:underline flex items-center gap-1 group" href="#">
                         <span
