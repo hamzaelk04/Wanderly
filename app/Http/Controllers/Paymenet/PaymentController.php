@@ -107,4 +107,33 @@ class PaymentController extends Controller
         }
 
     }
+
+    public function success(Request $request)
+    {
+        Stripe::setApiKey(config('services.stripe.secret'));
+
+        $session = Session::retrieve($request->input('session_id'));
+
+        $orderId = $session->metadata->order_id ?? null;
+
+        $order = null;
+        $orderItems = [];
+
+        if ($orderId) {
+            $order = Order::with('orderItem.ticket')->find($orderId); 
+            if ($order) {
+                $order->update(['status' => 'paid']);
+                $orderItems = $order->orderItem;
+            }
+        }
+
+        return view('payment.success', compact('order', 'orderItems'));
+    }
+
+
+    public function cancel()
+    {
+        return view('cancel');
+    }
+
 }
