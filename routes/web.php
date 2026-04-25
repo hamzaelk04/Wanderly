@@ -19,6 +19,7 @@ Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event}/detail', [EventController::class, 'show'])->name('event.detail');
 
 Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
+Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/monument', [MonumentController::class, 'index']);
 Route::get('/monuments/{event}/detail', [MonumentController::class, 'show'])->name('monument.detail');
