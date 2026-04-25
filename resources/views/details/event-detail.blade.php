@@ -141,7 +141,7 @@
               </div>
             </div>
           @endforeach
-          <button
+          <button type="submit"
             class="w-full py-4 bg-secondary-container text-on-secondary-container font-extrabold rounded-full shadow-lg shadow-secondary-container/20 hover:scale-95 active:scale-100 transition-transform">
             Buy Ticket Now
           </button>

@@ -21,6 +21,14 @@ class EventController extends Controller
         return view('event', compact('events'));
     }
 
+    public function indext()
+    {
+        $events = Event::has('user')->with('user')->paginate(5)->withQueryString();
+        $statistics = Event::all();
+
+        return view('dashboard-views.admin.manage-events', compact('events', 'statistics'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

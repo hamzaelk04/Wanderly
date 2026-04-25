@@ -15,7 +15,7 @@ Route::get('/', function () {
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event}/detail', [EventController::class, 'show'])->name('event.detail');
 Route::get('/test', function () {
-    return view('test');
+    return view('dashboard.admin');
 });
 
 Route::middleware('guest')->group(function () {
@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
         Route::put('/events/{event}/status', [EventController::class, 'updateStatus'])
             ->name('events.update.status');
 
-        Route::get('/admin/manage/events', [EventController::class, 'index']);
+        Route::get('/admin/manage/events', [EventController::class, 'indext']);
     });
 
     Route::middleware('role:organizer')->group(function () {
