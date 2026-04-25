@@ -10,7 +10,7 @@
                 Home
             </a>
             <a class="font-headline tracking-tight font-semibold text-slate-600 hover:text-sky-600 transition-colors duration-300"
-                href="">
+                href="/events">
                 Evénements
             </a>
             <a class="font-headline tracking-tight font-semibold text-slate-600 hover:text-sky-600 transition-colors duration-300"

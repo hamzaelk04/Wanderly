@@ -96,7 +96,8 @@
                     Download Tickets
                 </a>
                 <div class="flex flex-wrap justify-center gap-8 mt-8">
-                    <a class="text-primary font-semibold hover:underline flex items-center gap-1 group" href="#">
+                    <a href="/events"
+                    class="text-primary font-semibold hover:underline flex items-center gap-1 group" href="#">
                         <span
                             class="material-symbols-outlined text-lg group-hover:-translate-x-1 transition-transform">arrow_back</span>
                         Back to Events

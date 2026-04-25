@@ -133,6 +133,9 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Illuminate\Translation\TranslationServiceProvider::class,
+        Illuminate\Validation\ValidationServiceProvider::class,
+        Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Database\DatabaseServiceProvider::class,
         Illuminate\Encryption\EncryptionServiceProvider::class,

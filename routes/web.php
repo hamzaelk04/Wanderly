@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MonumentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrganizerController;
@@ -11,11 +12,14 @@ use App\Http\Controllers\Paymenet\StripeWebhookController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event}/detail', [EventController::class, 'show'])->name('event.detail');
+
+Route::get('/monument', [MonumentController::class, 'index']);
+Route::get('/monuments/{event}/detail', [MonumentController::class, 'show'])->name('monument.detail');
+
 Route::get('/test', function () {
     return view('dashboard.admin');
 });
@@ -54,7 +58,6 @@ Route::middleware('auth')->group(function () {
             ->name('categories.destroy');
 
         // monuments
-        Route::get('/monument', [MonumentController::class, 'index']);
         Route::get('/create/monument', [MonumentController::class, 'create']);
         Route::post('/create/monument', [MonumentController::class, 'store'])
             ->name('create-monument');
@@ -78,7 +81,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/create/event', function () {
             return view('dashboard-views.create-event');
         });
-            
+
         Route::get('/manage/events', function () {
             return view('dashboard-views.manage-events');
         });

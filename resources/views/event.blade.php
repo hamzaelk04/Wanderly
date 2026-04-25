@@ -10,7 +10,7 @@
 
 @section('content')
     <section class="max-w-7xl mx-auto px-6 py-12 pb-32 md:pb-12">
-        <div class="mb-12">
+        <div class="mb-12 mt-12">
             <h1 class="font-headline font-extrabold text-5xl md:text-6xl text-on-surface tracking-tighter mb-4">Curated
                 Events
             </h1>
