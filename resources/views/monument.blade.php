@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@push('favorite')
+    <a href="javascript:void(0)" id="toggle-favorites"
+        class="flex items-center gap-2 text-primary font-semibold hover:opacity-80">
+        <span class="material-symbols-outlined">favorite</span>
+        Favorites
+    </a>
+@endpush
+
 @section('content')
     <main class="max-w-7xl mx-auto px-6 py-12 pb-32 md:pb-12">
         <!-- Filters Section -->
@@ -42,8 +50,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Card 1: Parthenon -->
             @foreach ($monuments as $monument)
-                <div
-                    class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-500 group flex flex-col">
+                <div data-monument-id="{{ $monument->id }}"
+                    class="monument-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-500 group flex flex-col">
                     <div class="relative h-64 overflow-hidden">
                         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             data-alt="the ancient parthenon temple in athens at sunset with golden light hitting the marble columns"
@@ -77,8 +85,11 @@
                                 Details
                             </a>
                             <button
-                                class="mt-6 p-4 rounded-xl hover:text-red-500 transition-all duration-300">
-                                <span class="material-symbols-outlined">favorite</span>
+                                class="favorite-btn w-10 h-10 mt-2 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-[#0077B6] hover:bg-white transition-all shadow-sm"
+                                data-monument-id="{{ $monument->id }}">
+                                <span class="material-symbols-outlined favorite-icon">
+                                    favorite_border
+                                </span>
                             </button>
                         </div>
                     </div>
@@ -86,4 +97,24 @@
             @endforeach
         </div>
     </main>
+
+    <div id="favorites-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+
+        <div class="bg-white w-full max-w-4xl max-h-[80vh] overflow-y-auto rounded-2xl p-6 relative">
+
+            <button id="close-favorites" class="absolute top-3 right-3 text-xl">
+                ✕
+            </button>
+
+            <h2 class="text-2xl font-bold mb-4">Your Favorites</h2>
+
+            <div id="favorites-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            </div>
+
+        </div>
+    </div>
 @endsection
+
+@push('scripts')
+    @vite('resources/js/monument.js')
+@endpush
