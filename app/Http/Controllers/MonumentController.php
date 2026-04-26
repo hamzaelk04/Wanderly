@@ -87,7 +87,10 @@ class MonumentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $monument = Monument::with(['categories', 'images'])
+        ->findOrFail($id);
+
+        return view('details.monument-detail', compact('monument'));
     }
 
     /**

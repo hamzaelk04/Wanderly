@@ -55,7 +55,9 @@
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-headline font-bold text-2xl text-on-surface">{{ $monument->name }}</h3>
+                            @if ($monument->fees)
                             <span class="text-secondary font-bold">{{ $monument->fees }} MAD</span>
+                            @endif
                         </div>
                         <div class="flex items-center gap-1 text-outline mb-4">
                             <span class="material-symbols-outlined text-sm">location_on</span>
@@ -70,10 +72,10 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-between gap-3">
-                            <button
-                                class="mt-6 w-full py-4 rounded-xl bg-surface-container-low text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300">View
+                            <a href="{{ route('monument.detail', $monument->id) }}"
+                                class="flex flex-1 justify-center items-center py-4 rounded-xl bg-surface-container-low text-primary font-bold hover:bg-surface-container-high transition-all duration-300">View
                                 Details
-                            </button>
+                            </a>
                             <button
                                 class="mt-6 p-4 rounded-xl hover:text-red-500 transition-all duration-300">
                                 <span class="material-symbols-outlined">favorite</span>
