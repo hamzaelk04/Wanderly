@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Models\Category;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
@@ -27,14 +28,6 @@ class EventController extends Controller
         $statistics = Event::all();
 
         return view('dashboard-views.admin.manage-events', compact('events', 'statistics'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -120,18 +113,10 @@ class EventController extends Controller
     public function show(string $id)
     {
         $event = Event::with(['categories', 'images', 'tickets'])
-        ->where('status', 'accepted')
-        ->findOrFail($id);
+            ->where('status', 'accepted')
+            ->findOrFail($id);
 
         return view('details.event-detail', compact('event'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
     }
 
     /**
@@ -209,6 +194,16 @@ class EventController extends Controller
         $categories = Category::all();
         $event->load(['images', 'tickets']);
         return view('dashboard-views.admin.event-review', compact('event', 'categories'));
+    }
+
+    public function manage()
+    {
+        $events = Event::with('user')
+            ->where('organizer_id', Auth::id())
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('dashboard-views.organizer.manage-events', compact('events'));
     }
 
 }

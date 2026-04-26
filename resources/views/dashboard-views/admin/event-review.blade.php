@@ -193,6 +193,7 @@
                                                 </p>
                                                 <p class="text-on-surface font-bold text-xl">{{ $ticket->price }}</p>
                                             </div>
+                                            @if (auth()->user()->isAdmin())
                                             <div>
                                                 <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">%
                                                     Increase
@@ -205,6 +206,7 @@
                                                         type="number" value="20" />
                                                 </div>
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach
@@ -221,6 +223,7 @@
                 <span class="material-symbols-outlined text-outline">verified_user</span>
                 <p class="text-sm text-outline font-medium">Finalizing this action will notify the event organizer.</p>
             </div>
+            @if (auth()->user()->isAdmin())
             <div class="flex items-center gap-4">
                 <button type="submit" name="status" value="rejected"
                     class="px-8 py-3 rounded-full border-2 border-error text-error font-bold text-sm tracking-wide hover:bg-error/5 transition-all active:scale-95">
@@ -232,6 +235,7 @@
                     Accept Event
                 </button>
             </div>
+            @endif
         </footer>
     </form>
 @endsection

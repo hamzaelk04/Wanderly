@@ -22,12 +22,6 @@ Route::get('/events/{event}/detail', [EventController::class, 'show'])->name('ev
 Route::get('/monument', [MonumentController::class, 'index']);
 Route::get('/monuments/{event}/detail', [MonumentController::class, 'show'])->name('monument.detail');
 
-Route::get('/test', function () {
-    return view('dashboard.admin');
-});
-
-Route::get('/success', [PaymentController::class, 'success'])->name('payment.success');
-Route::get('/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
 
 Route::get('/tickets/{order}/download', [OrderController::class, 'download'])->name('tickets.download');
 
@@ -65,8 +59,6 @@ Route::middleware('auth')->group(function () {
             ->name('create-monument');
 
         // update the events by admin
-        Route::get('/events/{event}/review', [EventController::class, 'review'])
-            ->name('events.review');
         Route::put('/events/{event}/review', [EventController::class, 'update'])
             ->name('events.update');
         Route::put('/events/{event}/status', [EventController::class, 'updateStatus'])
@@ -85,21 +77,26 @@ Route::middleware('auth')->group(function () {
         });
         Route::put('/organizer/update/event', [OrganizerController::class, 'updateEvent'])->name('edit.event');
 
-        Route::get('/organizer/manage/events', function () {
-            return view('dashboard-views.manage-events');
-        });
+        Route::get('/organizer/manage/events', [EventController::class, 'manage'])->name('manage-events');
     });
 
     Route::middleware('role:organizer,admin')->group(function () {
         Route::delete('/manage/events/{id}', [EventController::class, 'destroy'])->name('events.delete');
+        Route::get('/events/{event}/review', [EventController::class, 'review'])
+            ->name('events.review');
     });
 
     Route::middleware('role:client')->group(function () {
         Route::get('/order/history', [OrderController::class, 'index'])->name('order.history');
+
         Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
         Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+
+        Route::post('/checkout', [PaymentController::class, 'checkout'])->name('checkout');
+        Route::post('/stripe/webhook', [StripeWebhookController::class, 'handleWebhook']);
+        
+        Route::get('/success', [PaymentController::class, 'success'])->name('payment.success');
+        Route::get('/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
     });
 
-    Route::post('/checkout', [PaymentController::class, 'checkout'])->name('checkout');
-    Route::post('/stripe/webhook', [StripeWebhookController::class, 'handleWebhook']);
 });
