@@ -18,8 +18,6 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event}/detail', [EventController::class, 'show'])->name('event.detail');
 
-Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
-Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/monument', [MonumentController::class, 'index']);
 Route::get('/monuments/{event}/detail', [MonumentController::class, 'show'])->name('monument.detail');
@@ -92,8 +90,14 @@ Route::middleware('auth')->group(function () {
         });
     });
 
-    Route::middleware('role:organizer,admin')->group(function() {
+    Route::middleware('role:organizer,admin')->group(function () {
         Route::delete('/manage/events/{id}', [EventController::class, 'destroy'])->name('events.delete');
+    });
+
+    Route::middleware('role:client')->group(function () {
+        Route::get('/order/history', [OrderController::class, 'index'])->name('order.history');
+        Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
+        Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
     });
 
     Route::post('/checkout', [PaymentController::class, 'checkout'])->name('checkout');

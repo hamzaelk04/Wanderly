@@ -10,7 +10,7 @@ class Ticket extends Model
 
     public function event()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Event::class);
     }
 
     public function orderItem()
