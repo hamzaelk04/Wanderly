@@ -104,6 +104,9 @@
                 <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">City</th>
                 <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Location</th>
                 <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Status</th>
+                @if ($statistics->where('status', 'pending')->count() > 0)
+                  <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Actions</th>
+                @endif
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100">
@@ -153,6 +156,18 @@
                       {{ $event->status }}
                     </span>
                   </td>
+                  @if ($event->status === 'pending')
+                    <td class="px-6 py-4 ">
+                      <form action="{{ route('edit.event', $event->id) }}" method="POST">
+                        @csrf
+                        @method('put')
+                          <button
+                            class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-primary transition-colors"><span
+                              class="material-symbols-outlined text-lg" data-icon="edit">edit</span></button>
+
+                      </form>
+                    </td>
+                  @endif
                 </tr>
               @endforeach
             </tbody>

@@ -19,8 +19,7 @@
                 <div>
                     <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Tickets Sold</p>
                     <div class="flex items-baseline gap-2">
-                        <span class="text-2xl font-bold text-on-background">12,450</span>
-                        <span class="text-xs font-bold text-green-600">+12%</span>
+                        <span class="text-2xl font-bold text-on-background">{{ $totalTicketsSold }}</span>
                     </div>
                 </div>
             </div>
@@ -28,13 +27,13 @@
             <div
                 class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-transparent flex items-center gap-5">
                 <div class="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
-                    <span class="material-symbols-outlined">event_available</span>
+                    <span class="material-symbols-outlined">payments</span>
                 </div>
                 <div>
-                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Reservations</p>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Revenue</p>
                     <div class="flex items-baseline gap-2">
-                        <span class="text-2xl font-bold text-on-background">8,920</span>
-                        <span class="text-xs font-bold text-green-600">+8%</span>
+                        <span class="text-2xl font-bold text-on-background">{{ $totalRevenue }}</span>
+                        <p>MAD</p>
                     </div>
                 </div>
             </div>
@@ -45,67 +44,120 @@
                     <span class="material-symbols-outlined">payments</span>
                 </div>
                 <div>
-                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Revenue</p>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Net Profit</p>
                     <div class="flex items-baseline gap-2">
-                        <span class="text-2xl font-bold text-on-background">$245,600</span>
-                        <span class="text-xs font-bold text-green-600">+15%</span>
+                        <span class="text-2xl font-bold text-on-background">{{ $netProfit }}</span>
+                        <p>MAD</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-12 gap-8">
-            <!-- Line Chart: Tickets Over Time -->
-            <div
-                class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-transparent">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="font-bold font-['Plus_Jakarta_Sans'] text-lg">Ticket Reservations Over Time</h3>
-                    <select
-                        class="text-xs border-none bg-surface-container-low rounded-lg px-3 py-1 font-medium focus:ring-0">
-                        <option>Last 6 Months</option>
-                        <option>Year to Date</option>
-                    </select>
-                </div>
-                <div class="h-72 w-full">
-                    <canvas id="reservationsChart"></canvas>
-                </div>
-            </div>
-            <!-- Doughnut Chart: Revenue Breakdown -->
-            <div
-                class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-transparent">
-                <h3 class="font-bold font-['Plus_Jakarta_Sans'] text-lg mb-6 text-center">Revenue Breakdown</h3>
-                <div class="h-64 flex items-center justify-center">
-                    <canvas id="revenueBreakdownChart"></canvas>
-                </div>
-                <div class="mt-6 space-y-3">
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-primary-container"></span>
-                            <span class="text-sm font-medium text-slate-600">Ticket Revenue</span>
-                        </div>
-                        <span class="text-sm font-bold">$184,200</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-secondary"></span>
-                            <span class="text-sm font-medium text-slate-600">Profit Revenue</span>
-                        </div>
-                        <span class="text-sm font-bold">$61,400</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Bar Chart: Revenue from Events -->
-            <div class="col-span-12 bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-transparent">
-                <div class="flex justify-between items-center mb-8">
-                    <div>
-                        <h3 class="font-bold font-['Plus_Jakarta_Sans'] text-lg">Revenue from Events</h3>
-                        <p class="text-xs text-slate-400">Comparing top performing curator experiences</p>
-                    </div>
-                    <button class="text-sm text-primary font-semibold hover:underline">View Detailed Rankings</button>
-                </div>
-                <div class="h-80 w-full">
-                    <canvas id="eventRevenueChart"></canvas>
-                </div>
-            </div>
+        <div class=" gap-8">
+            <table class="w-full text-left">
+                <thead
+                    class="bg-surface-container-low text-on-surface-variant uppercase text-[10px] tracking-widest font-bold">
+                    <tr>
+                        <th class="px-6 py-4">Role Name</th>
+                        <th class="px-6 py-4">Users</th>
+                        <th class="px-6 py-4">Permissions</th>
+                        <th class="px-6 py-4 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-surface-container text-sm">
+                    <tr class="hover:bg-surface-bright transition-colors">
+                        <td class="px-6 py-4">
+                            <div class="font-bold text-on-surface">Admin</div>
+                            <div class="text-[11px] text-slate-400">Full System Access</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="text-on-surface-variant font-medium">{{ $count['admins'] }} Users</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap gap-1">
+                                <span
+                                    class="bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold">ALL_ACCESS</span>
+                                <span
+                                    class="bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold">SYSTEM_CONFIG</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <div class="flex justify-end gap-2">
+                                <button
+                                    class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-primary transition-colors"><span
+                                        class="material-symbols-outlined text-lg"
+                                        data-icon="visibility">visibility</span></button>
+                                <button
+                                    class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-primary transition-colors"><span
+                                        class="material-symbols-outlined text-lg" data-icon="edit">edit</span></button>
+                                <button
+                                    class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-error transition-colors"><span
+                                        class="material-symbols-outlined text-lg" data-icon="delete">delete</span></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-surface-bright transition-colors">
+                        <td class="px-6 py-4">
+                            <div class="font-bold text-on-surface">Organizer</div>
+                            <div class="text-[11px] text-slate-400">Manage Events &amp; Tours</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="text-on-surface-variant font-medium">{{ $count['organizers'] }} Users</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap gap-1">
+                                <span
+                                    class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold">EVENTS_CRUD</span>
+                                <span
+                                    class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold">ANALYTICS</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <div class="flex justify-end gap-2">
+                                <button
+                                    class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-primary transition-colors"><span
+                                        class="material-symbols-outlined text-lg"
+                                        data-icon="visibility">visibility</span></button>
+                                <button
+                                    class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-primary transition-colors"><span
+                                        class="material-symbols-outlined text-lg" data-icon="edit">edit</span></button>
+                                <button
+                                    class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-error transition-colors"><span
+                                        class="material-symbols-outlined text-lg" data-icon="delete">delete</span></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-surface-bright transition-colors">
+                        <td class="px-6 py-4">
+                            <div class="font-bold text-on-surface">Client</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="text-on-surface-variant font-medium">{{ $count['clients'] }} Users</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap gap-1">
+                                <span
+                                    class="bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold">BUY_TICKETS</span>
+                                <span
+                                    class="bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold">MEDIA_UPLOAD</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <div class="flex justify-end gap-2">
+                                <button
+                                    class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-primary transition-colors"><span
+                                        class="material-symbols-outlined text-lg"
+                                        data-icon="visibility">visibility</span></button>
+                                <button
+                                    class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-primary transition-colors"><span
+                                        class="material-symbols-outlined text-lg" data-icon="edit">edit</span></button>
+                                <button
+                                    class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-error transition-colors"><span
+                                        class="material-symbols-outlined text-lg" data-icon="delete">delete</span></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <!-- Featured Experiences (Asymmetric Bento Style) -->
         <div class="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">

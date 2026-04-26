@@ -50,4 +50,10 @@ class OrganizerController extends Controller
 
         return view('dashboard.organizer', compact('organizer', 'statistics', 'events', 'stats'));
     }
+
+
+    public function updateEvent()
+    {
+        
+    }
 }

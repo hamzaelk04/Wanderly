@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
@@ -9,6 +8,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\Paymenet\PaymentController;
 use App\Http\Controllers\Paymenet\StripeWebhookController;
+use App\Http\Controllers\User\AdminController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
@@ -50,8 +50,8 @@ Route::middleware('auth')->group(function () {
 
     // admin:
     Route::middleware('role:admin')->group(function () {
-        // Route::get('/admin', [AdminController::class, 'index'])
-        //     ->name('admin.dashboard');
+        Route::get('/admin', [AdminController::class, 'index'])
+            ->name('admin.dashboard');
 
         // categories
         Route::get('/create/category', [CategoryController::class, 'index'])
@@ -83,10 +83,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/create/event', [EventController::class, 'store'])
             ->name('create-event');
         Route::get('/create/event', function () {
-            return view('dashboard-views.create-event');
+            return view('dashboard-views.organizer.create-event');
         });
+        Route::put('/organizer/update/event', [OrganizerController::class, 'updateEvent'])->name('edit.event');
 
-        Route::get('/manage/events', function () {
+        Route::get('/organizer/manage/events', function () {
             return view('dashboard-views.manage-events');
         });
     });
