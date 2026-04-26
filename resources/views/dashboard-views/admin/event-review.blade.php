@@ -40,12 +40,10 @@
                                 class="group flex items-start justify-between p-4 rounded-2xl hover:bg-surface-container-low transition-colors">
                                 <div class="flex-1">
                                     <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Title</p>
-                                    <input name="title"
+                                    <input name="title" disabled
                                         class="w-full bg-transparent border-none p-0 text-lg font-semibold text-on-surface focus:ring-0"
                                         type="text" value="{{ $event->title }}" />
                                 </div>
-                                <span
-                                    class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-2">edit</span>
                             </div>
                             <!-- Description -->
                             <div
@@ -53,11 +51,9 @@
                                 <div class="flex-1">
                                     <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Description
                                     </p>
-                                    <textarea
+                                    <textarea disabled
                                         class="w-full bg-transparent border-none p-0 text-on-surface-variant leading-relaxed focus:ring-0 resize-none h-20">{{ $event->description }}</textarea>
                                 </div>
-                                <span
-                                    class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-2">edit</span>
                             </div>
                             <!-- Category & Capacity -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -77,12 +73,10 @@
                                         <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">
                                             Capacity
                                         </p>
-                                        <input
+                                        <input disabled
                                             class="w-full bg-transparent border-none p-0 font-semibold text-on-surface focus:ring-0"
                                             type="text" value="{{$event->capacity}}" />
                                     </div>
-                                    <span
-                                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-1">edit</span>
                                 </div>
                             </div>
                             <!-- Date & Duration -->
@@ -92,12 +86,10 @@
                                     <div>
                                         <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Date
                                         </p>
-                                        <input name="date"
+                                        <input name="date" disabled
                                             class="w-full bg-transparent border-none p-0 font-semibold text-on-surface focus:ring-0"
                                             type="text" value="{{ $event->date }}" />
                                     </div>
-                                    <span
-                                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-1">edit</span>
                                 </div>
                                 <div
                                     class="group flex items-start justify-between p-4 rounded-2xl hover:bg-surface-container-low transition-colors">
@@ -105,12 +97,10 @@
                                         <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">
                                             Duration
                                         </p>
-                                        <input name="duration"
+                                        <input name="duration" disabled
                                             class="w-full bg-transparent border-none p-0 font-semibold text-on-surface focus:ring-0"
                                             type="text" value="{{ $event->duration }}" />
                                     </div>
-                                    <span
-                                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-1">edit</span>
                                 </div>
                             </div>
                             <!-- Address -->
@@ -118,12 +108,10 @@
                                 class="group flex items-start justify-between p-4 rounded-2xl hover:bg-surface-container-low transition-colors">
                                 <div class="flex-1">
                                     <p class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Address</p>
-                                    <input name="address"
+                                    <input name="address" disabled
                                         class="w-full bg-transparent border-none p-0 font-semibold text-on-surface focus:ring-0"
                                         type="text" value="{{ $event->address }}" />
                                 </div>
-                                <span
-                                    class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors cursor-pointer p-2">edit</span>
                             </div>
                         </div>
                     </section>

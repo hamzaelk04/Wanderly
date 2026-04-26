@@ -93,5 +93,5 @@
 @endsection
 
 @push('scripts')
-    @vite('resources/js/dashboard/create-event.js')
+    @vite('resources/js/dashboard/create-category.js')
 @endpush

@@ -21,7 +21,7 @@ class EventController extends Controller
         return view('event', compact('events'));
     }
 
-    public function indext()
+    public function indexAdmin()
     {
         $events = Event::has('user')->with('user')->paginate(5)->withQueryString();
         $statistics = Event::all();
@@ -195,7 +195,13 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $event->delete();
+
+        if (auth()->user()->isAdmin()) {
+            return redirect()->route('admin.events')->with('message', 'Item deleted successfully!');
+        }
+
     }
 
     public function review(Event $event)

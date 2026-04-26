@@ -74,7 +74,7 @@ Route::middleware('auth')->group(function () {
         Route::put('/events/{event}/status', [EventController::class, 'updateStatus'])
             ->name('events.update.status');
 
-        Route::get('/admin/manage/events', [EventController::class, 'indext']);
+        Route::get('/admin/manage/events', [EventController::class, 'indexAdmin'])->name('admin.events');
     });
 
     Route::middleware('role:organizer')->group(function () {
@@ -90,6 +90,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/organizer/manage/events', function () {
             return view('dashboard-views.manage-events');
         });
+    });
+
+    Route::middleware('role:organizer,admin')->group(function() {
+        Route::delete('/manage/events/{id}', [EventController::class, 'destroy'])->name('events.delete');
     });
 
     Route::post('/checkout', [PaymentController::class, 'checkout'])->name('checkout');
