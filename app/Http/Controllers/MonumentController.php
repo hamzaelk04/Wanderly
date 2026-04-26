@@ -26,7 +26,7 @@ class MonumentController extends Controller
     {
         $categories = Category::all();
 
-        return view('dashboard-views.admin. create-monument', compact('categories'));
+        return view('dashboard-views.admin.create-monument', compact('categories'));
     }
 
     /**
@@ -78,7 +78,7 @@ class MonumentController extends Controller
             return redirect()->route('create-monument');
         } catch (\Throwable $th) {
             DB::rollBack();
-            dd($th->getMessage());
+            return back()->withErrors($th->getMessage());
         }
     }
 

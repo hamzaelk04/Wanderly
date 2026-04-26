@@ -2,27 +2,6 @@
 
 @section('content')
     <main class="max-w-7xl mx-auto px-6 py-12 pb-32 md:pb-12">
-        <!-- Search & Hero Section -->
-        <div class="mb-12 mt-12">
-            <h1 class="font-headline font-extrabold text-5xl md:text-6xl text-on-surface tracking-tighter mb-4">Échos
-                intemporels</h1>
-            <p class="text-on-surface-variant text-lg max-w-2xl font-medium leading-relaxed mb-10">Découvrez les merveilles
-                architecturales et les monuments sacrés qui définissent l’esprit des civilisations passées et présentes.</p>
-            <!-- Sticky Search Bar -->
-            <div class="sticky top-24 z-40">
-                <div
-                    class="bg-surface-container-lowest shadow-[0px_4px_32px_rgba(0,0,0,0.06)] rounded-full p-2 flex items-center gap-2 max-w-3xl">
-                    <div class="flex-1 flex items-center px-4 gap-3">
-                        <span class="material-symbols-outlined text-outline">search</span>
-                        <input
-                            class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline py-3 font-medium"
-                            placeholder="Search by name, city, or history..." type="text" />
-                    </div>
-                    <button
-                        class="bg-linear-to-br from-primary to-[#0077B6] text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all scale-100 active:scale-95">Explore</button>
-                </div>
-            </div>
-        </div>
         <!-- Filters Section -->
         <div class="flex flex-col md:flex-row gap-4 mb-12 overflow-x-auto hide-scrollbar">
             <div class="flex items-center gap-4 min-w-max">
