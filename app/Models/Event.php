@@ -14,7 +14,8 @@ class Event extends Model
         'duration',
         'status',
         'address',
-        'capacity'
+        'capacity',
+        'organizer_id'
     ];
 
     public function images()

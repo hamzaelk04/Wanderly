@@ -82,6 +82,7 @@ class EventController extends Controller
                 'status' => 'pending',
                 'duration' => $request->duration,
                 'capacity' => $capacity,
+                'organizer_id' => auth()->id(),
             ]);
 
             if ($request->hasFile('images')) {
@@ -107,7 +108,7 @@ class EventController extends Controller
 
             DB::commit();
 
-            return redirect()->route('dashboard.organizer');
+            return redirect()->route('organizer.dashboard');
         } catch (\Throwable $th) {
             DB::rollBack();
         }

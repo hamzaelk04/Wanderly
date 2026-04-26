@@ -42,7 +42,7 @@ class AuthController extends Controller
             'role_id' => $roleId->id,
         ]);
 
-        Auth::login($user);
+        Auth::login($user, true);
 
         if ($user->role->name === 'organizer') {
             return redirect()->route('organizer.dashboard');
@@ -69,7 +69,7 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
 
             $user = Auth::user();

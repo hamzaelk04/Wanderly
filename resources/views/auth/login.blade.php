@@ -53,14 +53,13 @@
                                 id="password" name="password" placeholder="••••••••" type="password" />
                         </div>
                     </div>
-                    <!-- <div class="flex items-center gap-3 py-2">
-                                        <input
+                    <div class="flex items-center gap-3 py-2">
+                                        <input name="remember"
                                             class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20 cursor-pointer"
                                             id="remember" type="checkbox" />
                                         <label class="text-sm font-medium text-on-surface-variant cursor-pointer select-none"
-                                            for="remember">Keep me
-                                            signed in for 30 days</label>
-                                    </div> -->
+                                            for="remember">Remember me</label>
+                                    </div>
                     <!-- Add the forget password if I have a free time -->
                     <button
                         class="w-full bg-linear-to-r from-primary to-primary-container text-white font-bold py-4 rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-95 transition-all duration-200"
@@ -75,7 +74,7 @@
                 </div>
                 <p class="mt-12 text-center text-sm text-on-surface-variant">
                     Vous n'avez pas de compte ?
-                    <a class="text-primary font-bold hover:underline" href="register">S'inscrire</a>
+                    <a class="text-primary font-bold hover:underline" href="/register">S'inscrire</a>
                 </p>
             </div>
         </div>
