@@ -88,25 +88,9 @@ class MonumentController extends Controller
     public function show(string $id)
     {
         $monument = Monument::with(['categories', 'images'])
-        ->findOrFail($id);
+            ->findOrFail($id);
 
         return view('details.monument-detail', compact('monument'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
     }
 
     /**
@@ -114,6 +98,18 @@ class MonumentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $monument = Monument::findOrFail($id);
+        $monument->delete();
+
+        if (auth()->user()->isAdmin()) {
+            return redirect()->route('admin.monuments')->with('message', 'Item deleted successfully!');
+        }
+    }
+
+    public function manage()
+    {
+        $monuments = Monument::all();
+
+        return view('dashboard-views.admin.manage-monuments', compact('monuments'));
     }
 }

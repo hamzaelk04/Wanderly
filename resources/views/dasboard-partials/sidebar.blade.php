@@ -26,7 +26,7 @@
             <span>Create Monument</span>
         </a>
         <a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-slate-200/50 hover:translate-x-1 font-['Plus_Jakarta_Sans'] text-sm font-medium transition-all duration-200 ease-in-out"
-            href="/manage/monuments">
+            href="/admin/manage/monuments">
             <span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
             <span>Manage Monuments</span>
         </a>

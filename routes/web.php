@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/create/monument', [MonumentController::class, 'create']);
         Route::post('/create/monument', [MonumentController::class, 'store'])
             ->name('create-monument');
+        Route::delete('/delete/monument/{id}', [MonumentController::class, 'destroy'])
+        ->name('monuments.delete');
 
         // update the events by admin
         Route::put('/events/{event}/review', [EventController::class, 'update'])
@@ -65,6 +67,7 @@ Route::middleware('auth')->group(function () {
             ->name('events.update.status');
 
         Route::get('/admin/manage/events', [EventController::class, 'indexAdmin'])->name('admin.events');
+        Route::get('/admin/manage/monuments', [MonumentController::class, 'manage'])->name('admin.monuments');
     });
 
     Route::middleware('role:organizer')->group(function () {
