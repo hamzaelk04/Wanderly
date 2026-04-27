@@ -179,8 +179,8 @@
 
   <div class="p-8 flex flex-wrap gap-12">
     <div class="space-y-1">
-      <div class="text-xs text-on-surface-variant font-bold uppercase tracking-tight">Net Income</div>
-      <div class="text-2xl font-bold headline text-primary">{{ $stats['totalRevenueWithoutFee'] }}MAD</div>
+      <div class="text-xs text-on-surface-variant font-bold uppercase tracking-tight">  </div>
+      <div class="text-2xl font-bold headline text-primary">{{ number_format($stats['totalRevenueWithoutFee'], 2) }}MAD</div>
     </div>
   </div>
 @endsection

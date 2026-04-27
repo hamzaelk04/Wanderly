@@ -25,14 +25,14 @@ class OrganizerController extends Controller
             ->join('tickets', 'order_items.ticket_id', '=', 'tickets.id')
             ->join('orders', 'order_items.order_id', '=', 'orders.id')
             ->whereIn('tickets.event_id', $eventIds)
-            ->where('orders.status', 'completed')
+            ->where('orders.status', 'paid')
             ->sum('order_items.quantity');
 
         $totalRevenueWithoutFee = DB::table('order_items')
             ->join('tickets', 'order_items.ticket_id', '=', 'tickets.id')
             ->join('orders', 'order_items.order_id', '=', 'orders.id')
             ->whereIn('tickets.event_id', $eventIds)
-            ->where('orders.status', 'completed')
+            ->where('orders.status', 'paid')
             ->sum(DB::raw(' (order_items.price / (1 + tickets.service_fee / 100)) * order_items.quantity'));
 
         $totalEvents = $organizer->events()->count();
