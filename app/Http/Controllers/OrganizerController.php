@@ -37,7 +37,9 @@ class OrganizerController extends Controller
 
         $totalEvents = $organizer->events()->count();
 
-        $avgRevenuePerEvent = $totalEvents > 0 ? $totalRevenue / $totalEvents : 0;
+        $acceptedEvents = $organizer->events()->where('status', 'accepted')->count();
+
+        $avgRevenuePerEvent = $acceptedEvents > 0 ? $totalRevenue / $acceptedEvents : 0;
 
         $stats = [
             'totalRevenue' => $totalRevenue,

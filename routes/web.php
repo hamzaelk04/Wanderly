@@ -78,7 +78,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/create/event', function () {
             return view('dashboard-views.organizer.create-event');
         });
-        Route::put('/organizer/update/event', [OrganizerController::class, 'updateEvent'])->name('edit.event');
 
         Route::get('/organizer/manage/events', [EventController::class, 'manage'])->name('manage-events');
     });

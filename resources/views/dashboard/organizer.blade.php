@@ -156,18 +156,11 @@
                       {{ $event->status }}
                     </span>
                   </td>
-                  @if ($event->status === 'pending')
-                    <td class="px-6 py-4 ">
-                      <form action="{{ route('edit.event', $event->id) }}" method="POST">
-                        @csrf
-                        @method('put')
-                          <button
-                            class="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-primary transition-colors"><span
-                              class="material-symbols-outlined text-lg" data-icon="edit">edit</span></button>
-
-                      </form>
-                    </td>
-                  @endif
+                  <td class="px-6 py-4 ">
+                    <a href="{{ route('events.review', $event->id) }}"
+                      class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-all">View
+                      Details</a>
+                  </td>
                 </tr>
               @endforeach
             </tbody>
@@ -179,8 +172,9 @@
 
   <div class="p-8 flex flex-wrap gap-12">
     <div class="space-y-1">
-      <div class="text-xs text-on-surface-variant font-bold uppercase tracking-tight">  </div>
-      <div class="text-2xl font-bold headline text-primary">{{ number_format($stats['totalRevenueWithoutFee'], 2) }}MAD</div>
+      <div class="text-xs text-on-surface-variant font-bold uppercase tracking-tight"> </div>
+      <div class="text-2xl font-bold headline text-primary">{{ number_format($stats['totalRevenueWithoutFee'], 2) }}MAD
+      </div>
     </div>
   </div>
 @endsection

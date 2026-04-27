@@ -104,6 +104,7 @@ class EventController extends Controller
             return redirect()->route('organizer.dashboard');
         } catch (\Throwable $th) {
             DB::rollBack();
+            return back()->withErrors($th->getMessage());
         }
     }
 

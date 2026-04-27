@@ -1,6 +1,15 @@
 @extends('layouts.dashboard')
 
 @section('content')
+    @if ($errors->any())
+        <div style="color: red;">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="max-w-4xl mx-auto">
         <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div class="mt-4">
