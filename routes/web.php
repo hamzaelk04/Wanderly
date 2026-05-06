@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Organizer\EventController as OrganizerEventController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
@@ -70,10 +71,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/manage/monuments', [MonumentController::class, 'manage'])->name('admin.monuments');
     });
 
+    // organizer:
     Route::middleware('role:organizer')->group(function () {
         Route::get('/organizer', [OrganizerController::class, 'index'])->name('organizer.dashboard');
 
-        Route::post('/create/event', [EventController::class, 'store'])
+        Route::post('/create/event', [OrganizerEventController::class, 'store'])
             ->name('create-event');
         Route::get('/create/event', function () {
             return view('dashboard-views.organizer.create-event');
