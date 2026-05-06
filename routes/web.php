@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\Organizer\DashboardController;
 use App\Http\Controllers\Organizer\EventController as OrganizerEventController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MonumentController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\Paymenet\PaymentController;
 use App\Http\Controllers\Paymenet\StripeWebhookController;
 use App\Http\Controllers\User\AdminController;
@@ -73,7 +73,8 @@ Route::middleware('auth')->group(function () {
 
     // organizer:
     Route::middleware('role:organizer')->group(function () {
-        Route::get('/organizer', [OrganizerController::class, 'index'])->name('organizer.dashboard');
+        // Route::get('/organizer', [OrganizerController::class, 'index'])->name('organizer.dashboard');
+        Route::get('/organizer', [DashboardController::class, 'index'])->name('organizer.dashboard');
 
         Route::post('/create/event', [OrganizerEventController::class, 'store'])
             ->name('create-event');

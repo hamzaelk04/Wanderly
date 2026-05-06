@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Organizer;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use App\Models\Event;
+use Illuminate\Http\Request;
 
-class OrganizerController extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {
@@ -51,11 +51,5 @@ class OrganizerController extends Controller
         $events = $organizer->events()->latest()->limit(3)->get();
 
         return view('dashboard.organizer', compact('organizer', 'statistics', 'events', 'stats'));
-    }
-
-
-    public function updateEvent()
-    {
-        
     }
 }
